@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+
+            android:id="@+id/nav"
+            app:startDestination="@id/itemsFrag">
+
+    <!-- Item List Pane -->
+    <fragment
+            android:id="@+id/itemsFrag"
+            android:name="kn.muscovado.scholarships.ItemsFragment"
+            android:label="fragment_items"
+            tools:layout="@layout/fragment_items">
+        <!-- to Item Details -->
+        <action android:id="@+id/action_to_itemDetailsFrag"
+                app:destination="@id/itemDetailsFrag"
+                app:enterAnim="@anim/nav_default_enter_anim"
+                app:popUpTo="@+id/itemsFrag"/>
+        <!-- to Item Search -->
+        <action android:id="@+id/action_to_searchItemsFrag"
+                app:destination="@id/searchItemsFrag"/>
+    </fragment>
+    <!-- Item Details -->
+    <fragment
+            android:id="@+id/itemDetailsFrag"
+            android:name="kn.muscovado.scholarships.ItemDetailsFragment"
+            android:label="fragment_item_details"
+            tools:layout="@layout/fragment_item_details">
+        <!--back button-->
+        <action android:id="@+id/action_itemDetailsFrag_pop"
+                app:popUpTo="@+id/itemDetailsFrag"
+                app:popUpToInclusive="true"/>
+    </fragment>
+    <!-- Search Frag -->
+    <fragment
+            android:id="@+id/searchItemsFrag"
+            android:name="kn.muscovado.scholarships.SearchItemsFragment"
+            android:label="fragment_search_items"
+            tools:layout="@layout/fragment_search_items">
+        <!-- to Item Details -->
+        <action android:id="@+id/action_to_itemDetailsFrag"
+                app:destination="@id/itemDetailsFrag"
+                app:enterAnim="@anim/nav_default_enter_anim"
+                app:popUpTo="@+id/itemsFrag"/>
+        <!-- back button -->
+        <action android:id="@+id/action_searchItemsFrag_pop"
+                app:popUpTo="@id/searchItemsFrag"
+                app:popUpToInclusive="true"/>
+    </fragment>
+
+</navigation>

@@ -1,0 +1,28 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+    
+    <style name="TabText" parent="TextAppearance.Design.Tab">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">@dimen/sm_text_size</item>
+        <item name="android:textColor">@color/colorText</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/lato</item>
+    </style>
+
+    <style name="BottomNavTextActive">
+        <item name="android:fontFamily">@font/lato</item>
+        <item name="android:textSize">@dimen/sm_text_size</item>
+    </style>
+    <style name="BottomNavTextInactive">
+        <item name="android:fontFamily">@font/lato</item>
+        <item name="android:textSize">@dimen/xs_text_size</item>
+    </style>
+
+</resources>
