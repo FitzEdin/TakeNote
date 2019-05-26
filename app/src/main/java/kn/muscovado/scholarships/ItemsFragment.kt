@@ -47,6 +47,9 @@ class ItemsFragment : Fragment() {
         search_items.setOnClickListener(
             Navigation.createNavigateOnClickListener(R.id.action_to_searchItemsFrag)
         )
+        new_item.setOnClickListener(
+            Navigation.createNavigateOnClickListener(R.id.action_to_addItemFrag)
+        )
 
         if (listView is RecyclerView) {
             with(listView) {
@@ -67,7 +70,7 @@ class ItemsFragment : Fragment() {
 
     private fun getItems() {
         val itemUrl = "/scholarships"
-        val url = "http://muscovado.kn:8000$itemUrl"
+        val url = constants.BASE_URL + constants.PORT + itemUrl
         val cache = DiskBasedCache(activity?.cacheDir, 1024 * 1024)
         val network = BasicNetwork(HurlStack(null, null))
         val requestQueue = RequestQueue(cache, network).apply { start() }

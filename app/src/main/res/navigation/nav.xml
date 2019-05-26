@@ -20,6 +20,9 @@
         <!-- to Item Search -->
         <action android:id="@+id/action_to_searchItemsFrag"
                 app:destination="@id/searchItemsFrag"/>
+        <!-- to Add Item -->
+        <action android:id="@+id/action_to_addItemFrag"
+                app:destination="@id/addItemFrag"/>
     </fragment>
     <!-- Item Details -->
     <fragment
@@ -46,6 +49,17 @@
         <!-- back button -->
         <action android:id="@+id/action_searchItemsFrag_pop"
                 app:popUpTo="@id/searchItemsFrag"
+                app:popUpToInclusive="true"/>
+    </fragment>
+    <!-- Add Item Frag -->
+    <fragment
+            android:id="@+id/addItemFrag"
+            android:name="kn.muscovado.scholarships.AddItemFragment"
+            android:label="fragment_add_item"
+            tools:layout="@layout/fragment_add_item">
+        <!-- back button -->
+        <action android:id="@+id/action_addItemFrag_pop"
+                app:popUpTo="@id/addItemFrag"
                 app:popUpToInclusive="true"/>
     </fragment>
 

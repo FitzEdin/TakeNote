@@ -15,4 +15,8 @@ class Constants{
     val ITEM_OPEN_TO = "open_to"
     val ITEM_LINK = "link"
     val ITEM_STATUS = "status"
+
+    // port and url for API
+    val BASE_URL = "http://muscovado.kn"
+    val PORT = ":8000"
 }

@@ -6,6 +6,11 @@
     <string name="hint_search_items">Search scholarships</string>
     <string name="hint_getting_items">Getting scholarships</string>
 
+
+    <string name="hint_add_item">Drop a link</string>
+    <string name="add_item">Add</string>
+    <string name="clear_item">Clear</string>
+
     <!-- Dummy Strings -->
     <string name="dummy_title">Note Title</string>
     <string name="dummy_id">3456789ugf5678</string>
