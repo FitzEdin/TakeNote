@@ -12,19 +12,11 @@
     <string name="clear_item">Clear</string>
 
     <!-- Dummy Strings -->
-    <string name="dummy_title">Note Title</string>
+    <string name="dummy_title">Bill Jenkins Scholarship</string>
     <string name="dummy_id">3456789ugf5678</string>
     <string name="dummy_item">
         <![CDATA[Every person who works for an employer is regarded as an insured person by
-        Social Security. As an insured person, the employee must be registered and will be
-        allocated a Social Security Number. This is a unique number under the Social
-        Security Fund, which will be the main means of differentiating its owner from
-        everyone else. Registration involves completing an application form providing all
-        types of information. As an insured person, the employee must be registered and
-        will be allocated a Social Security Number. This is a unique number under the
-        Social Security Fund, which will be the main means of differentiating its owner
-        from everyone else. Registration involves completing an application form providing
-        all types of information.]]>
+        Social Security]]>
     </string>
 
     <!-- TODO: Remove or change this placeholder text -->

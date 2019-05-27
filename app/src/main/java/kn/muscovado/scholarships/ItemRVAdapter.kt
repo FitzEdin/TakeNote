@@ -3,11 +3,13 @@ package kn.muscovado.scholarships
 
 import android.content.Intent
 import android.net.Uri
+import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import io.realm.Realm
 import io.realm.kotlin.where
@@ -25,8 +27,8 @@ class ItemRVAdapter
     private var items = realm.where<Item>().findAll()
     private val openURL = Intent(Intent.ACTION_VIEW)
 
-//    private var bundle = Bundle()
-//    private var constants = Constants()
+    private var bundle = Bundle()
+    private var constants = Constants()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemRVAdapter.ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.list_item, parent, false)
@@ -47,10 +49,12 @@ class ItemRVAdapter
 
         // open URL on click
         val mOnClickListener = View.OnClickListener {
-            Log.d("Move", "Item Number " + items?.get(position)?.link)
+            Log.d("Move", "Item Number " + items?.get(position)?._id)
+            bundle.putString(constants.TAG_ITEM, items[position]?._id!!)
+            Navigation.findNavController(holder.mView).navigate(R.id.action_to_itemDetailsFrag, bundle)
 
-            openURL.data = Uri.parse(items?.get(position)?.link)
-            ctx.startActivity(openURL)
+//            openURL.data = Uri.parse(items?.get(position)?.link)
+//            ctx.startActivity(openURL)
         }
 
         with(holder.mView) {

@@ -20,7 +20,7 @@
 
             android:layout_marginBottom="8dp"
 
-            android:text="Bill Jenkins Scholarship"
+            android:text="@string/dummy_title"
             android:textSize="@dimen/md_text_size"
             android:textColor="@color/colorText"
             android:fontFamily="@font/lato_bold"

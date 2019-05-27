@@ -1,7 +1,10 @@
 package kn.muscovado.scholarships
 
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -17,6 +20,7 @@ import kotlinx.android.synthetic.main.fragment_item_details.*
  */
 class ItemDetailsFragment : Fragment() {
     private var constants = Constants()
+    private val openURL = Intent(Intent.ACTION_VIEW)
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -29,7 +33,7 @@ class ItemDetailsFragment : Fragment() {
 
         val id
                 = if (arguments?.getString(constants.TAG_ITEM) != null)
-            arguments?.getInt(constants.TAG_ITEM)!!
+            arguments?.getString(constants.TAG_ITEM)!!
         else throw NullPointerException("Expression 'arguments?.getInt(lists.TAG_ITEM)' must not be null")
 
         val realm = Realm.getDefaultInstance()
@@ -37,10 +41,22 @@ class ItemDetailsFragment : Fragment() {
             .equalTo(constants.ITEM_ID, id)
             .findFirst()
 
+
+
+        // open URL on click
+        val mOnClickListener = View.OnClickListener {
+            openURL.data = Uri.parse(item?.link)
+            startActivity(openURL)
+        }
+
         // populate view
-        item_title.text = item?.title
-//        item_id.text = item?.number.toString()
-//        item_details.text = item?.content
+        item_details_link.setOnClickListener(mOnClickListener)
+        item_details_title.text = item?.title
+        item_details_open_to.text = item?.open_to
+        item_details_coverage.text = item?.coverage
+        item_details_level.text = item?.level
+        item_details_location.text = item?.location
+        item_details_programme.text = item?.programme
 
         back_item_details.setOnClickListener(
             Navigation.createNavigateOnClickListener(R.id.action_itemDetailsFrag_pop)
