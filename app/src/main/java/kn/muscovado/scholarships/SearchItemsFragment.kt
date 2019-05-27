@@ -107,8 +107,6 @@ class SearchItemsFragment : Fragment() {
     inner class SearchRVAdapter
         : RecyclerView.Adapter<SearchRVAdapter.ViewHolder>() {
 
-        private var bundle = Bundle()
-        private var constants = Constants()
         private val openURL = Intent(android.content.Intent.ACTION_VIEW)
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchRVAdapter.ViewHolder {

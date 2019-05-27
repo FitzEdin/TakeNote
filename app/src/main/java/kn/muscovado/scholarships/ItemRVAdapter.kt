@@ -46,7 +46,7 @@ class ItemRVAdapter
 
         // open URL on click
         val mOnClickListener = View.OnClickListener {
-            Log.d("Move", "Item Number " + items?.get(position)?._id)
+            Log.d(constants.LOG_TAG, "Item Number " + items?.get(position)?._id)
             bundle.putString(constants.TAG_ITEM, items[position]?._id!!)
             Navigation.findNavController(holder.mView).navigate(R.id.action_to_itemDetailsFrag, bundle)
         }

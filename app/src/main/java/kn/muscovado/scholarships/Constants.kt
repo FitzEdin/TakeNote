@@ -1,7 +1,6 @@
 package kn.muscovado.scholarships
 
 class Constants{
-    val TAG_ITEM = "itemID"
 
     // field names for the Item object
     val ITEM_ID = "_id"
@@ -19,6 +18,12 @@ class Constants{
     // port and url for API
     val BASE_URL = "http://muscovado.kn"
     val PORT = ":8000"
+    val LINKS = "/links"
+    val SCHOLARSHIPS = "/scholarships"
+
+    // Tags for Log and intents
+    val LOG_TAG = "Network"
+    val TAG_ITEM = "itemID"
 
     // share strings
     val TEXT_PLAIN = "text/plain"

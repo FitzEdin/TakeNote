@@ -21,8 +21,7 @@ import org.json.JSONObject
  */
 class AddItemFragment : Fragment() {
     private val constants = Constants()
-    private val itemUrl = "/links"
-    private val url = constants.BASE_URL + constants.PORT + itemUrl
+    private val url = constants.BASE_URL + constants.PORT + constants.LINKS
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -57,7 +56,7 @@ class AddItemFragment : Fragment() {
 
     private fun addItem(link: String) {
         val jsonObject = JSONObject().put(constants.ITEM_LINK, link)
-        Log.d("Network", jsonObject.toString())
+        Log.d(constants.LOG_TAG, jsonObject.toString())
 
         val cache = DiskBasedCache(activity?.cacheDir, 1024 * 1024)
         val network = BasicNetwork(HurlStack(null, null))
@@ -66,10 +65,10 @@ class AddItemFragment : Fragment() {
         val request = JsonObjectRequest(
             Request.Method.POST, url, jsonObject,
             Response.Listener<JSONObject> { response ->
-                Log.d("Network", response.toString())
+                Log.d(constants.LOG_TAG, response.toString())
             },
             Response.ErrorListener { err ->
-                Log.d("Network", err.toString())
+                Log.d(constants.LOG_TAG, err.toString())
             }
         )
 

@@ -69,8 +69,7 @@ class ItemsFragment : Fragment() {
     }
 
     private fun getItems() {
-        val itemUrl = "/scholarships"
-        val url = constants.BASE_URL + constants.PORT + itemUrl
+        val url = constants.BASE_URL + constants.PORT + constants.SCHOLARSHIPS
         val cache = DiskBasedCache(activity?.cacheDir, 1024 * 1024)
         val network = BasicNetwork(HurlStack(null, null))
         val requestQueue = RequestQueue(cache, network).apply { start() }
@@ -80,7 +79,7 @@ class ItemsFragment : Fragment() {
 
             // handle positive response
             Response.Listener<JSONArray> { response: JSONArray ->
-                Log.d("Network", response.toString())
+                Log.d(constants.LOG_TAG, response.toString())
 
                 // Clear existing Realm
                 realm.beginTransaction()
@@ -104,7 +103,7 @@ class ItemsFragment : Fragment() {
 
             // Log an error response
             Response.ErrorListener { err ->
-                Log.e("Network", err.toString())
+                Log.e(constants.LOG_TAG, err.toString())
                 listView.visibility = View.GONE
                 empty_items_list.visibility = View.VISIBLE
             }
