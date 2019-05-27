@@ -24,6 +24,24 @@
         <action android:id="@+id/action_to_addItemFrag"
                 app:destination="@id/addItemFrag"/>
     </fragment>
+
+    <!-- Search Frag -->
+    <fragment
+            android:id="@+id/searchItemsFrag"
+            android:name="kn.muscovado.scholarships.SearchItemsFragment"
+            android:label="fragment_search_items"
+            tools:layout="@layout/fragment_search_items">
+        <!-- to Item Details -->
+        <action android:id="@+id/action_to_itemDetailsFrag"
+                app:destination="@id/itemDetailsFrag"
+                app:enterAnim="@anim/nav_default_enter_anim"
+                app:popUpTo="@+id/searchItemsFrag"/>
+        <!-- back button -->
+        <action android:id="@+id/action_searchItemsFrag_pop"
+                app:popUpTo="@id/searchItemsFrag"
+                app:popUpToInclusive="true"/>
+    </fragment>
+
     <!-- Item Details -->
     <fragment
             android:id="@+id/itemDetailsFrag"
@@ -35,22 +53,7 @@
                 app:popUpTo="@+id/itemDetailsFrag"
                 app:popUpToInclusive="true"/>
     </fragment>
-    <!-- Search Frag -->
-    <fragment
-            android:id="@+id/searchItemsFrag"
-            android:name="kn.muscovado.scholarships.SearchItemsFragment"
-            android:label="fragment_search_items"
-            tools:layout="@layout/fragment_search_items">
-        <!-- to Item Details -->
-        <action android:id="@+id/action_to_itemDetailsFrag"
-                app:destination="@id/itemDetailsFrag"
-                app:enterAnim="@anim/nav_default_enter_anim"
-                app:popUpTo="@+id/itemsFrag"/>
-        <!-- back button -->
-        <action android:id="@+id/action_searchItemsFrag_pop"
-                app:popUpTo="@id/searchItemsFrag"
-                app:popUpToInclusive="true"/>
-    </fragment>
+
     <!-- Add Item Frag -->
     <fragment
             android:id="@+id/addItemFrag"

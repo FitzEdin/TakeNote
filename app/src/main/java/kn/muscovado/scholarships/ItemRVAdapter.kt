@@ -44,7 +44,7 @@ class ItemRVAdapter
         holder.mLocationView.text = items[position]?.location
         holder.mOpenToView.text = items[position]?.open_to
 
-        // open URL on click
+        // navigate to details fragment
         val mOnClickListener = View.OnClickListener {
             Log.d(constants.LOG_TAG, "Item Number " + items?.get(position)?._id)
             bundle.putString(constants.TAG_ITEM, items[position]?._id!!)

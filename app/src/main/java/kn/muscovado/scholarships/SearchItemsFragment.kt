@@ -28,6 +28,7 @@ import kotlinx.android.synthetic.main.list_item.view.*
 class SearchItemsFragment : Fragment() {
 
     private val constants = Constants()
+    private var bundle = Bundle()
 
     private var realm = Realm.getDefaultInstance()
     // items matching search query
@@ -107,8 +108,6 @@ class SearchItemsFragment : Fragment() {
     inner class SearchRVAdapter
         : RecyclerView.Adapter<SearchRVAdapter.ViewHolder>() {
 
-        private val openURL = Intent(android.content.Intent.ACTION_VIEW)
-
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchRVAdapter.ViewHolder {
             val view = LayoutInflater.from(parent.context).inflate(R.layout.list_item, parent, false)
             return ViewHolder(view)
@@ -121,15 +120,13 @@ class SearchItemsFragment : Fragment() {
             holder.mLevelView.text = items?.get(position)?.level
             holder.mProgrammeView.text = items?.get(position)?.programme
             holder.mLocationView.text = items?.get(position)?.location
+            holder.mOpenToView.text = items?.get(position)?.open_to
 
             val mOnClickListener = View.OnClickListener {
-                Log.d("Move", "Item Number " + items?.get(position)?.link)
+                Log.d(constants.LOG_TAG, "Item Number " + items?.get(position)?.link)
 
-                openURL.data = Uri.parse(items?.get(position)?.link)
-                startActivity(openURL)
-
-//                bundle.putString(constants.TAG_ITEM, items?.get(position)?._id)
-//                Navigation.findNavController(holder.mView).navigate(R._id.action_to_itemDetailsFrag, bundle)
+                bundle.putString(constants.TAG_ITEM, items?.get(position)?._id)
+                Navigation.findNavController(holder.mView).navigate(R.id.action_to_itemDetailsFrag, bundle)
             }
 
             with(holder.mView) {
@@ -146,11 +143,11 @@ class SearchItemsFragment : Fragment() {
             val mLevelView: TextView = mView.item_level
             val mProgrammeView: TextView = mView.item_programme
             val mLocationView: TextView = mView.item_location
+            val mOpenToView: TextView = mView.item_open_to
 
             override fun toString(): String {
                 return super.toString() + " '" + mTitleView.text + "'"
             }
         }
     }
-
 }
