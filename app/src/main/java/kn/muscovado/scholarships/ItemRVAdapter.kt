@@ -25,7 +25,6 @@ class ItemRVAdapter
     private var realm = Realm.getDefaultInstance()
     // list of items
     private var items = realm.where<Item>().findAll()
-    private val openURL = Intent(Intent.ACTION_VIEW)
 
     private var bundle = Bundle()
     private var constants = Constants()
@@ -45,16 +44,11 @@ class ItemRVAdapter
         holder.mLocationView.text = items[position]?.location
         holder.mOpenToView.text = items[position]?.open_to
 
-        val ctx = holder.itemView.context
-
         // open URL on click
         val mOnClickListener = View.OnClickListener {
             Log.d("Move", "Item Number " + items?.get(position)?._id)
             bundle.putString(constants.TAG_ITEM, items[position]?._id!!)
             Navigation.findNavController(holder.mView).navigate(R.id.action_to_itemDetailsFrag, bundle)
-
-//            openURL.data = Uri.parse(items?.get(position)?.link)
-//            ctx.startActivity(openURL)
         }
 
         with(holder.mView) {

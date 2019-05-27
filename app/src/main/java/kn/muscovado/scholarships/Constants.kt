@@ -19,4 +19,10 @@ class Constants{
     // port and url for API
     val BASE_URL = "http://muscovado.kn"
     val PORT = ":8000"
+
+    // share strings
+    val TEXT_PLAIN = "text/plain"
+    val SHARE_TITLE = "Share this scholarship on..."
+    val SHARE_EXTRA_START = "You should check out "
+    val SHARE_EXTRA_END = " on Scholarships.kn!\n\nDownload the app from Google Play http://goo.gl/6WSXON"
 }
