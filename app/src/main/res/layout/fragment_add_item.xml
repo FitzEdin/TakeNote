@@ -40,7 +40,7 @@
                     android:layout_gravity="center"
 
                     android:src="@drawable/ic_arrow_back_black_24dp"
-                    android:tint="@color/colorPrimary"/>
+                    android:tint="@color/colorIcon"/>
 
             <View
                     android:layout_width="0dp"
@@ -122,7 +122,7 @@
 
                 android:text="@string/add_item"
                 android:textSize="@dimen/md_text_size"
-                android:textColor="@color/colorPrimary"
+                android:textColor="@color/colorIcon"
                 android:fontFamily="@font/lato_bold"
                 android:letterSpacing="0.03"
                 android:layout_marginEnd="8dp"

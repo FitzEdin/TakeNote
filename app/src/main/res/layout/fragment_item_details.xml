@@ -40,7 +40,7 @@
                     android:layout_gravity="center"
 
                     android:src="@drawable/ic_arrow_back_black_24dp"
-                    android:tint="@color/colorPrimary"/>
+                    android:tint="@color/colorIcon"/>
 
             <TextView
                     android:id="@+id/top_bar_title"
@@ -75,7 +75,7 @@
                     android:layout_gravity="center"
 
                     android:src="@drawable/ic_share_black_24dp"
-                    android:tint="@color/colorPrimary"/>
+                    android:tint="@color/colorIcon"/>
 
         </LinearLayout>
 
@@ -246,7 +246,7 @@
 
                         android:text="View Website"
                         android:textSize="@dimen/sm_text_size"
-                        android:textColor="@color/colorPrimary"
+                        android:textColor="@color/colorIcon"
                         android:fontFamily="@font/lato_bold"
                         android:lineSpacingExtra="4dp"
 
