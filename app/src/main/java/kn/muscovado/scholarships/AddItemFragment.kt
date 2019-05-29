@@ -4,9 +4,11 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.android.volley.Request
@@ -55,23 +57,45 @@ class AddItemFragment : Fragment() {
     }
 
     private fun addItem(link: String) {
-        val jsonObject = JSONObject().put(constants.ITEM_LINK, link)
-        Log.d(constants.LOG_TAG, jsonObject.toString())
 
+        // set up utilities
         val cache = DiskBasedCache(activity?.cacheDir, 1024 * 1024)
         val network = BasicNetwork(HurlStack(null, null))
         val requestQueue = RequestQueue(cache, network).apply { start() }
 
-        val request = JsonObjectRequest(
-            Request.Method.POST, url, jsonObject,
-            Response.Listener<JSONObject> { response ->
-                Log.d(constants.LOG_TAG, response.toString())
-            },
-            Response.ErrorListener { err ->
-                Log.d(constants.LOG_TAG, err.toString())
-            }
-        )
+        if (link.isNotEmpty()) {
+            // Toasts for good/bad response
+            val t = Toast.makeText(this.requireContext(), constants.SUCCESS_LINK_UPLOAD, Toast.LENGTH_LONG)
+            t.setGravity(Gravity.CENTER, 0,0)
+            val tError = Toast.makeText(this.requireContext(), constants.ERROR_LINK_UPLOAD, Toast.LENGTH_LONG)
+            tError.setGravity(Gravity.CENTER, 0,0)
 
-        requestQueue.add(request)
+            // create JSONObject for uploading
+            val jsonObject = JSONObject().put(constants.ITEM_LINK, link)
+            Log.d(constants.LOG_TAG, jsonObject.toString())
+
+            // create relevant POST request
+            val request = JsonObjectRequest(
+                Request.Method.POST, url, jsonObject,
+                Response.Listener<JSONObject> { response ->
+                    Log.d(constants.LOG_TAG, response.toString())
+                    t.show()
+                    add_item_text.hint = constants.DROP_ANOTHER_LINK
+                    clear_item_btn.performClick()
+                },
+                Response.ErrorListener { err ->
+                    Log.d(constants.LOG_TAG, err.toString())
+                    tError.show()
+                }
+            )
+
+            // send request
+            requestQueue.add(request)
+        }else{
+            // ask person for a link
+            val tEmpty = Toast.makeText(this.requireContext(), constants.QUESTION_LINK_DROP, Toast.LENGTH_LONG)
+            tEmpty.setGravity(Gravity.CENTER, 0,0)
+            tEmpty.show()
+        }
     }
 }
