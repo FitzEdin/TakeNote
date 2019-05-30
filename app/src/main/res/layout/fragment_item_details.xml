@@ -244,10 +244,11 @@
 
                         android:padding="@dimen/line_vertical_margin"
 
-                        android:text="View Website"
-                        android:textSize="@dimen/sm_text_size"
+                        android:text="@string/view_website"
+                        android:textSize="@dimen/md_text_size"
                         android:textColor="@color/colorIcon"
                         android:fontFamily="@font/lato_bold"
+                        android:letterSpacing="0.03"
                         android:lineSpacingExtra="4dp"
 
                         android:layout_gravity="center" />
