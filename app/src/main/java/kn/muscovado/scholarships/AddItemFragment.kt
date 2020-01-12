@@ -20,6 +20,9 @@ import org.json.JSONObject
 
 /**
  * Handles uploading an item to the API
+ *
+ * Adds an item to the API using information collected
+ * in a corresponding form
  */
 class AddItemFragment : Fragment() {
     private val constants = Constants()
@@ -33,22 +36,28 @@ class AddItemFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // set up back button
         back_item_add.setOnClickListener(
             Navigation.createNavigateOnClickListener(R.id.action_addItemFrag_pop)
         )
 
+        // set up button to remove text
         clear_item_btn.setOnClickListener { add_item_text.text.clear() }
         clear_item_btn.visibility = View.INVISIBLE
 
+        // add object that listens for changes to text
         add_item_text.addTextChangedListener(addItemTextWatcher)
 
+        // add action when addButton is tapped
         add_item_btn.setOnClickListener { addItem(add_item_text.text.toString()) }
     }
 
+    // listens for changes to textView
     private val addItemTextWatcher = object : TextWatcher {
         override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
 
         override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+            // show/hide button to remove text when there is text/no text
             if (!add_item_text.text.isEmpty()) clear_item_btn.visibility = View.VISIBLE
             else clear_item_btn.visibility = View.INVISIBLE
         }
@@ -56,6 +65,7 @@ class AddItemFragment : Fragment() {
         override fun afterTextChanged(s: Editable) {}
     }
 
+    // upload item information or ask for a link
     private fun addItem(link: String) {
 
         // set up utilities
@@ -64,7 +74,7 @@ class AddItemFragment : Fragment() {
         val requestQueue = RequestQueue(cache, network).apply { start() }
 
         if (link.isNotEmpty()) {
-            // Toasts for good/bad response
+            // create toasts for good/bad response
             val t = Toast.makeText(this.requireContext(), constants.SUCCESS_LINK_UPLOAD, Toast.LENGTH_LONG)
             t.setGravity(Gravity.CENTER, 0,0)
             val tError = Toast.makeText(this.requireContext(), constants.ERROR_LINK_UPLOAD, Toast.LENGTH_LONG)
@@ -79,6 +89,7 @@ class AddItemFragment : Fragment() {
                 Request.Method.POST, url, jsonObject,
                 Response.Listener<JSONObject> { response ->
                     Log.d(constants.LOG_TAG, response.toString())
+                    //TODO: parse the response here (or in the API) for DB errors
                     t.show()
                     add_item_text.hint = constants.DROP_ANOTHER_LINK
                     clear_item_btn.performClick()

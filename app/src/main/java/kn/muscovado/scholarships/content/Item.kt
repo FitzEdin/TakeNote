@@ -8,7 +8,7 @@ import io.realm.RealmObject
 open class Item(
     var _id: String,        // unique MongoID
     var title: String,      // name of scholarship
-    var coverage: String,   // how much of the epenses are covered
+    var coverage: String,   // how much of the expenses are covered
     var level: String,      // academic level of eligible programme(s)
     var programme: String,  // degree or set of fields covered
     var location: String,   // where the scholarship is tenable

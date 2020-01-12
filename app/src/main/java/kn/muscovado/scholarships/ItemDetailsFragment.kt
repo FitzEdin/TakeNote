@@ -31,10 +31,10 @@ class ItemDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val id
-                = if (arguments?.getString(constants.TAG_ITEM) != null)
-            arguments?.getString(constants.TAG_ITEM)!!
-        else throw NullPointerException("Expression 'arguments?.getInt(lists.TAG_ITEM)' must not be null")
+        val id =
+            if (arguments?.getString(constants.TAG_ITEM) != null)
+                arguments?.getString(constants.TAG_ITEM)!!
+            else throw NullPointerException("Expression 'arguments?.getInt(lists.TAG_ITEM)' must not be null")
 
         val realm = Realm.getDefaultInstance()
         val item = realm.where<Item>()

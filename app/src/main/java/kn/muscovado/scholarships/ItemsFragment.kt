@@ -117,6 +117,7 @@ class ItemsFragment : Fragment() {
     @Throws(JSONException::class)
     private fun getItem(bob: JSONObject): Item {
         Log.d("getItem()", bob.getString(constants.ITEM_TITLE))
+
         return Item(
             bob.getString(constants.ITEM_ID),
             bob.getString(constants.ITEM_TITLE),
