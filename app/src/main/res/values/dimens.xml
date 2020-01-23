@@ -8,13 +8,16 @@
     <dimen name="text_margin">16dp</dimen>
 
     <dimen name="top_bar_height">48dp</dimen>
+    <dimen name="touch_item_size">48dp</dimen>
+    <dimen name="touch_item_md">32dp</dimen>
 
-    <dimen name="divider_height">0.5dp</dimen>
+    <dimen name="divider_height">0.1dp</dimen>
     <dimen name="empty_icon_height">84dp</dimen>
 
 <!--    <dimen name="xl_text_size">28sp</dimen>-->
     <dimen name="xl_text_size">24sp</dimen>
     <dimen name="lg_text_size">20sp</dimen>
+    <dimen name="dl_text_size">18sp</dimen>
     <dimen name="md_text_size">16sp</dimen>
     <dimen name="sm_text_size">14sp</dimen>
     <dimen name="xs_text_size">12sp</dimen>

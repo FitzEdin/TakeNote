@@ -4,11 +4,15 @@
     <!-- Items -->
     <string name="title_item_details">Scholarship</string>
     <string name="title_add_item">Send a Link</string>
-    <string name="hint_search_items">Search scholarships</string>
+    <string name="hint_search_items">Search for scholarships</string>
     <string name="hint_getting_items">Getting scholarships</string>
 
+    <!-- Scholarships -->
+    <string name="title_edit_item">Add/Edit Scholarship</string>
+    <string name="save_item">SAVE</string>
 
-    <string name="hint_add_item">Drop a link</string>
+
+    <string name="hint_add_item">Drop a link to a scholarship</string>
     <string name="add_item">Add</string>
     <string name="clear_item">Clear</string>
 
@@ -21,8 +25,27 @@
     </string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="back_button_description">Back Button</string>
-    <string name="title_items">Scholarships</string>
-    <string name="view_website">View Website</string>
+    <string name="hello_blank_fragment">    Hello blank fragment</string>
+    <string name="back_button_description"> Back Button</string>
+    <string name="title_items">             Scholarships</string>
+    <string name="view_website">            View Website</string>
+    <string name="hint_open_to">            Award is open to citizens of..</string>
+    <string name="label_open_to">           Eligible Nationalities</string>
+    <string name="label_level_four">        PostDoc</string>
+    <string name="label_level_three">       PhD</string>
+    <string name="label_level_two">         PostGrad/Masters</string>
+    <string name="label_level_one">         Bachelors</string>
+    <string name="label_level">             Academic Level</string>
+    <string name="hint_programme">          Possible study areas to pursue..</string>
+    <string name="hint_programe">           Study areas that can be pursued..</string>
+    <string name="label_programme">         Area of Study</string>
+    <string name="label_location">          Where to Study</string>
+    <string name="hint_location">           Scholarship can be taken at/in..</string>
+    <string name="label_coverage_partial">  Partial</string>
+    <string name="label_coverage_full">     Full (tuition plus stipend)</string>
+    <string name="label_coverage">          Costs Covered</string>
+    <string name="hint_link">               Where to find more info online</string>
+    <string name="label_link">              Website URL</string>
+    <string name="hint_title">              Name of scholarship</string>
+    <string name="label_title">             Name of Award</string>
 </resources>

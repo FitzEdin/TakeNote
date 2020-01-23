@@ -1,0 +1,623 @@
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context=".AddItemFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:background="@color/colorBackground">
+
+        <!-- Large Text w/Icons on Right -->
+        <LinearLayout
+                android:id="@+id/top_bar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/top_bar_height"
+
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+
+                app:layout_constraintTop_toTopOf="parent"
+
+                android:orientation="horizontal">
+
+            <ImageView
+                    android:id="@+id/close_item_edit"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+
+                    android:paddingLeft="0dp"
+                    android:paddingRight="0dp"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="12dp"
+
+                    android:layout_marginLeft="-16dp"
+
+                    android:layout_gravity="center"
+
+                    android:src="@drawable/ic_close_black_24dp"
+                    android:tint="@color/colorError"/>
+
+            <TextView
+                    android:id="@+id/top_bar_title"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+
+                    android:layout_weight="3"
+
+                    android:text="@string/title_edit_item"
+                    android:textColor="@color/colorText"
+                    android:textSize="@dimen/lg_text_size"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/lato"
+                    android:letterSpacing="0.03"
+
+                    android:gravity="start|center"
+
+                    android:lines="1" />
+
+            <TextView
+                    android:id="@+id/save_item_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+
+                    android:gravity="center"
+                    android:layout_gravity="end"
+
+                    android:text="@string/save_item"
+                    android:textSize="@dimen/sm_text_size"
+                    android:textColor="@color/colorPrimary"
+                    android:fontFamily="@font/lato_bold"
+                    android:letterSpacing="0.1" />
+
+        </LinearLayout>
+
+        <!-- Divider -->
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/divider_height"
+                android:background="@color/colorOutline"
+
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+
+                app:layout_constraintTop_toBottomOf="@id/top_bar"
+
+                android:layout_gravity="top"/>
+
+        <!-- Form Items -->
+        <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                android:layout_marginTop="@dimen/top_bar_height"
+
+                app:layout_constraintTop_toBottomOf="@id/top_bar">
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:padding="@dimen/activity_horizontal_margin"
+
+                    android:orientation="vertical">
+
+
+
+
+                <!-- ABOUT SCHOLARSHIP -->
+
+                <!-- Name of Award -->
+                <TextView
+                        android:id="@+id/edit_item_title_label"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_gravity="left|center"
+
+                        android:layout_marginTop="@dimen/activity_vertical_margin"
+                        android:layout_marginBottom="@dimen/activity_vertical_margin"
+
+                        android:text="@string/label_title"
+                        android:textSize="@dimen/lg_text_size"
+                        android:textColor="@color/colorText"
+                        android:fontFamily="@font/lato_bold"
+                        android:letterSpacing="0.05"/>
+
+                <EditText
+                        android:id="@+id/edit_item_title"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:background="@drawable/outline"
+
+                        android:gravity="left|center_vertical"
+
+                        android:hint="@string/hint_title"
+                        android:textColorHint="@color/colorHint"
+                        android:textColor="@color/colorText"
+                        android:textSize="@dimen/dl_text_size"
+                        android:fontFamily="@font/lato"
+                        android:letterSpacing="0.03"
+                        android:lineSpacingExtra="4dp"
+
+                        android:lines="1"
+                        android:singleLine="true"
+                        android:inputType="text"
+
+                        android:padding="@dimen/activity_vertical_margin"
+                        android:layout_marginBottom="@dimen/activity_vertical_margin"
+
+                        android:imeOptions="actionNext"
+                        android:hapticFeedbackEnabled="true"/>
+
+
+                <!-- Website URL -->
+                <TextView
+                        android:id="@+id/edit_item_link_label"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_gravity="left|center"
+
+                        android:layout_marginTop="@dimen/activity_vertical_margin"
+                        android:layout_marginBottom="@dimen/activity_vertical_margin"
+
+                        android:text="@string/label_link"
+                        android:textSize="@dimen/lg_text_size"
+                        android:textColor="@color/colorText"
+                        android:fontFamily="@font/lato_bold"
+                        android:letterSpacing="0.05"/>
+
+                <EditText
+                        android:id="@+id/edit_item_link"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:background="@drawable/outline"
+
+                        android:gravity="left|center_vertical"
+
+                        android:hint="@string/hint_link"
+                        android:textColorHint="@color/colorHint"
+                        android:textColor="@color/colorText"
+                        android:textSize="@dimen/dl_text_size"
+                        android:fontFamily="@font/lato"
+                        android:letterSpacing="0.03"
+                        android:lineSpacingExtra="4dp"
+
+                        android:lines="1"
+                        android:singleLine="true"
+                        android:inputType="text"
+
+                        android:padding="@dimen/activity_vertical_margin"
+                        android:layout_marginBottom="@dimen/activity_vertical_margin"
+
+                        android:imeOptions="actionNext"
+                        android:hapticFeedbackEnabled="true"/>
+
+
+                <!-- Costs/Coverage -->
+                <TextView
+                        android:id="@+id/edit_item_coverage_label"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_gravity="left|center"
+
+                        android:layout_marginTop="@dimen/activity_vertical_margin"
+                        android:layout_marginBottom="@dimen/activity_vertical_margin"
+
+                        android:text="@string/label_coverage"
+                        android:textSize="@dimen/lg_text_size"
+                        android:textColor="@color/colorText"
+                        android:fontFamily="@font/lato_bold"
+                        android:letterSpacing="0.05"/>
+
+                <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" >
+
+                    <TextView
+                            android:id="@+id/coverage_full_label"
+
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/touch_item_size"
+
+                            android:layout_alignParentTop="true"
+
+                            android:layout_gravity="left|center_vertical"
+
+                            android:paddingTop="4dp"
+
+                            android:text="@string/label_coverage_full"
+                            android:textSize="@dimen/dl_text_size"
+                            android:textColor="@color/colorText"
+                            android:fontFamily="@font/lato_regular"
+                            android:letterSpacing="0.05"/>
+
+                    <TextView
+                            android:id="@+id/coverage_partial_label"
+
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/touch_item_size"
+
+                            android:layout_below="@id/coverage_full_label"
+
+                            android:layout_gravity="left|center"
+
+                            android:paddingTop="4dp"
+
+                            android:text="@string/label_coverage_partial"
+                            android:textSize="@dimen/dl_text_size"
+                            android:textColor="@color/colorText"
+                            android:fontFamily="@font/lato_regular"
+                            android:letterSpacing="0.05"/>
+
+                    <RadioGroup
+                            android:layout_width="@dimen/touch_item_md"
+                            android:layout_height="match_parent"
+
+                            android:layout_alignParentRight="true">
+
+                        <RadioButton
+                                android:id="@+id/full_coverage_rbtn"
+                                android:layout_width="@dimen/touch_item_md"
+                                android:layout_height="@dimen/touch_item_size"
+
+                                android:buttonTint="@color/colorPrimary"
+
+                                android:layout_gravity="right"
+                                android:gravity="right"/>
+
+                        <RadioButton
+                                android:id="@+id/partial_coverage_rbtn"
+                                android:layout_width="@dimen/touch_item_md"
+                                android:layout_height="@dimen/touch_item_size"
+
+                                android:buttonTint="@color/colorPrimary"
+
+                                android:layout_gravity="right"
+                                android:gravity="right"/>
+
+                    </RadioGroup>
+
+                </RelativeLayout>
+
+                <View
+                        android:layout_width="128dp"
+                        android:layout_height="@dimen/divider_height"
+                        android:background="@color/colorPrimary"
+
+                        android:layout_marginTop="24dp"
+                        android:layout_marginBottom="24dp"
+
+                        android:layout_gravity="bottom|center"/>
+
+
+
+
+                <!-- ABOUT PROGRAMME -->
+
+                <!-- Study Locations -->
+                <TextView
+                        android:id="@+id/edit_item_location_label"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_gravity="left|center"
+
+                        android:layout_marginTop="@dimen/activity_vertical_margin"
+                        android:layout_marginBottom="@dimen/activity_vertical_margin"
+
+                        android:text="@string/label_location"
+                        android:textSize="@dimen/lg_text_size"
+                        android:textColor="@color/colorText"
+                        android:fontFamily="@font/lato_bold"
+                        android:letterSpacing="0.05"/>
+
+                <EditText
+                        android:id="@+id/edit_item_location"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:background="@drawable/outline"
+
+                        android:gravity="left|center_vertical"
+
+                        android:hint="@string/hint_location"
+                        android:textColorHint="@color/colorHint"
+                        android:textColor="@color/colorText"
+                        android:textSize="@dimen/dl_text_size"
+                        android:fontFamily="@font/lato"
+                        android:letterSpacing="0.03"
+                        android:lineSpacingExtra="4dp"
+
+                        android:lines="1"
+                        android:singleLine="true"
+                        android:inputType="text"
+
+                        android:padding="@dimen/activity_vertical_margin"
+                        android:layout_marginBottom="@dimen/activity_vertical_margin"
+
+                        android:imeOptions="actionNext"
+                        android:hapticFeedbackEnabled="true"/>
+
+
+                <!-- Study Areas -->
+                <TextView
+                        android:id="@+id/edit_item_programme_label"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_gravity="left|center"
+
+                        android:layout_marginTop="@dimen/activity_vertical_margin"
+                        android:layout_marginBottom="@dimen/activity_vertical_margin"
+
+                        android:text="@string/label_programme"
+                        android:textSize="@dimen/lg_text_size"
+                        android:textColor="@color/colorText"
+                        android:fontFamily="@font/lato_bold"
+                        android:letterSpacing="0.05"/>
+
+                <EditText
+                        android:id="@+id/edit_item_programme"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:background="@drawable/outline"
+
+                        android:gravity="left|center_vertical"
+
+                        android:hint="@string/hint_programme"
+                        android:textColorHint="@color/colorHint"
+                        android:textColor="@color/colorText"
+                        android:textSize="@dimen/dl_text_size"
+                        android:fontFamily="@font/lato"
+                        android:letterSpacing="0.03"
+                        android:lineSpacingExtra="4dp"
+
+                        android:lines="1"
+                        android:singleLine="true"
+                        android:inputType="text"
+
+                        android:padding="@dimen/activity_vertical_margin"
+                        android:layout_marginBottom="@dimen/activity_vertical_margin"
+
+                        android:imeOptions="actionNext"
+                        android:hapticFeedbackEnabled="true"/>
+
+
+                <!-- Academic Level -->
+                <TextView
+                        android:id="@+id/edit_item_level_label"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_gravity="left|center"
+
+                        android:layout_marginTop="@dimen/activity_vertical_margin"
+                        android:layout_marginBottom="@dimen/activity_vertical_margin"
+
+                        android:text="@string/label_level"
+                        android:textSize="@dimen/lg_text_size"
+                        android:textColor="@color/colorText"
+                        android:fontFamily="@font/lato_bold"
+                        android:letterSpacing="0.05"/>
+
+                <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" >
+
+                    <TextView
+                            android:id="@+id/level_one_label"
+
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/touch_item_size"
+
+                            android:layout_alignParentTop="true"
+
+                            android:layout_gravity="left|center_vertical"
+
+                            android:paddingTop="4dp"
+
+                            android:text="@string/label_level_one"
+                            android:textSize="@dimen/dl_text_size"
+                            android:textColor="@color/colorText"
+                            android:fontFamily="@font/lato_regular"
+                            android:letterSpacing="0.05"/>
+
+                    <TextView
+                            android:id="@+id/level_two_label"
+
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/touch_item_size"
+
+                            android:layout_below="@id/level_one_label"
+
+                            android:layout_gravity="left|center"
+
+                            android:paddingTop="4dp"
+
+                            android:text="@string/label_level_two"
+                            android:textSize="@dimen/dl_text_size"
+                            android:textColor="@color/colorText"
+                            android:fontFamily="@font/lato_regular"
+                            android:letterSpacing="0.05"/>
+
+                    <TextView
+                            android:id="@+id/level_three_label"
+
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/touch_item_size"
+
+                            android:layout_below="@id/level_two_label"
+
+                            android:layout_gravity="left|center_vertical"
+
+                            android:paddingTop="4dp"
+
+                            android:text="@string/label_level_three"
+                            android:textSize="@dimen/dl_text_size"
+                            android:textColor="@color/colorText"
+                            android:fontFamily="@font/lato_regular"
+                            android:letterSpacing="0.05"/>
+
+                    <TextView
+                            android:id="@+id/level_four_label"
+
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/touch_item_size"
+
+                            android:layout_below="@id/level_three_label"
+
+                            android:layout_gravity="left|center"
+
+                            android:paddingTop="4dp"
+
+                            android:text="@string/label_level_four"
+                            android:textSize="@dimen/dl_text_size"
+                            android:textColor="@color/colorText"
+                            android:fontFamily="@font/lato_regular"
+                            android:letterSpacing="0.05"/>
+
+                    <LinearLayout
+                            android:layout_width="@dimen/touch_item_md"
+                            android:layout_height="match_parent"
+
+                            android:orientation="vertical"
+
+                            android:layout_alignParentRight="true">
+
+                        <CheckBox
+                                android:id="@+id/one_level_rbtn"
+                                android:layout_width="@dimen/touch_item_md"
+                                android:layout_height="@dimen/touch_item_size"
+
+                                android:buttonTint="@color/colorPrimary"
+
+                                android:layout_gravity="right"
+                                android:gravity="right"/>
+
+                        <CheckBox
+                                android:id="@+id/two_level_rbtn"
+                                android:layout_width="@dimen/touch_item_md"
+                                android:layout_height="@dimen/touch_item_size"
+
+                                android:buttonTint="@color/colorPrimary"
+
+                                android:layout_gravity="right"
+                                android:gravity="right"/>
+
+                        <CheckBox
+                                android:id="@+id/three_level_rbtn"
+                                android:layout_width="@dimen/touch_item_md"
+                                android:layout_height="@dimen/touch_item_size"
+
+                                android:buttonTint="@color/colorPrimary"
+
+                                android:layout_gravity="right"
+                                android:gravity="right"/>
+
+                        <CheckBox
+                                android:id="@+id/four_level_rbtn"
+                                android:layout_width="@dimen/touch_item_md"
+                                android:layout_height="@dimen/touch_item_size"
+
+                                android:buttonTint="@color/colorPrimary"
+
+                                android:layout_gravity="right"
+                                android:gravity="right"/>
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <View
+                        android:layout_width="128dp"
+                        android:layout_height="@dimen/divider_height"
+                        android:background="@color/colorPrimary"
+
+                        android:layout_marginTop="24dp"
+                        android:layout_marginBottom="24dp"
+
+                        android:layout_gravity="bottom|center"/>
+
+
+
+
+                <!-- STUDENT ELIGIBILITY -->
+
+                <!-- Study Locations -->
+                <TextView
+                        android:id="@+id/edit_item_open_to_label"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_gravity="left|center"
+
+                        android:layout_marginTop="@dimen/activity_vertical_margin"
+                        android:layout_marginBottom="@dimen/activity_vertical_margin"
+
+                        android:text="@string/label_open_to"
+                        android:textSize="@dimen/lg_text_size"
+                        android:textColor="@color/colorText"
+                        android:fontFamily="@font/lato_bold"
+                        android:letterSpacing="0.05"/>
+
+                <EditText
+                        android:id="@+id/edit_item_open_to"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:background="@drawable/outline"
+
+                        android:gravity="left|center_vertical"
+
+                        android:hint="@string/hint_open_to"
+                        android:textColorHint="@color/colorHint"
+                        android:textColor="@color/colorText"
+                        android:textSize="@dimen/dl_text_size"
+                        android:fontFamily="@font/lato"
+                        android:letterSpacing="0.03"
+                        android:lineSpacingExtra="4dp"
+
+                        android:lines="1"
+                        android:singleLine="true"
+                        android:inputType="text"
+
+                        android:padding="@dimen/activity_vertical_margin"
+                        android:layout_marginBottom="@dimen/activity_vertical_margin"
+
+                        android:imeOptions="actionNext"
+                        android:hapticFeedbackEnabled="true"/>
+
+                <View
+                        android:layout_width="128dp"
+                        android:layout_height="@dimen/divider_height"
+                        android:background="@color/colorPrimary"
+
+                        android:layout_marginTop="24dp"
+                        android:layout_marginBottom="24dp"
+
+                        android:layout_gravity="bottom|center"/>
+
+            </LinearLayout>
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

@@ -68,11 +68,26 @@
                     android:paddingTop="12dp"
                     android:paddingBottom="12dp"
 
+                    android:layout_gravity="center"
+
+                    android:src="@drawable/ic_search_black_24dp"
+                    android:tint="@color/colorIcon" />
+
+            <ImageView
+                    android:id="@+id/unlock"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+
+                    android:paddingLeft="0dp"
+                    android:paddingRight="0dp"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="12dp"
+
                     android:layout_marginRight="-16dp"
 
                     android:layout_gravity="center"
 
-                    android:src="@drawable/ic_search_black_24dp"
+                    android:src="@drawable/ic_lock_black_24dp"
                     android:tint="@color/colorIcon" />
 
         </LinearLayout>
@@ -87,7 +102,9 @@
 
                 app:layout_constraintTop_toBottomOf="@id/top_bar"
 
-                android:layout_gravity="top" android:id="@+id/view" tools:layout_editor_absoluteX="16dp"/>
+                android:layout_gravity="top"
+                android:id="@+id/view"
+                tools:layout_editor_absoluteX="16dp"/>
 
         <!-- Empty Item Lists -->
         <LinearLayout

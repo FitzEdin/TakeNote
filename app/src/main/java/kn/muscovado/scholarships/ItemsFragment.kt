@@ -1,12 +1,15 @@
 package kn.muscovado.scholarships
 
 
+import android.content.Context
+import android.net.ConnectivityManager
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.annotation.NonNull
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -34,11 +37,14 @@ class ItemsFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
 
+        val view = inflater.inflate(R.layout.fragment_items, container, false)
+
         // TODO: Alternatively, query the API for new scholarships, and get the new ones
-        getItems()
+        if (isConnected())
+            getItems()
 
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_items, container, false)
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -49,6 +55,9 @@ class ItemsFragment : Fragment() {
         )
         new_item.setOnClickListener(
             Navigation.createNavigateOnClickListener(R.id.action_to_addItemFrag)
+        )
+        unlock.setOnClickListener(
+            Navigation.createNavigateOnClickListener(R.id.action_to_editItemFrag)
         )
 
         if (listView is RecyclerView) {
@@ -68,6 +77,15 @@ class ItemsFragment : Fragment() {
         }
     }
 
+    private fun isConnected() : Boolean {
+        val cm = activity?.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val activeNetwork = cm.activeNetworkInfo
+        return activeNetwork != null && activeNetwork.isConnected
+//        if (!isConnected) {
+//            Toast.makeText(this.context, "No network", Toast.LENGTH_LONG).show()
+//        }
+    }
+
     private fun getItems() {
         val url = constants.BASE_URL + constants.PORT + constants.SCHOLARSHIPS
         val cache = DiskBasedCache(activity?.cacheDir, 1024 * 1024)
@@ -83,19 +101,19 @@ class ItemsFragment : Fragment() {
 
                 // Clear existing Realm
                 realm.beginTransaction()
-                realm.deleteAll()
+                realm.where<Item>().findAll().deleteAllFromRealm()
                 realm.commitTransaction()
 
                 for (i in 0 until response.length()) {
                     //extract JSON object from response & convert to Kotlin object
                     val bob = getItem(response.getJSONObject(i))
-                    //and add to list of Events
+                    //and add to list of Items
                     realm.beginTransaction()
                     realm.copyToRealm(bob)
                     realm.commitTransaction()
 
-                    listView.visibility = View.VISIBLE
-                    empty_items_list.visibility = View.GONE
+//                    listView.visibility = View.VISIBLE
+//                    empty_items_list.visibility = View.GONE
                 }
 
                 realm.close()
@@ -104,8 +122,8 @@ class ItemsFragment : Fragment() {
             // Log an error response
             Response.ErrorListener { err ->
                 Log.e(constants.LOG_TAG, err.toString())
-                listView.visibility = View.GONE
-                empty_items_list.visibility = View.VISIBLE
+//                listView.visibility = View.GONE
+//                empty_items_list.visibility = View.VISIBLE
             }
         )
 

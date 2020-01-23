@@ -109,4 +109,8 @@ class AddItemFragment : Fragment() {
             tEmpty.show()
         }
     }
+
+    fun onButtonClicked(view : View) {
+
+    }
 }

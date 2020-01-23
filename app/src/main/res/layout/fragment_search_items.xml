@@ -49,25 +49,25 @@
                     android:layout_height="fill_parent"
 
                     android:layout_weight="1"
-                    android:gravity="center"
+                    android:background="@color/colorBackground"
 
+                    android:fontFamily="@font/lato_regular"
+                    android:gravity="left|center_vertical"
+                    android:hapticFeedbackEnabled="true"
                     android:hint="@string/hint_search_items"
-                    android:textColorHint="@color/colorHint"
-                    android:textColor="@color/colorText"
-                    android:textSize="@dimen/md_text_size"
-                    android:fontFamily="@font/lato_light"
+                    android:imeOptions="actionSearch|flagNoExtractUi"
                     android:letterSpacing="0.03"
 
                     android:lines="1"
+                    android:paddingTop="3dp"
+
+                    android:paddingBottom="3dp"
                     android:singleLine="true"
 
-                    android:paddingTop="3dp"
-                    android:paddingBottom="3dp"
+                    android:textColor="@color/colorText"
 
-                    android:background="@color/colorBackground"
-
-                    android:imeOptions="actionSearch|flagNoExtractUi"
-                    android:hapticFeedbackEnabled="true"/>
+                    android:textColorHint="@color/colorHint"
+                    android:textSize="18sp" />
 
             <TextView
                     android:id="@+id/search_amount"
@@ -78,7 +78,8 @@
 
                     android:text=""
                     android:textSize="@dimen/sm_text_size"
-                    android:textColor="@color/colorText"/>
+                    android:textColor="@color/colorText"
+                    android:fontFamily="@font/lato_regular"/>
 
             <ImageView
                     android:id="@+id/clear_search_items"

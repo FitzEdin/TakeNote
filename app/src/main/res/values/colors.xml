@@ -4,25 +4,31 @@
     <color name="colorPrimaryDark">#0A87C2</color>
 <!--    <color name="colorPrimaryDark">#11212A</color>-->
     <color name="colorAccent">#FC670E</color>
+    <color name="colorEror">#ED6461</color>
 
-    <color name="colorIcon">#0A87C2</color>
+    <color name="colorIcon">#0EB1FC</color>
 
 <!--    a beautiful dark blue colour -->
 <!--    <color name="colorIcon">#0A87C2</color>-->
 <!--    a beautiful yellow-brown colour -->
 <!--    <color name="colorIcon">#F0B859</color>-->
 
-    <color name="colorBackground">#FDFDFD</color>
-    <color name="colorBackgroundTransparent">#20FDFDFD</color>
+    <color name="colorBackground">#202030</color>
+<!--    <color name="colorBackground">#FBFDFE</color>-->
+    <color name="colorBackgroundTransparent">#20FBFDFE</color>
 
-    <color name="colorText">#101020</color>
-    <color name="colorTextGrey">#606070</color>
-    <color name="colorOutline">#606070</color>
+    <color name="colorText">#FBFDFE</color>
+<!--    <color name="colorText">#39394F</color>-->
+    <color name="colorTextGrey">#A1A1B6</color>
+<!--    <color name="colorTextGrey">#606070</color>-->
+    <color name="colorOutline">#ACACB6</color>
 
     <color name="colorInactive">#606070</color>
-    <color name="colorHint">#606070</color>
+    <color name="colorHint">#A1A1B6</color>
+<!--    <color name="colorHint">#606070</color>-->
 
-    <color name="colorError">#FC220E</color>
+    <color name="colorError">#ED6461</color>
+<!--    <color name="colorError">#FC220E</color>-->
     <!--<color name="colorError">#ED6461</color>-->
     <color name="colorErrorBackground">#FFFAFA</color>
 </resources>

@@ -15,7 +15,6 @@
         <!-- to Item Details -->
         <action android:id="@+id/action_to_itemDetailsFrag"
                 app:destination="@id/itemDetailsFrag"
-                app:enterAnim="@anim/nav_default_enter_anim"
                 app:popUpTo="@+id/itemsFrag"/>
         <!-- to Item Search -->
         <action android:id="@+id/action_to_searchItemsFrag"
@@ -23,6 +22,9 @@
         <!-- to Add Item -->
         <action android:id="@+id/action_to_addItemFrag"
                 app:destination="@id/addItemFrag"/>
+        <!-- to Edit Item -->
+        <action android:id="@+id/action_to_editItemFrag"
+                app:destination="@id/editItemFrag"/>
     </fragment>
 
     <!-- Search Frag -->
@@ -63,6 +65,18 @@
         <!-- back button -->
         <action android:id="@+id/action_addItemFrag_pop"
                 app:popUpTo="@id/addItemFrag"
+                app:popUpToInclusive="true"/>
+    </fragment>
+
+    <!-- Edit Item Frag -->
+    <fragment
+            android:id="@+id/editItemFrag"
+            android:name="kn.muscovado.scholarships.EditItemFragment"
+            android:label="fragment_edit_item"
+            tools:layout="@layout/fragment_edit_item">
+        <!-- close button -->
+        <action android:id="@+id/action_editItemFrag_pop"
+                app:popUpTo="@id/editItemFrag"
                 app:popUpToInclusive="true"/>
     </fragment>
 
