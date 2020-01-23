@@ -36,7 +36,6 @@
         <!-- to Item Details -->
         <action android:id="@+id/action_to_itemDetailsFrag"
                 app:destination="@id/itemDetailsFrag"
-                app:enterAnim="@anim/nav_default_enter_anim"
                 app:popUpTo="@+id/searchItemsFrag"/>
         <!-- back button -->
         <action android:id="@+id/action_searchItemsFrag_pop"
