@@ -10,6 +10,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
 
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+
             android:background="@color/colorBackground">
 
         <!-- Large Text w/Icons on Right -->
@@ -17,9 +20,6 @@
                 android:id="@+id/top_bar"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/top_bar_height"
-
-                android:paddingLeft="@dimen/activity_horizontal_margin"
-                android:paddingRight="@dimen/activity_horizontal_margin"
 
                 app:layout_constraintTop_toTopOf="parent"
 
@@ -96,9 +96,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/divider_height"
                 android:background="@color/colorOutline"
-
-                android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                android:layout_marginRight="@dimen/activity_horizontal_margin"
 
                 app:layout_constraintTop_toBottomOf="@id/top_bar"
 

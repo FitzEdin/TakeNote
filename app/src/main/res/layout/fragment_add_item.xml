@@ -10,6 +10,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
 
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+
             android:background="@color/colorBackground">
 
         <!-- Large Text w/Icons on Right -->
@@ -17,9 +20,6 @@
                 android:id="@+id/top_bar"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/top_bar_height"
-
-                android:paddingLeft="@dimen/activity_horizontal_margin"
-                android:paddingRight="@dimen/activity_horizontal_margin"
 
                 app:layout_constraintTop_toTopOf="parent"
 
@@ -81,9 +81,6 @@
                 android:layout_height="@dimen/divider_height"
                 android:background="@color/colorOutline"
 
-                android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                android:layout_marginRight="@dimen/activity_horizontal_margin"
-
                 app:layout_constraintTop_toBottomOf="@id/top_bar"
 
                 android:layout_gravity="top"/>
@@ -98,7 +95,8 @@
 
                 app:layout_constraintTop_toBottomOf="@id/top_bar"
 
-                android:layout_margin="@dimen/activity_vertical_margin"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
 
                 android:text="@string/label_link"
                 android:textSize="@dimen/lg_text_size"
@@ -131,7 +129,8 @@
 
                 android:padding="@dimen/activity_horizontal_margin"
 
-                android:layout_margin="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:layout_marginBottom="@dimen/activity_horizontal_margin"
 
                 android:imeOptions="actionSearch|flagNoExtractUi"
                 android:hapticFeedbackEnabled="true"/>
@@ -154,10 +153,7 @@
                 android:textSize="@dimen/lg_text_size"
                 android:textColor="@color/colorIcon"
                 android:fontFamily="@font/lato_bold"
-                android:letterSpacing="0.1"
-
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"/>
+                android:letterSpacing="0.1"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
