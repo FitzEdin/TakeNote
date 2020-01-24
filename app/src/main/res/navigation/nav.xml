@@ -22,9 +22,9 @@
         <!-- to Add Item -->
         <action android:id="@+id/action_to_addItemFrag"
                 app:destination="@id/addItemFrag"/>
-        <!-- to Edit Item -->
-        <action android:id="@+id/action_to_editItemFrag"
-                app:destination="@id/editItemFrag"/>
+        <!-- to Login -->
+        <action android:id="@+id/action_to_loginFrag"
+                app:destination="@id/loginFrag"/>
     </fragment>
 
     <!-- Search Frag -->
@@ -64,6 +64,40 @@
         <!-- back button -->
         <action android:id="@+id/action_addItemFrag_pop"
                 app:popUpTo="@id/addItemFrag"
+                app:popUpToInclusive="true"/>
+    </fragment>
+
+    <!-- Login Frag -->
+    <fragment
+        android:id="@+id/loginFrag"
+        android:name="kn.muscovado.scholarships.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login">
+        <!-- back button -->
+        <action android:id="@+id/action_loginFrag_pop"
+                app:popUpTo="@id/loginFrag"
+                app:popUpToInclusive="true"/>
+        <!-- to Edit List Frag -->
+        <action android:id="@+id/action_to_editListFrag"
+                app:destination="@id/editListFrag"
+                app:popUpTo="@+id/loginFrag"
+                app:popUpToInclusive="true"/>
+    </fragment>
+
+    <!-- Edit List Frag -->
+    <fragment
+            android:id="@+id/editListFrag"
+            android:name="kn.muscovado.scholarships.EditListFragment"
+            android:label="fragment_edit_list"
+            tools:layout="@layout/fragment_edit_list">
+        <!-- close button -->
+        <action android:id="@+id/action_editListFrag_pop"
+                app:popUpTo="@id/editListFrag"
+                app:popUpToInclusive="true"/>
+        <!-- to Edit Item Frag -->
+        <action android:id="@+id/action_to_editItemFrag"
+                app:destination="@id/editItemFrag"
+                app:popUpTo="@+id/editItemFrag"
                 app:popUpToInclusive="true"/>
     </fragment>
 

@@ -7,30 +7,29 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
-import kotlinx.android.synthetic.main.fragment_login.*
+import kotlinx.android.synthetic.main.fragment_edit_list.*
 
 /**
- * A simple [Fragment] subclass.
+ * Shows the two lists of scholarships, those vetted and those needing to be edited
  */
-class LoginFragment : Fragment() {
+class EditListFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_login, container, false)
+        return inflater.inflate(R.layout.fragment_edit_list, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // set up close button
-        back_item_login.setOnClickListener(
-            Navigation.createNavigateOnClickListener(R.id.action_loginFrag_pop)
+        // back button
+        back_edit_list.setOnClickListener(
+            Navigation.createNavigateOnClickListener(R.id.action_editListFrag_pop)
         )
-
         // to edit item
-        login_btn.setOnClickListener(
-            Navigation.createNavigateOnClickListener(R.id.action_to_editListFrag)
+        search_edit_list.setOnClickListener(
+            Navigation.createNavigateOnClickListener(R.id.action_to_editItemFrag)
         )
     }
 

@@ -57,7 +57,8 @@ class ItemsFragment : Fragment() {
             Navigation.createNavigateOnClickListener(R.id.action_to_addItemFrag)
         )
         unlock.setOnClickListener(
-            Navigation.createNavigateOnClickListener(R.id.action_to_editItemFrag)
+            Navigation.createNavigateOnClickListener(R.id.action_to_loginFrag)
+//            Navigation.createNavigateOnClickListener(R.id.action_to_editItemFrag)
         )
 
         if (listView is RecyclerView) {

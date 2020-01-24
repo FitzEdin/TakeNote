@@ -50,4 +50,9 @@
     <string name="label_title">             Name of Award</string>
     <string name="hint_vetted">             Make item visible to public</string>
     <string name="label_vetted">            Vetting Status</string>
+    <string name="login_btn">ENTER</string>
+    <string name="hint_login">Enter your PIN</string>
+    <string name="label_login">Secure PIN</string>
+    <string name="title_login">Login</string>
+    <string name="title_edit_list">Manage Scholarships</string>
 </resources>
