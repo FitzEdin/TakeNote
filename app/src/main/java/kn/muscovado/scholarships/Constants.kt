@@ -36,4 +36,8 @@ class Constants{
     val QUESTION_LINK_DROP = "Did you drop a link?"
     val SUCCESS_LINK_UPLOAD = "Thanks for the link!"
     val ERROR_LINK_UPLOAD = "Check your internet connection!"
+
+    val STATUS_NEW = "new"
+    val STATUS_VETTED = "vetted"
+    val UNVETTED_ITEM = "unvetted"
 }

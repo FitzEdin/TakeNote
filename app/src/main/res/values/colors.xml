@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#0EB1FC</color>
-    <color name="colorPrimaryDark">#0A87C2</color>
+    <color name="colorPrimaryDark">#08618A</color>
+<!--    <color name="colorPrimaryDark">#0A87C2</color>-->
 <!--    <color name="colorPrimaryDark">#11212A</color>-->
     <color name="colorAccent">#FC670E</color>
     <color name="colorEror">#ED6461</color>
@@ -13,11 +14,12 @@
 <!--    a beautiful yellow-brown colour -->
 <!--    <color name="colorIcon">#F0B859</color>-->
 
-    <color name="colorBackground">#202030</color>
+    <color name="colorBackground">#0B151F</color>
+<!--    <color name="colorBackground">#102030</color>-->
 <!--    <color name="colorBackground">#FBFDFE</color>-->
     <color name="colorBackgroundTransparent">#20FBFDFE</color>
 
-    <color name="colorText">#FBFDFE</color>
+    <color name="colorText">#F2F2FE</color>
 <!--    <color name="colorText">#39394F</color>-->
     <color name="colorTextGrey">#A1A1B6</color>
 <!--    <color name="colorTextGrey">#606070</color>-->

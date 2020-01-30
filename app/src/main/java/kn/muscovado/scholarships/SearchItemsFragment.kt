@@ -108,12 +108,12 @@ class SearchItemsFragment : Fragment() {
     inner class SearchRVAdapter
         : RecyclerView.Adapter<SearchRVAdapter.ViewHolder>() {
 
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchRVAdapter.ViewHolder {
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
             val view = LayoutInflater.from(parent.context).inflate(R.layout.list_item, parent, false)
             return ViewHolder(view)
         }
 
-        override fun onBindViewHolder(holder: SearchRVAdapter.ViewHolder, position: Int) {
+        override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
             holder.mTitleView.text = items?.get(position)?.title
             holder.mCoverageView.text = items?.get(position)?.coverage

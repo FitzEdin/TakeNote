@@ -135,18 +135,34 @@ class ItemsFragment : Fragment() {
     @NonNull
     @Throws(JSONException::class)
     private fun getItem(bob: JSONObject): Item {
-        Log.d("getItem()", bob.getString(constants.ITEM_TITLE))
+        if (bob.getString(constants.ITEM_STATUS) == constants.STATUS_VETTED) {
+            Log.d("getItem()", bob.getString(constants.ITEM_TITLE))
 
-        return Item(
-            bob.getString(constants.ITEM_ID),
-            bob.getString(constants.ITEM_TITLE),
-            bob.getString(constants.ITEM_COVERAGE),
-            bob.getString(constants.ITEM_LEVEL),
-            bob.getString(constants.ITEM_PROGRAMME),
-            bob.getString(constants.ITEM_LOCATION),
-            bob.getString(constants.ITEM_OPEN_TO),
-            bob.getString(constants.ITEM_LINK),
-            bob.getString(constants.ITEM_STATUS)
-        )
+            return Item(
+                bob.getString(constants.ITEM_ID),
+                bob.getString(constants.ITEM_TITLE),
+                bob.getString(constants.ITEM_COVERAGE),
+                bob.getString(constants.ITEM_LEVEL),
+                bob.getString(constants.ITEM_PROGRAMME),
+                bob.getString(constants.ITEM_LOCATION),
+                bob.getString(constants.ITEM_OPEN_TO),
+                bob.getString(constants.ITEM_LINK),
+                bob.getString(constants.ITEM_STATUS)
+            )
+        }else {
+            Log.d("getItem()", bob.getString(constants.ITEM_ID))
+
+            return Item(
+                bob.getString(constants.ITEM_ID),
+                constants.UNVETTED_ITEM,
+                constants.UNVETTED_ITEM,
+                constants.UNVETTED_ITEM,
+                constants.UNVETTED_ITEM,
+                constants.UNVETTED_ITEM,
+                constants.UNVETTED_ITEM,
+                bob.getString(constants.ITEM_LINK),
+                bob.getString(constants.ITEM_STATUS)
+            )
+        }
     }
 }

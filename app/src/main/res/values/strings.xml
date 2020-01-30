@@ -37,7 +37,6 @@
     <string name="label_level_one">         Bachelors</string>
     <string name="label_level">             Academic Level</string>
     <string name="hint_programme">          Possible study areas to pursue..</string>
-    <string name="hint_programe">           Study areas that can be pursued..</string>
     <string name="label_programme">         Area of Study</string>
     <string name="label_location">          Where to Study</string>
     <string name="hint_location">           Scholarship can be taken at/in..</string>

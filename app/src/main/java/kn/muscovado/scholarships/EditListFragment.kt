@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentPagerAdapter
 import androidx.navigation.Navigation
 import kotlinx.android.synthetic.main.fragment_edit_list.*
 
@@ -13,6 +15,8 @@ import kotlinx.android.synthetic.main.fragment_edit_list.*
  * Shows the two lists of scholarships, those vetted and those needing to be edited
  */
 class EditListFragment : Fragment() {
+
+    private lateinit var sectionsPagerAdapter: SectionsPagerAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -31,7 +35,31 @@ class EditListFragment : Fragment() {
         search_edit_list.setOnClickListener(
             Navigation.createNavigateOnClickListener(R.id.action_to_editItemFrag)
         )
+
+
+        sectionsPagerAdapter = SectionsPagerAdapter(childFragmentManager)
+        pager.adapter = sectionsPagerAdapter
+
+        tab_layout.setupWithViewPager(pager)
     }
 
+    class SectionsPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
+
+        override fun getCount(): Int = 2
+
+        override fun getItem(i: Int): Fragment {
+            return when(i) {
+                0 -> BlankListFragment()
+                else -> BlankListFragment()
+            }
+        }
+
+        override fun getPageTitle(position: Int): CharSequence {
+            return when(position){
+                0 -> "New"
+                else -> "Old"
+            }
+        }
+    }
 
 }

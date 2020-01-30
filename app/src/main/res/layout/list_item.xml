@@ -7,6 +7,8 @@
 
         android:orientation="vertical"
 
+        android:background="@color/colorBackground"
+
         android:layout_marginTop="@dimen/activity_vertical_margin"
         android:layout_marginBottom="@dimen/activity_vertical_margin">
 
@@ -18,8 +20,8 @@
 
             android:layout_marginBottom="8dp"
 
-            android:text="@string/dummy_title"
-            android:textSize="@dimen/lg_text_size"
+            android:text="@string/label_title"
+            android:textSize="@dimen/dl_text_size"
             android:textColor="@color/colorText"
             android:fontFamily="@font/lato_bold"
             android:lineSpacingExtra="8dp"
@@ -38,7 +40,7 @@
 
             android:layout_marginBottom="8dp"
 
-            android:text="@string/dummy_item"
+            android:text="@string/label_open_to"
             android:textSize="@dimen/md_text_size"
             android:textColor="@color/colorIcon"
             android:fontFamily="@font/lato"
@@ -65,7 +67,7 @@
 
                 android:layout_weight="1"
 
-                android:text="@string/dummy_item"
+                android:text="@string/label_coverage"
                 android:textSize="@dimen/sm_text_size"
                 android:textColor="@color/colorText"
                 android:fontFamily="@font/lato_bold"
@@ -82,7 +84,7 @@
 
                 android:layout_weight="2"
 
-                android:text="@string/dummy_item"
+                android:text="@string/label_location"
                 android:textSize="@dimen/sm_text_size"
                 android:textColor="@color/colorText"
                 android:fontFamily="@font/lato"
@@ -107,7 +109,7 @@
 
                 android:layout_weight="1"
 
-                android:text="@string/dummy_item"
+                android:text="@string/label_level"
                 android:textSize="@dimen/sm_text_size"
                 android:textColor="@color/colorText"
                 android:fontFamily="@font/lato_bold"
@@ -124,7 +126,7 @@
 
                 android:layout_weight="2"
 
-                android:text="@string/dummy_item"
+                android:text="@string/label_programme"
                 android:textSize="@dimen/sm_text_size"
                 android:textColor="@color/colorText"
                 android:fontFamily="@font/lato"
@@ -140,7 +142,7 @@
             android:layout_height="@dimen/divider_height"
             android:background="@color/colorPrimary"
 
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="16dp"
 
             app:layout_constraintBottom_toBottomOf="parent"
 

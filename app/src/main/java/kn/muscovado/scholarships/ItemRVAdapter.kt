@@ -1,8 +1,6 @@
 package kn.muscovado.scholarships
 
 
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -22,19 +20,22 @@ import kotlinx.android.synthetic.main.list_item.view.*
 class ItemRVAdapter
     : RecyclerView.Adapter<ItemRVAdapter.ViewHolder>() {
 
-    private var realm = Realm.getDefaultInstance()
-    // list of items
-    private var items = realm.where<Item>().findAll()
-
     private var bundle = Bundle()
     private var constants = Constants()
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemRVAdapter.ViewHolder {
+    private var realm = Realm.getDefaultInstance()
+    // list of items
+    private var items
+            = realm.where<Item>()
+        .equalTo(constants.ITEM_STATUS, constants.STATUS_VETTED)
+        .findAll()
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.list_item, parent, false)
         return ViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: ItemRVAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
         // assign item info to views
         holder.mTitleView.text = items[position]?.title

@@ -10,9 +10,10 @@
     
     <style name="TabText" parent="TextAppearance.Design.Tab">
         <item name="android:textAllCaps">false</item>
-        <item name="android:textSize">@dimen/sm_text_size</item>
+        <item name="android:textSize">@dimen/dl_text_size</item>
         <item name="android:textColor">@color/colorText</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:background">@color/colorBackground</item>
         <item name="android:fontFamily">@font/lato</item>
     </style>
 

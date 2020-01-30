@@ -10,9 +10,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
 
-            android:paddingLeft="@dimen/activity_horizontal_margin"
-            android:paddingRight="@dimen/activity_horizontal_margin"
-
             android:background="@color/colorBackground">
 
         <!-- Large Text w/Icons on Right -->
@@ -20,6 +17,9 @@
                 android:id="@+id/top_bar"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/top_bar_height"
+
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
 
                 app:layout_constraintTop_toTopOf="parent"
 
@@ -84,9 +84,38 @@
                 android:layout_height="@dimen/divider_height"
                 android:background="@color/colorOutline"
 
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+
                 app:layout_constraintTop_toBottomOf="@id/top_bar"
 
                 android:layout_gravity="top"/>
+
+        <androidx.viewpager.widget.ViewPager
+                android:id="@+id/pager"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+
+                app:layout_constraintTop_toBottomOf="@id/top_bar">
+            
+            <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tab_layout"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/touch_item_md"
+
+                    app:tabTextAppearance="@style/TabText"
+                    android:background="@color/colorBackground"
+                    app:tabSelectedTextColor="@color/colorPrimary"
+                    app:tabTextColor="@color/colorText"
+                    app:tabIndicatorColor="@color/colorPrimary"
+                    app:tabIndicatorFullWidth="false"
+                    app:tabIndicatorHeight="2dp"/>
+
+        </androidx.viewpager.widget.ViewPager>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
