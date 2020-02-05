@@ -49,8 +49,8 @@ class EditListFragment : Fragment() {
 
         override fun getItem(i: Int): Fragment {
             return when(i) {
-                0 -> BlankListFragment()
-                else -> BlankListFragment()
+                0 -> NewListFragment()
+                else -> OldListFragment()
             }
         }
 

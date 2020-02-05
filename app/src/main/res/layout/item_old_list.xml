@@ -83,6 +83,7 @@
                 android:layout_height="match_parent"
 
                 android:layout_weight="2"
+                android:gravity="right"
 
                 android:text="@string/label_location"
                 android:textSize="@dimen/sm_text_size"
@@ -125,6 +126,7 @@
                 android:layout_height="match_parent"
 
                 android:layout_weight="2"
+                android:gravity="right"
 
                 android:text="@string/label_programme"
                 android:textSize="@dimen/sm_text_size"
