@@ -20,7 +20,7 @@ import io.realm.RealmResults
 import io.realm.kotlin.where
 import kn.muscovado.scholarships.content.Item
 import kotlinx.android.synthetic.main.fragment_search_items.*
-import kotlinx.android.synthetic.main.list_item.view.*
+import kotlinx.android.synthetic.main.item_list.view.*
 
 /**
  * Handles searching and displays the results
@@ -109,18 +109,19 @@ class SearchItemsFragment : Fragment() {
         : RecyclerView.Adapter<SearchRVAdapter.ViewHolder>() {
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-            val view = LayoutInflater.from(parent.context).inflate(R.layout.list_item, parent, false)
+            val view = LayoutInflater.from(parent.context).inflate(R.layout.item_list, parent, false)
             return ViewHolder(view)
         }
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
             holder.mTitleView.text = items?.get(position)?.title
-            holder.mCoverageView.text = items?.get(position)?.coverage
-            holder.mLevelView.text = items?.get(position)?.level
-            holder.mProgrammeView.text = items?.get(position)?.programme
-            holder.mLocationView.text = items?.get(position)?.location
+            holder.mCoverageView.text = items?.get(position)?.coverage + " Funding"
+            holder.mLevelView.text = items?.get(position)?.level + " Degree"
+//            holder.mProgrammeView.text = items?.get(position)?.programme
+//            holder.mLocationView.text = items?.get(position)?.location
             holder.mOpenToView.text = items?.get(position)?.open_to
+            holder.mInitialView.text = holder.mTitleView.text.first().toString()
 
             val mOnClickListener = View.OnClickListener {
                 Log.d(constants.LOG_TAG, "Item Number " + items?.get(position)?.link)
@@ -141,9 +142,10 @@ class SearchItemsFragment : Fragment() {
             val mTitleView: TextView = mView.item_title
             val mCoverageView: TextView = mView.item_coverage
             val mLevelView: TextView = mView.item_level
-            val mProgrammeView: TextView = mView.item_programme
-            val mLocationView: TextView = mView.item_location
+//            val mProgrammeView: TextView = mView.item_programme
+//            val mLocationView: TextView = mView.item_location
             val mOpenToView: TextView = mView.item_open_to
+            val mInitialView: TextView = mView.item_initial
 
             override fun toString(): String {
                 return super.toString() + " '" + mTitleView.text + "'"

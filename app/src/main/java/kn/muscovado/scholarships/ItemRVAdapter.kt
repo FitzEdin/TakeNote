@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import io.realm.Realm
 import io.realm.kotlin.where
 import kn.muscovado.scholarships.content.Item
-import kotlinx.android.synthetic.main.list_item.view.*
+import kotlinx.android.synthetic.main.item_list.view.*
 
 /**
  * Adapter for RecyclerView w/list of items
@@ -31,7 +31,7 @@ class ItemRVAdapter
         .findAll()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.list_item, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_list, parent, false)
         return ViewHolder(view)
     }
 
@@ -39,11 +39,12 @@ class ItemRVAdapter
 
         // assign item info to views
         holder.mTitleView.text = items[position]?.title
-        holder.mCoverageView.text = items[position]?.coverage
-        holder.mLevelView.text = items[position]?.level
-        holder.mProgrammeView.text = items[position]?.programme
-        holder.mLocationView.text = items[position]?.location
+        holder.mCoverageView.text = items?.get(position)?.coverage + " Funding"
+        holder.mLevelView.text = items?.get(position)?.level + " Degree"
+//        holder.mProgrammeView.text = items[position]?.programme
+//        holder.mLocationView.text = items[position]?.location
         holder.mOpenToView.text = items[position]?.open_to
+        holder.mInitialView.text = holder.mTitleView.text.first().toString()
 
         // navigate to details fragment
         val mOnClickListener = View.OnClickListener {
@@ -65,9 +66,10 @@ class ItemRVAdapter
         val mTitleView: TextView = mView.item_title
         val mCoverageView: TextView = mView.item_coverage
         val mLevelView: TextView = mView.item_level
-        val mProgrammeView: TextView = mView.item_programme
-        val mLocationView: TextView = mView.item_location
+//        val mProgrammeView: TextView = mView.item_programme
+//        val mLocationView: TextView = mView.item_location
         val mOpenToView: TextView = mView.item_open_to
+        val mInitialView: TextView = mView.item_initial
 
         override fun toString(): String {
             return super.toString() + " '" + mTitleView.text + "'"
