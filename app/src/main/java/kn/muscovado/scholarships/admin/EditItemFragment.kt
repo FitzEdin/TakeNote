@@ -1,4 +1,4 @@
-package kn.muscovado.scholarships
+package kn.muscovado.scholarships.admin
 
 
 import android.os.Bundle
@@ -9,6 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import io.realm.Realm
 import io.realm.kotlin.where
+import kn.muscovado.scholarships.utils.Constants
+import kn.muscovado.scholarships.R
 import kn.muscovado.scholarships.content.Item
 import kotlinx.android.synthetic.main.fragment_edit_item.*
 

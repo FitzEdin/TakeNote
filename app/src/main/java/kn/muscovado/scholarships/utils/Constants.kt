@@ -1,4 +1,4 @@
-package kn.muscovado.scholarships
+package kn.muscovado.scholarships.utils
 
 class Constants{
 

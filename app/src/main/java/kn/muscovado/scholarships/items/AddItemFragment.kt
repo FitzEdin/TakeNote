@@ -1,4 +1,4 @@
-package kn.muscovado.scholarships
+package kn.muscovado.scholarships.items
 
 
 import android.os.Bundle
@@ -16,6 +16,8 @@ import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.Response
 import com.android.volley.toolbox.*
+import kn.muscovado.scholarships.R
+import kn.muscovado.scholarships.utils.Constants
 import kotlinx.android.synthetic.main.fragment_add_item.*
 import org.json.JSONObject
 

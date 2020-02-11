@@ -1,10 +1,9 @@
-package kn.muscovado.scholarships
+package kn.muscovado.scholarships.items
 
 
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +11,8 @@ import android.view.ViewGroup
 import androidx.navigation.Navigation
 import io.realm.Realm
 import io.realm.kotlin.where
+import kn.muscovado.scholarships.utils.Constants
+import kn.muscovado.scholarships.R
 import kn.muscovado.scholarships.content.Item
 import kotlinx.android.synthetic.main.fragment_item_details.*
 

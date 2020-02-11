@@ -1,4 +1,4 @@
-package kn.muscovado.scholarships
+package kn.muscovado.scholarships.admin
 
 
 import android.os.Bundle
@@ -9,6 +9,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import androidx.navigation.Navigation
+import kn.muscovado.scholarships.utils.Constants
+import kn.muscovado.scholarships.R
 import kotlinx.android.synthetic.main.fragment_edit_list.*
 
 /**
@@ -37,7 +39,10 @@ class EditListFragment : Fragment() {
         )
 
 
-        sectionsPagerAdapter = SectionsPagerAdapter(childFragmentManager)
+        sectionsPagerAdapter =
+            SectionsPagerAdapter(
+                childFragmentManager
+            )
         pager.adapter = sectionsPagerAdapter
 
         tab_layout.setupWithViewPager(pager)

@@ -1,4 +1,4 @@
-package kn.muscovado.scholarships
+package kn.muscovado.scholarships.items
 
 
 import android.os.Bundle
@@ -17,7 +17,9 @@ import io.realm.Case
 import io.realm.Realm
 import io.realm.RealmResults
 import io.realm.kotlin.where
+import kn.muscovado.scholarships.R
 import kn.muscovado.scholarships.content.Item
+import kn.muscovado.scholarships.utils.Constants
 import kotlinx.android.synthetic.main.fragment_search_items.*
 import kotlinx.android.synthetic.main.item_list.view.*
 

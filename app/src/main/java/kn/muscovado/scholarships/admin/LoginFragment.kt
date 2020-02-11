@@ -1,4 +1,4 @@
-package kn.muscovado.scholarships
+package kn.muscovado.scholarships.admin
 
 
 import android.os.Bundle
@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
+import kn.muscovado.scholarships.R
 import kotlinx.android.synthetic.main.fragment_login.*
 
 /**

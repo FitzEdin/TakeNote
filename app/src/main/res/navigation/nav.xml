@@ -9,7 +9,7 @@
     <!-- Item List Pane -->
     <fragment
             android:id="@+id/itemsFrag"
-            android:name="kn.muscovado.scholarships.ItemsFragment"
+            android:name="kn.muscovado.scholarships.items.ItemsFragment"
             android:label="fragment_items"
             tools:layout="@layout/fragment_items">
         <!-- to Item Details -->
@@ -30,7 +30,7 @@
     <!-- Search Frag -->
     <fragment
             android:id="@+id/searchItemsFrag"
-            android:name="kn.muscovado.scholarships.SearchItemsFragment"
+            android:name="kn.muscovado.scholarships.items.SearchItemsFragment"
             android:label="fragment_search_items"
             tools:layout="@layout/fragment_search_items">
         <!-- to Item Details -->
@@ -46,7 +46,7 @@
     <!-- Item Details -->
     <fragment
             android:id="@+id/itemDetailsFrag"
-            android:name="kn.muscovado.scholarships.ItemDetailsFragment"
+            android:name="kn.muscovado.scholarships.items.ItemDetailsFragment"
             android:label="fragment_item_details"
             tools:layout="@layout/fragment_item_details">
         <!--back button-->
@@ -58,7 +58,7 @@
     <!-- Add Item Frag -->
     <fragment
             android:id="@+id/addItemFrag"
-            android:name="kn.muscovado.scholarships.AddItemFragment"
+            android:name="kn.muscovado.scholarships.items.AddItemFragment"
             android:label="fragment_add_item"
             tools:layout="@layout/fragment_add_item">
         <!-- back button -->
@@ -70,7 +70,7 @@
     <!-- Login Frag -->
     <fragment
         android:id="@+id/loginFrag"
-        android:name="kn.muscovado.scholarships.LoginFragment"
+        android:name="kn.muscovado.scholarships.admin.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login">
         <!-- back button -->
@@ -87,7 +87,7 @@
     <!-- Edit List Frag -->
     <fragment
             android:id="@+id/editListFrag"
-            android:name="kn.muscovado.scholarships.EditListFragment"
+            android:name="kn.muscovado.scholarships.admin.EditListFragment"
             android:label="fragment_edit_list"
             tools:layout="@layout/fragment_edit_list">
         <!-- close button -->
@@ -104,7 +104,7 @@
     <!-- Edit Item Frag -->
     <fragment
             android:id="@+id/editItemFrag"
-            android:name="kn.muscovado.scholarships.EditItemFragment"
+            android:name="kn.muscovado.scholarships.admin.EditItemFragment"
             android:label="fragment_edit_item"
             tools:layout="@layout/fragment_edit_item">
         <!-- close button -->
