@@ -24,6 +24,7 @@ class Constants{
     // Tags for Log and intents
     val LOG_TAG = "Network"
     val TAG_ITEM = "itemID"
+    val LOG_MSG_ITEM_LINK = "Item Link "
 
     // share strings
     val TEXT_PLAIN = "text/plain"
@@ -38,6 +39,10 @@ class Constants{
     val ERROR_LINK_UPLOAD = "Check your internet connection!"
 
     val STATUS_NEW = "new"
+    val STATUS_OLD = "old"
     val STATUS_VETTED = "vetted"
     val UNVETTED_ITEM = "unvetted"
+
+    val PARTIAL = "Partial"
+    val FULL = "Full"
 }

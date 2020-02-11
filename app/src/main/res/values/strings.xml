@@ -44,7 +44,7 @@
     <string name="label_coverage_full">     Full (tuition plus stipend)</string>
     <string name="label_coverage">          Costs Covered</string>
     <string name="hint_link">               Where to find more info online</string>
-    <string name="label_link">              Website URL</string>
+    <string name="label_link">              Website</string>
     <string name="hint_title">              Name of scholarship</string>
     <string name="label_title">             Name of Award</string>
     <string name="hint_vetted">             Make item visible to public</string>

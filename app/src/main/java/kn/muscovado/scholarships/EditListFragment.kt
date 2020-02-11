@@ -44,6 +44,7 @@ class EditListFragment : Fragment() {
     }
 
     class SectionsPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
+        val constants = Constants()
 
         override fun getCount(): Int = 2
 
@@ -56,8 +57,8 @@ class EditListFragment : Fragment() {
 
         override fun getPageTitle(position: Int): CharSequence {
             return when(position){
-                0 -> "New"
-                else -> "Old"
+                0 -> constants.STATUS_NEW
+                else -> constants.STATUS_OLD
             }
         }
     }

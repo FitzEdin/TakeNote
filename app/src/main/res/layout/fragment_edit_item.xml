@@ -558,7 +558,7 @@
 
                 <!-- STUDENT ELIGIBILITY -->
 
-                <!-- Study Locations -->
+                <!-- Student Eligibility -->
                 <TextView
                         android:id="@+id/edit_item_open_to_label"
                         android:layout_width="match_parent"
@@ -616,9 +616,9 @@
 
 
 
-                <!-- STUDENT ELIGIBILITY -->
+                <!-- VETTING STATUS -->
 
-                <!-- Study Locations -->
+                <!-- Whether the item was vetted -->
                 <TextView
                         android:id="@+id/edit_item_vetted_label"
                         android:layout_width="match_parent"
@@ -659,6 +659,7 @@
                             android:letterSpacing="0.05"/>
 
                     <Switch
+                            android:id="@+id/edit_item_status"
                             android:layout_width="wrap_content"
                             android:layout_height="@dimen/touch_item_md"
 

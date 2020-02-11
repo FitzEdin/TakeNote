@@ -27,13 +27,13 @@
 
             <ImageView
                     android:id="@+id/back_edit_list"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
+                    android:layout_width="@dimen/touch_item_size"
+                    android:layout_height="@dimen/touch_item_size"
 
                     android:paddingLeft="0dp"
                     android:paddingRight="0dp"
-                    android:paddingTop="12dp"
-                    android:paddingBottom="12dp"
+                    android:paddingTop="@dimen/icon_padding"
+                    android:paddingBottom="@dimen/icon_padding"
 
                     android:layout_marginLeft="-16dp"
 
@@ -62,13 +62,13 @@
 
             <ImageView
                     android:id="@+id/search_edit_list"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
+                    android:layout_width="@dimen/touch_item_size"
+                    android:layout_height="@dimen/touch_item_size"
 
                     android:paddingLeft="0dp"
                     android:paddingRight="0dp"
-                    android:paddingTop="12dp"
-                    android:paddingBottom="12dp"
+                    android:paddingTop="@dimen/icon_padding"
+                    android:paddingBottom="@dimen/icon_padding"
 
                     android:layout_marginEnd="-14dp"
 
@@ -97,7 +97,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="@dimen/sm_margin"
 
                 app:layout_constraintTop_toBottomOf="@id/top_bar">
             
@@ -113,7 +113,7 @@
                     app:tabTextColor="@color/colorText"
                     app:tabIndicatorColor="@color/colorPrimary"
                     app:tabIndicatorFullWidth="false"
-                    app:tabIndicatorHeight="2dp"/>
+                    app:tabIndicatorHeight="@dimen/tab_indicator_height"/>
 
         </androidx.viewpager.widget.ViewPager>
 

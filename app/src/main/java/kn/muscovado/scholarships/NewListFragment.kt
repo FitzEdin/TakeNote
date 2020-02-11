@@ -26,8 +26,10 @@ class NewListFragment : Fragment() {
     private var realm = Realm.getDefaultInstance()
     private var bundle = Bundle()
     private val constants = Constants()
-    private var items: RealmResults<Item>?
-            = realm.where<Item>().equalTo(constants.ITEM_STATUS, constants.STATUS_NEW).findAll()
+    private var items
+            = realm.where<Item>()
+        .equalTo(constants.ITEM_STATUS, constants.STATUS_NEW)
+        .findAll()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -65,18 +67,18 @@ class NewListFragment : Fragment() {
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-            holder.mTitleView.text = items?.get(position)?.title
-            holder.mLinkView.text = items?.get(position)?.link
+            holder.mTitleView.text = items[position]?.title
+            holder.mLinkView.text = items[position]?.link
 
             val mOnClickListener = View.OnClickListener {
-                Log.d(constants.LOG_TAG, "Item Number " + items?.get(position)?.link)
+                Log.d(constants.LOG_TAG, constants.LOG_MSG_ITEM_LINK + items[position]?.link)
 
-                bundle.putString(constants.TAG_ITEM, items?.get(position)?._id)
+                bundle.putString(constants.TAG_ITEM, items[position]?._id)
                 Navigation.findNavController(holder.mView).navigate(R.id.action_to_editItemFrag, bundle)
             }
 
             with(holder.mView) {
-                tag = items?.get(position)
+                tag = items[position]
                 setOnClickListener(mOnClickListener)
             }
         }

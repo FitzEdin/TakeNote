@@ -73,7 +73,7 @@ class OldListFragment : Fragment() {
             holder.mOpenToView.text = items[position]?.open_to
 
             val mOnClickListener = View.OnClickListener {
-                Log.d(constants.LOG_TAG, "Item Number " + items?.get(position)?.link)
+                Log.d(constants.LOG_TAG, constants.LOG_MSG_ITEM_LINK + items?.get(position)?.link)
 
                 bundle.putString(constants.TAG_ITEM, items?.get(position)?._id)
                 Navigation.findNavController(holder.mView).navigate(R.id.action_to_editItemFrag, bundle)
