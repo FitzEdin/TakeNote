@@ -35,6 +35,7 @@
     <string name="label_level_three">       PhD</string>
     <string name="label_level_two">         PostGrad/Masters</string>
     <string name="label_level_one">         Bachelors</string>
+    <string name="label_level_zero">        Short Course</string>
     <string name="label_level">             Academic Level</string>
     <string name="hint_programme">          Possible study areas to pursue..</string>
     <string name="label_programme">         Area of Study</string>

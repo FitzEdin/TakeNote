@@ -41,8 +41,14 @@ class Constants{
     val STATUS_NEW = "new"
     val STATUS_OLD = "old"
     val STATUS_VETTED = "vetted"
-    val UNVETTED_ITEM = "unvetted"
+    val UNVETTED_ITEM = ""
 
     val PARTIAL = "Partial"
     val FULL = "Full"
+
+    val LEVEL_FOUR = "PostDoc"
+    val LEVEL_THREE = "PhD"
+    val LEVEL_TWO = "Postgraduate"
+    val LEVEL_ONE = "Bachelors"
+    val LEVEL_ZERO = "Short Course"
 }

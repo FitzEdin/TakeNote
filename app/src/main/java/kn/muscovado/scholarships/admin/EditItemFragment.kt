@@ -52,7 +52,15 @@ class EditItemFragment : Fragment() {
         edit_item_link.setText(item?.link)
         when(item?.coverage) {
             constants.FULL -> full_coverage_rbtn.isChecked = true
-            constants.PARTIAL -> partial_coverage_rbtn.isChecked = true
+            else -> partial_coverage_rbtn.isChecked = true
+        }
+
+        when(item?.level) {
+            constants.LEVEL_FOUR -> four_level_check.isChecked = true
+            constants.LEVEL_THREE -> three_level_check.isChecked = true
+            constants.LEVEL_TWO -> two_level_check.isChecked = true
+            constants.LEVEL_ONE -> one_level_check.isChecked = true
+            constants.LEVEL_ZERO -> zero_level_check.isChecked = true
         }
 
         edit_item_location.setText(item?.location)

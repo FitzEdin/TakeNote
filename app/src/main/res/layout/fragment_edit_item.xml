@@ -420,12 +420,30 @@
                         android:layout_height="wrap_content" >
 
                     <TextView
-                            android:id="@+id/level_one_label"
+                            android:id="@+id/level_zero_label"
 
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/touch_item_size"
 
                             android:layout_alignParentTop="true"
+
+                            android:layout_gravity="left|center_vertical"
+
+                            android:paddingTop="4dp"
+
+                            android:text="@string/label_level_zero"
+                            android:textSize="@dimen/dl_text_size"
+                            android:textColor="@color/colorText"
+                            android:fontFamily="@font/lato_regular"
+                            android:letterSpacing="0.05"/>
+
+                    <TextView
+                            android:id="@+id/level_one_label"
+
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/touch_item_size"
+
+                            android:layout_below="@id/level_zero_label"
 
                             android:layout_gravity="left|center_vertical"
 
@@ -500,7 +518,7 @@
                             android:layout_alignParentRight="true">
 
                         <CheckBox
-                                android:id="@+id/one_level_rbtn"
+                                android:id="@+id/zero_level_check"
                                 android:layout_width="@dimen/touch_item_md"
                                 android:layout_height="@dimen/touch_item_size"
 
@@ -510,7 +528,7 @@
                                 android:gravity="right"/>
 
                         <CheckBox
-                                android:id="@+id/two_level_rbtn"
+                                android:id="@+id/one_level_check"
                                 android:layout_width="@dimen/touch_item_md"
                                 android:layout_height="@dimen/touch_item_size"
 
@@ -520,7 +538,7 @@
                                 android:gravity="right"/>
 
                         <CheckBox
-                                android:id="@+id/three_level_rbtn"
+                                android:id="@+id/two_level_check"
                                 android:layout_width="@dimen/touch_item_md"
                                 android:layout_height="@dimen/touch_item_size"
 
@@ -530,7 +548,17 @@
                                 android:gravity="right"/>
 
                         <CheckBox
-                                android:id="@+id/four_level_rbtn"
+                                android:id="@+id/three_level_check"
+                                android:layout_width="@dimen/touch_item_md"
+                                android:layout_height="@dimen/touch_item_size"
+
+                                android:buttonTint="@color/colorAccent"
+
+                                android:layout_gravity="right"
+                                android:gravity="right"/>
+
+                        <CheckBox
+                                android:id="@+id/four_level_check"
                                 android:layout_width="@dimen/touch_item_md"
                                 android:layout_height="@dimen/touch_item_size"
 
