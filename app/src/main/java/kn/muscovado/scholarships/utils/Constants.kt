@@ -22,7 +22,7 @@ class Constants{
     val SCHOLARSHIPS = "/scholarships"
 
     // Tags for Log and intents
-    val LOG_TAG = "Network"
+    val LOG_TAG = "scholarships.kn"
     val TAG_ITEM = "itemID"
     val LOG_MSG_ITEM_LINK = "Item Link "
 
@@ -39,6 +39,8 @@ class Constants{
     val ERROR_LINK_UPLOAD = "Check your internet connection!"
     val SUCCESS_SCHOL_UPLOAD = "Scholarship info updated"
     val ERROR_SCHOL_UPLOAD = "Check your internet connection!"
+    val SUCCESS_SCHOL_DELETE = "Scholarship deleted"
+    val ERROR_SCHOL_DELETE = "Check your internet connection!"
 
     val STATUS_NEW = "new"
     val STATUS_OLD = "old"

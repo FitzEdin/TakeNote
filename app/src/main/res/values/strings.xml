@@ -10,6 +10,7 @@
     <!-- Scholarships -->
     <string name="title_edit_item">Edit Scholarship</string>
     <string name="save_item">SAVE</string>
+    <string name="delete_item">DELETE</string>
 
 
     <string name="hint_add_item">Drop a link to a scholarship</string>

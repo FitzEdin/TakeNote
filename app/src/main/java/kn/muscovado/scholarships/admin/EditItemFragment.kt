@@ -46,7 +46,7 @@ class EditItemFragment : Fragment() {
         val id =
             if (arguments?.getString(constants.TAG_ITEM) != null)
                 arguments?.getString(constants.TAG_ITEM)!!
-            else throw NullPointerException("Expression 'arguments?.getInt(lists.TAG_ITEM)' must not be null")
+            else throw NullPointerException("Expression 'arguments?.getString(constants.TAG_ITEM)' must not be null")
 
         val realm = Realm.getDefaultInstance()
         item = realm.where<Item>()
@@ -58,6 +58,10 @@ class EditItemFragment : Fragment() {
         save_item_btn.setOnClickListener{
             saveItem()
             uploadItem()
+        }
+
+        delete_item_btn.setOnClickListener{
+            deleteItem()
         }
 
         // set up close button
@@ -140,7 +144,7 @@ class EditItemFragment : Fragment() {
         val tError = Toast.makeText(this.requireContext(), constants.ERROR_SCHOL_UPLOAD, Toast.LENGTH_LONG)
         tError.setGravity(Gravity.CENTER, 0,0)
 
-        // set up utilities
+        // set up network utilities
         val cache = DiskBasedCache(activity?.cacheDir, 1024 * 1024)
         val network = BasicNetwork(HurlStack(null, null))
         val requestQueue = RequestQueue(cache, network).apply { start() }
@@ -173,7 +177,40 @@ class EditItemFragment : Fragment() {
 
         // send request
         requestQueue.add(request)
+    }
 
+    private fun deleteItem() {
+        //confirm delete first
+        //delete if confirmed
+        Toast.makeText(this.requireContext(), "Deleting Item", Toast.LENGTH_LONG).show()
+
+        // create toasts for good/bad response
+        val t = Toast.makeText(this.requireContext(), constants.SUCCESS_SCHOL_DELETE, Toast.LENGTH_LONG)
+        t.setGravity(Gravity.CENTER, 0,0)
+        val tError = Toast.makeText(this.requireContext(), constants.ERROR_SCHOL_DELETE, Toast.LENGTH_LONG)
+        tError.setGravity(Gravity.CENTER, 0,0)
+
+        // set up network utilities
+        val cache = DiskBasedCache(activity?.cacheDir, 1024 * 1024)
+        val network = BasicNetwork(HurlStack(null, null))
+        val requestQueue = RequestQueue(cache, network).apply { start() }
+
+        // create relevant PUT request to update item
+        val request = JsonObjectRequest(
+            Request.Method.DELETE, url + "/" + item?._id, null,
+            Response.Listener<JSONObject> { response ->
+                Log.d(constants.LOG_TAG, response.toString())
+                //TODO: parse the response here (or in the API) for DB errors
+                t.show()
+            },
+            Response.ErrorListener { err ->
+                Log.d(constants.LOG_TAG, err.toString())
+                tError.show()
+            }
+        )
+
+        // send request
+        requestQueue.add(request)
 
     }
 
