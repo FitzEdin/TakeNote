@@ -2,18 +2,28 @@ package kn.muscovado.scholarships.admin
 
 
 import android.os.Bundle
+import android.util.Log
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
+import com.android.volley.Request
+import com.android.volley.RequestQueue
+import com.android.volley.Response
+import com.android.volley.toolbox.BasicNetwork
+import com.android.volley.toolbox.DiskBasedCache
+import com.android.volley.toolbox.HurlStack
+import com.android.volley.toolbox.JsonObjectRequest
 import io.realm.Realm
 import io.realm.kotlin.where
 import kn.muscovado.scholarships.R
 import kn.muscovado.scholarships.content.Item
 import kn.muscovado.scholarships.utils.Constants
 import kotlinx.android.synthetic.main.fragment_edit_item.*
+import org.json.JSONObject
 
 /**
  * Used to edit an item in the list and save it to the DB.
@@ -123,7 +133,7 @@ class EditItemFragment : Fragment() {
     // upload the info from Item to database
     private fun uploadItem(){
         Toast.makeText(this.requireContext(), "Uploading Item", Toast.LENGTH_LONG).show()
-/*
+
         // create toasts for good/bad response
         val t = Toast.makeText(this.requireContext(), constants.SUCCESS_SCHOL_UPLOAD, Toast.LENGTH_LONG)
         t.setGravity(Gravity.CENTER, 0,0)
@@ -164,7 +174,7 @@ class EditItemFragment : Fragment() {
         // send request
         requestQueue.add(request)
 
- */
+
     }
 
 }
