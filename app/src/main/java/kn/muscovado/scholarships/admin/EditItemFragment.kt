@@ -18,6 +18,7 @@ import com.android.volley.toolbox.DiskBasedCache
 import com.android.volley.toolbox.HurlStack
 import com.android.volley.toolbox.JsonObjectRequest
 import io.realm.Realm
+import io.realm.kotlin.delete
 import io.realm.kotlin.where
 import kn.muscovado.scholarships.R
 import kn.muscovado.scholarships.content.Item
@@ -116,12 +117,16 @@ class EditItemFragment : Fragment() {
         item?.open_to = edit_item_open_to.text.toString()
 
         // save info from radio button
-        if(full_coverage_rbtn.isChecked){
-            item?.coverage = constants.FULL
-        }else if(partial_coverage_rbtn.isChecked){
-            item?.coverage = constants.PARTIAL
-        }else if(tuition_coverage_rbtn.isChecked){
-            item?.coverage = constants.TUITION
+        when {
+            full_coverage_rbtn.isChecked -> {
+                item?.coverage = constants.FULL
+            }
+            partial_coverage_rbtn.isChecked -> {
+                item?.coverage = constants.PARTIAL
+            }
+            tuition_coverage_rbtn.isChecked -> {
+                item?.coverage = constants.TUITION
+            }
         }
 
         // save info from switch
@@ -202,6 +207,11 @@ class EditItemFragment : Fragment() {
                 Log.d(constants.LOG_TAG, response.toString())
                 //TODO: parse the response here (or in the API) for DB errors
                 t.show()
+
+                //delete from Realm
+                realm.beginTransaction()
+                item?.deleteFromRealm()
+                realm.commitTransaction()
             },
             Response.ErrorListener { err ->
                 Log.d(constants.LOG_TAG, err.toString())
@@ -211,7 +221,6 @@ class EditItemFragment : Fragment() {
 
         // send request
         requestQueue.add(request)
-
     }
 
 }
