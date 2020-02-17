@@ -34,9 +34,8 @@ class EditListFragment : Fragment() {
             Navigation.createNavigateOnClickListener(R.id.action_editListFrag_pop)
         )
         // to edit item
-        search_edit_list.setOnClickListener(
-            Navigation.createNavigateOnClickListener(R.id.action_to_editItemFrag)
-        )
+        search_edit_list.setOnClickListener{}
+
 
 
         sectionsPagerAdapter =

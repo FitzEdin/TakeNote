@@ -259,6 +259,24 @@
                             android:fontFamily="@font/lato_regular"
                             android:letterSpacing="0.05"/>
 
+                    <TextView
+                            android:id="@+id/coverage_tuition_label"
+
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/touch_item_size"
+
+                            android:layout_below="@id/coverage_partial_label"
+
+                            android:layout_gravity="left|center"
+
+                            android:paddingTop="4dp"
+
+                            android:text="@string/label_coverage_tuition"
+                            android:textSize="@dimen/dl_text_size"
+                            android:textColor="@color/colorText"
+                            android:fontFamily="@font/lato_regular"
+                            android:letterSpacing="0.05"/>
+
                     <RadioGroup
                             android:layout_width="@dimen/touch_item_md"
                             android:layout_height="match_parent"
@@ -277,6 +295,16 @@
 
                         <RadioButton
                                 android:id="@+id/partial_coverage_rbtn"
+                                android:layout_width="@dimen/touch_item_md"
+                                android:layout_height="@dimen/touch_item_size"
+
+                                android:buttonTint="@color/colorAccent"
+
+                                android:layout_gravity="right"
+                                android:gravity="right"/>
+
+                        <RadioButton
+                                android:id="@+id/tuition_coverage_rbtn"
                                 android:layout_width="@dimen/touch_item_md"
                                 android:layout_height="@dimen/touch_item_size"
 

@@ -68,6 +68,7 @@ class EditItemFragment : Fragment() {
         when(item?.coverage) {
             constants.FULL -> full_coverage_rbtn.isChecked = true
             constants.PARTIAL -> partial_coverage_rbtn.isChecked = true
+            constants.TUITION -> tuition_coverage_rbtn.isChecked = true
         }
 
         // check boxes
@@ -103,8 +104,10 @@ class EditItemFragment : Fragment() {
         // save info from radio button
         if(full_coverage_rbtn.isChecked){
             item?.coverage = constants.FULL
-        }else{
+        }else if(partial_coverage_rbtn.isChecked){
             item?.coverage = constants.PARTIAL
+        }else if(tuition_coverage_rbtn.isChecked){
+            item?.coverage = constants.TUITION
         }
 
         // save info from switch
@@ -112,6 +115,7 @@ class EditItemFragment : Fragment() {
             true -> constants.STATUS_VETTED
             false -> constants.STATUS_NEW
         }
+
         realm.commitTransaction()
 
     }

@@ -41,7 +41,8 @@
     <string name="label_programme">         Area of Study</string>
     <string name="label_location">          Where to Study</string>
     <string name="hint_location">           Scholarship can be taken at/in..</string>
-    <string name="label_coverage_partial">  Partial</string>
+    <string name="label_coverage_partial">  Partial (part tuition or stipend)</string>
+    <string name="label_coverage_tuition">  Tuition</string>
     <string name="label_coverage_full">     Full (tuition plus stipend)</string>
     <string name="label_coverage">          Costs Covered</string>
     <string name="hint_link">               Where to find more info online</string>

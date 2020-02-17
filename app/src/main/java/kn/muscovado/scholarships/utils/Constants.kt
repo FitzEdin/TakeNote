@@ -45,6 +45,7 @@ class Constants{
     val STATUS_VETTED = "vetted"
     val UNVETTED_ITEM = ""
 
+    val TUITION = "Tuition"
     val PARTIAL = "Partial"
     val FULL = "Full"
 
