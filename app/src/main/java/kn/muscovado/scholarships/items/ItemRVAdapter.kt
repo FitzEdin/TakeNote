@@ -41,8 +41,8 @@ class ItemRVAdapter
 
         // assign item info to views
         holder.mTitleView.text = items[position]?.title
-        holder.mCoverageView.text = items?.get(position)?.coverage + " Funding"
-        holder.mLevelView.text = items?.get(position)?.level + " Degree"
+        holder.mCoverageView.text = items?.get(position)?.coverage
+        holder.mLevelView.text = items?.get(position)?.level
 //        holder.mProgrammeView.text = items[position]?.programme
 //        holder.mLocationView.text = items[position]?.location
         holder.mOpenToView.text = items[position]?.open_to

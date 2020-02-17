@@ -67,8 +67,8 @@ class OldListFragment : Fragment() {
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
             holder.mTitleView.text = items[position]?.title
-            holder.mCoverageView.text = items[position]?.coverage + " Funding"
-            holder.mProgrammeView.text = items[position]?.programme + "Degree"
+            holder.mCoverageView.text = items[position]?.coverage
+            holder.mProgrammeView.text = items[position]?.programme
             holder.mLocationView.text = items[position]?.location
             holder.mLevelView.text = items[position]?.level
             holder.mOpenToView.text = items[position]?.open_to

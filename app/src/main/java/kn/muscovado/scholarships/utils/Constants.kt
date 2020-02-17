@@ -37,6 +37,8 @@ class Constants{
     val QUESTION_LINK_DROP = "Did you drop a link?"
     val SUCCESS_LINK_UPLOAD = "Thanks for the link!"
     val ERROR_LINK_UPLOAD = "Check your internet connection!"
+    val SUCCESS_SCHOL_UPLOAD = "Scholarship info updated"
+    val ERROR_SCHOL_UPLOAD = "Check your internet connection!"
 
     val STATUS_NEW = "new"
     val STATUS_OLD = "old"
@@ -48,7 +50,8 @@ class Constants{
 
     val LEVEL_FOUR = "PostDoc"
     val LEVEL_THREE = "PhD"
-    val LEVEL_TWO = "Postgraduate"
+    val LEVEL_TWO = "Masters"
+    val LEVEL_TWOB = "Postgraduate"
     val LEVEL_ONE = "Bachelors"
     val LEVEL_ZERO = "Short Course"
 }
