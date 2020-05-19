@@ -17,8 +17,8 @@ import com.android.volley.toolbox.BasicNetwork
 import com.android.volley.toolbox.DiskBasedCache
 import com.android.volley.toolbox.HurlStack
 import com.android.volley.toolbox.JsonObjectRequest
+import com.google.android.material.snackbar.Snackbar
 import io.realm.Realm
-import io.realm.kotlin.delete
 import io.realm.kotlin.where
 import kn.muscovado.scholarships.R
 import kn.muscovado.scholarships.content.Item
@@ -105,7 +105,11 @@ class EditItemFragment : Fragment() {
 
     // save changes to item when button clicked
     private fun saveItem(){
-        Toast.makeText(this.requireContext(), "Saving Item", Toast.LENGTH_LONG).show()
+        Snackbar.make(
+            activity?.findViewById(R.id.fragment)!!,
+            "Saving Item",
+            Snackbar.LENGTH_LONG
+        ).show()
 
         realm.beginTransaction()
 
@@ -222,5 +226,4 @@ class EditItemFragment : Fragment() {
         // send request
         requestQueue.add(request)
     }
-
 }

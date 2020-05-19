@@ -41,16 +41,18 @@ class ItemRVAdapter
 
         // assign item info to views
         holder.mTitleView.text = items[position]?.title
-        holder.mCoverageView.text = items?.get(position)?.coverage
-        holder.mLevelView.text = items?.get(position)?.level
+        holder.mCoverageView.text = items[position]?.coverage
+        holder.mLevelView.text = items[position]?.level
 //        holder.mProgrammeView.text = items[position]?.programme
 //        holder.mLocationView.text = items[position]?.location
         holder.mOpenToView.text = items[position]?.open_to
+        Log.d(constants.LOG_TAG, "Item Number " + items[position]?._id)
+        Log.d(constants.LOG_TAG, "Item Number " + items[position]?.status)
         holder.mInitialView.text = holder.mTitleView.text.first().toString()
 
         // navigate to details fragment
         val mOnClickListener = View.OnClickListener {
-            Log.d(constants.LOG_TAG, "Item Number " + items?.get(position)?._id)
+            Log.d(constants.LOG_TAG, "Item Number " + items[position]?._id)
             bundle.putString(constants.TAG_ITEM, items[position]?._id!!)
             Navigation.findNavController(holder.mView).navigate(R.id.action_to_itemDetailsFrag, bundle)
         }

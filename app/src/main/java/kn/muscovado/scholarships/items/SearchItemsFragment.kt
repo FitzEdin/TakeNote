@@ -117,8 +117,8 @@ class SearchItemsFragment : Fragment() {
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
             holder.mTitleView.text = items?.get(position)?.title
-            holder.mCoverageView.text = items?.get(position)?.coverage + " Funding"
-            holder.mLevelView.text = items?.get(position)?.level + " Degree"
+            holder.mCoverageView.text = items?.get(position)?.coverage
+            holder.mLevelView.text = items?.get(position)?.level
 //            holder.mProgrammeView.text = items?.get(position)?.programme
 //            holder.mLocationView.text = items?.get(position)?.location
             holder.mOpenToView.text = items?.get(position)?.open_to

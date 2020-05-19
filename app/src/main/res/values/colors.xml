@@ -4,10 +4,12 @@
     <color name="colorPrimaryDark">#08618A</color>
 <!--    <color name="colorPrimaryDark">#0A87C2</color>-->
 <!--    <color name="colorPrimaryDark">#11212A</color>-->
+
     <color name="colorAccent">#FC670E</color>
     <color name="colorEror">#ED6461</color>
 
-    <color name="colorIcon">#0EB1FC</color>
+    <color name="colorIcon">#EEC940</color>
+<!--    <color name="colorIcon">#0EB1FC</color>-->
 
 <!--    a beautiful dark blue colour -->
 <!--    <color name="colorIcon">#0A87C2</color>-->

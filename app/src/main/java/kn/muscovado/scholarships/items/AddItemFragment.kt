@@ -16,6 +16,7 @@ import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.Response
 import com.android.volley.toolbox.*
+import com.google.android.material.snackbar.Snackbar
 import kn.muscovado.scholarships.R
 import kn.muscovado.scholarships.utils.Constants
 import kotlinx.android.synthetic.main.fragment_add_item.*
@@ -77,11 +78,18 @@ class AddItemFragment : Fragment() {
         val requestQueue = RequestQueue(cache, network).apply { start() }
 
         if (link.isNotEmpty()) {
-            // create toasts for good/bad response
-            val t = Toast.makeText(this.requireContext(), constants.SUCCESS_LINK_UPLOAD, Toast.LENGTH_LONG)
-            t.setGravity(Gravity.CENTER, 0,0)
-            val tError = Toast.makeText(this.requireContext(), constants.ERROR_LINK_UPLOAD, Toast.LENGTH_LONG)
-            tError.setGravity(Gravity.CENTER, 0,0)
+            // create snackbar for good/bad response
+            val s = Snackbar.make(
+                activity?.findViewById(R.id.frag_add_item)!!,
+                constants.SUCCESS_LINK_UPLOAD,
+                Snackbar.LENGTH_LONG
+            )
+
+            val sError = Snackbar.make(
+                activity?.findViewById(R.id.frag_add_item)!!,
+                constants.ERROR_LINK_UPLOAD,
+                Snackbar.LENGTH_LONG
+            )
 
             // create JSONObject for uploading
             val jsonObject = JSONObject().put(constants.ITEM_LINK, link)
@@ -93,13 +101,13 @@ class AddItemFragment : Fragment() {
                 Response.Listener<JSONObject> { response ->
                     Log.d(constants.LOG_TAG, response.toString())
                     //TODO: parse the response here (or in the API) for DB errors
-                    t.show()
+                    s.show()
                     add_item_text.hint = constants.DROP_ANOTHER_LINK
                     clear_item_btn.performClick()
                 },
                 Response.ErrorListener { err ->
                     Log.d(constants.LOG_TAG, err.toString())
-                    tError.show()
+                    sError.show()
                 }
             )
 
@@ -111,9 +119,5 @@ class AddItemFragment : Fragment() {
             tEmpty.setGravity(Gravity.CENTER, 0,0)
             tEmpty.show()
         }
-    }
-
-    fun onButtonClicked(view : View) {
-
     }
 }

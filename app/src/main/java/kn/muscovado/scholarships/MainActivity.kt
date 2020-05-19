@@ -7,12 +7,10 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.net.ConnectivityManager
 import android.net.wifi.WifiManager
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.Gravity
-import android.widget.Toast
 import androidx.annotation.NonNull
+import androidx.appcompat.app.AppCompatActivity
 import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.Response
@@ -20,6 +18,7 @@ import com.android.volley.toolbox.BasicNetwork
 import com.android.volley.toolbox.DiskBasedCache
 import com.android.volley.toolbox.HurlStack
 import com.android.volley.toolbox.JsonArrayRequest
+import com.google.android.material.snackbar.Snackbar
 import io.realm.Realm
 import io.realm.kotlin.where
 import kn.muscovado.scholarships.content.Item
@@ -33,6 +32,7 @@ class MainActivity : AppCompatActivity() {
     private var rcvr : BroadcastReceiver = makeBroadcastReceiver()
     private var realm = Realm.getDefaultInstance()
     private val constants = Constants()
+    private var snackColor = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,17 +62,29 @@ class MainActivity : AppCompatActivity() {
         return object : BroadcastReceiver() {
             override fun onReceive(context: Context, intent: Intent) {
 
-                val msg = when (isConnected()) {
-                    true -> "Online"
-                    else -> "No network"
-                }
-
-                val t = Toast.makeText(applicationContext, msg, Toast.LENGTH_LONG)
-                t.setGravity(Gravity.CENTER, 0, 0)
-                t.show()
+                val s = Snackbar.make(
+                    findViewById(R.id.fragment),
+                    getMsg(),
+                    Snackbar.LENGTH_LONG
+                )
+                s.view.setBackgroundColor(snackColor)
+                s.show()
             }
         }
 
+    }
+
+    private fun getMsg() : String {
+        return when (isConnected()) {
+            true -> {
+                snackColor = resources.getColor(R.color.colorPrimaryDark)
+                "Online"
+            }
+            else -> {
+                snackColor = resources.getColor(R.color.colorError)
+                "No network"
+            }
+        }
     }
 
     private fun getItems() {
@@ -88,6 +100,7 @@ class MainActivity : AppCompatActivity() {
             Response.Listener<JSONArray> { response: JSONArray ->
                 Log.d(constants.LOG_TAG, response.toString())
 
+                /** TODO: remove items one by one */
                 // Clear existing Realm
                 realm.beginTransaction()
                 realm.where<Item>().findAll().deleteAllFromRealm()
@@ -119,7 +132,7 @@ class MainActivity : AppCompatActivity() {
     @Throws(JSONException::class)
     private fun getItem(bob: JSONObject): Item {
         if (bob.getString(constants.ITEM_STATUS) == constants.STATUS_VETTED) {
-            Log.d("getItem()", bob.getString(constants.ITEM_TITLE))
+            Log.d(constants.LOG_TAG, bob.getString(constants.ITEM_TITLE))
 
             return Item(
                 bob.getString(constants.ITEM_ID),
@@ -133,7 +146,7 @@ class MainActivity : AppCompatActivity() {
                 bob.getString(constants.ITEM_STATUS)
             )
         }else {
-            Log.d("getItem()", bob.getString(constants.ITEM_ID))
+            Log.d(constants.LOG_TAG, bob.getString(constants.ITEM_ID))
 
             return Item(
                 bob.getString(constants.ITEM_ID),

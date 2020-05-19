@@ -67,7 +67,7 @@
                     android:textColor="@color/colorText"
 
                     android:textColorHint="@color/colorHint"
-                    android:textSize="18sp" />
+                    android:textSize="@dimen/md_text_size" />
 
             <TextView
                     android:id="@+id/search_amount"
