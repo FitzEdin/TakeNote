@@ -1,4 +1,4 @@
-package kn.muscovado.scholarships.items
+package kn.muscovado.takenote.items
 
 
 import android.os.Bundle
@@ -17,9 +17,9 @@ import io.realm.Case
 import io.realm.Realm
 import io.realm.RealmResults
 import io.realm.kotlin.where
-import kn.muscovado.scholarships.R
-import kn.muscovado.scholarships.content.Item
-import kn.muscovado.scholarships.utils.Constants
+import kn.muscovado.takenote.R
+import kn.muscovado.takenote.content.Item
+import kn.muscovado.takenote.utils.Constants
 import kotlinx.android.synthetic.main.fragment_search_items.*
 import kotlinx.android.synthetic.main.item_list.view.*
 
@@ -122,7 +122,6 @@ class SearchItemsFragment : Fragment() {
 //            holder.mProgrammeView.text = items?.get(position)?.programme
 //            holder.mLocationView.text = items?.get(position)?.location
             holder.mOpenToView.text = items?.get(position)?.open_to
-            holder.mInitialView.text = holder.mTitleView.text.first().toString()
 
             val mOnClickListener = View.OnClickListener {
                 Log.d(constants.LOG_TAG, constants.LOG_MSG_ITEM_LINK + items?.get(position)?.link)
@@ -146,7 +145,6 @@ class SearchItemsFragment : Fragment() {
 //            val mProgrammeView: TextView = mView.item_programme
 //            val mLocationView: TextView = mView.item_location
             val mOpenToView: TextView = mView.item_open_to
-            val mInitialView: TextView = mView.item_initial
 
             override fun toString(): String {
                 return super.toString() + " '" + mTitleView.text + "'"

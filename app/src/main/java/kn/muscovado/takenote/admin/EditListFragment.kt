@@ -1,4 +1,4 @@
-package kn.muscovado.scholarships.admin
+package kn.muscovado.takenote.admin
 
 
 import android.os.Bundle
@@ -9,8 +9,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import androidx.navigation.Navigation
-import kn.muscovado.scholarships.utils.Constants
-import kn.muscovado.scholarships.R
+import kn.muscovado.takenote.utils.Constants
+import kn.muscovado.takenote.R
 import kotlinx.android.synthetic.main.fragment_edit_list.*
 
 /**

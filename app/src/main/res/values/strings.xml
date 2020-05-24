@@ -1,24 +1,24 @@
 <resources>
-    <string name="app_name">Scholarships.kn</string>
+    <string name="app_name">TakeNote</string>
 
     <!-- Items -->
-    <string name="title_item_details">Scholarship</string>
-    <string name="title_add_item">Send a Link</string>
-    <string name="hint_search_items">Search for scholarships</string>
-    <string name="hint_getting_items">Getting scholarships</string>
+    <string name="title_item_details">Notice</string>
+    <string name="title_add_item">New notice</string>
+    <string name="hint_search_items">Search for notices</string>
+    <string name="hint_getting_items">Getting notices</string>
 
-    <!-- Scholarships -->
-    <string name="title_edit_item">Edit Scholarship</string>
+    <!-- Notices -->
+    <string name="title_edit_item">Edit Notice</string>
     <string name="save_item">SAVE</string>
     <string name="delete_item">DELETE</string>
 
 
-    <string name="hint_add_item">Drop a link to a scholarship</string>
+    <string name="hint_add_item">Drop a link to a notice</string>
     <string name="add_item">Add</string>
     <string name="clear_item">Clear</string>
 
     <!-- Dummy Strings -->
-    <string name="dummy_title">Bill Jenkins Scholarship</string>
+    <string name="dummy_title">Bill Jenkins Notice</string>
     <string name="dummy_id">3456789ugf5678</string>
     <string name="dummy_item">
         <![CDATA[Every person who works for an employer is regarded as an insured person by
@@ -28,33 +28,33 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">    Hello blank fragment</string>
     <string name="back_button_description"> Back Button</string>
-    <string name="title_items">             Scholarships</string>
+    <string name="title_items">             Take Note</string>
     <string name="view_website">            View Website</string>
-    <string name="hint_open_to">            Award is open to citizens of..</string>
-    <string name="label_open_to">           Eligible Nationalities</string>
+    <string name="hint_open_to">            Text of notice</string>
+    <string name="label_open_to">           Description</string>
     <string name="label_level_four">        PostDoc</string>
     <string name="label_level_three">       PhD</string>
     <string name="label_level_two">         PostGrad/Masters</string>
     <string name="label_level_one">         Bachelors</string>
     <string name="label_level_zero">        Short Course</string>
     <string name="label_level">             Academic Level</string>
-    <string name="hint_programme">          Possible study areas to pursue..</string>
-    <string name="label_programme">         Area of Study</string>
-    <string name="label_location">          Where to Study</string>
-    <string name="hint_location">           Scholarship can be taken at/in..</string>
+    <string name="hint_programme">          3rd May, 2020 at 9:30pm</string>
+    <string name="label_programme">         Date</string>
+    <string name="label_location">          When is the event happening?</string>
+    <string name="hint_location">           Date</string>
     <string name="label_coverage_partial">  Partial (part tuition or stipend)</string>
     <string name="label_coverage_tuition">  Tuition</string>
     <string name="label_coverage_full">     Full (tuition plus stipend)</string>
     <string name="label_coverage">          Costs Covered</string>
-    <string name="hint_link">               Where to find more info online</string>
-    <string name="label_link">              Website</string>
-    <string name="hint_title">              Name of scholarship</string>
-    <string name="label_title">             Name of Award</string>
+    <string name="hint_link">               Ministry the notice applies to</string>
+    <string name="label_link">              Department</string>
+    <string name="hint_title">              Church/territory the notice applies to</string>
+    <string name="label_title">             Territory</string>
     <string name="hint_vetted">             Make item visible to public</string>
     <string name="label_vetted">            Vetting Status</string>
-    <string name="login_btn">ENTER</string>
-    <string name="hint_login">Enter your PIN</string>
-    <string name="label_login">Secure PIN</string>
-    <string name="title_login">Login</string>
-    <string name="title_edit_list">Manage Scholarships</string>
+    <string name="login_btn">               ENTER</string>
+    <string name="hint_login">              Enter your PIN</string>
+    <string name="label_login">             Secure PIN</string>
+    <string name="title_login">             Login</string>
+    <string name="title_edit_list">         Manage Notices</string>
 </resources>

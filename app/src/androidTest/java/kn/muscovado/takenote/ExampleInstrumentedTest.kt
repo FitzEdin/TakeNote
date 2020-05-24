@@ -1,4 +1,4 @@
-package kn.muscovado.scholarships
+package kn.muscovado.takenote
 
 import androidx.test.InstrumentationRegistry
 import androidx.test.runner.AndroidJUnit4

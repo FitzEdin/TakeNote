@@ -26,10 +26,10 @@
     <font
             android:font="@font/lato_light"
             android:fontStyle="normal"
-            android:fontWeight="700"
+            android:fontWeight="100"
 
             app:font="@font/lato_light"
             app:fontStyle="normal"
-            app:fontWeight="700" />
+            app:fontWeight="100" />
 
 </font-family>

@@ -31,12 +31,13 @@
                     android:layout_height="match_parent"
 
                     android:layout_weight="3"
+                    android:paddingTop="8dp"
 
                     android:text="@string/title_items"
                     android:textColor="@color/colorText"
-                    android:textSize="@dimen/lg_text_size"
+                    android:textSize="@dimen/xl_text_size"
                     android:textStyle="bold"
-                    android:fontFamily="@font/lato"
+                    android:fontFamily="@font/greatvibes_regular"
                     android:letterSpacing="0.03"
 
                     android:gravity="start|center"

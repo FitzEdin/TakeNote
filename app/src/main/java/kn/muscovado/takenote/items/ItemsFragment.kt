@@ -1,4 +1,4 @@
-package kn.muscovado.scholarships.items
+package kn.muscovado.takenote.items
 
 
 import android.os.Bundle
@@ -11,9 +11,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import io.realm.Realm
 import io.realm.kotlin.where
-import kn.muscovado.scholarships.utils.Constants
-import kn.muscovado.scholarships.R
-import kn.muscovado.scholarships.content.Item
+import kn.muscovado.takenote.utils.Constants
+import kn.muscovado.takenote.R
+import kn.muscovado.takenote.content.Item
 import kotlinx.android.synthetic.main.fragment_items.*
 
 class ItemsFragment : Fragment() {

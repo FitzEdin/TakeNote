@@ -1,4 +1,4 @@
-package kn.muscovado.scholarships.content
+package kn.muscovado.takenote.content
 
 import io.realm.RealmObject
 

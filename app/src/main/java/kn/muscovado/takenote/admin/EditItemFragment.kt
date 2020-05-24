@@ -1,4 +1,4 @@
-package kn.muscovado.scholarships.admin
+package kn.muscovado.takenote.admin
 
 
 import android.os.Bundle
@@ -20,9 +20,9 @@ import com.android.volley.toolbox.JsonObjectRequest
 import com.google.android.material.snackbar.Snackbar
 import io.realm.Realm
 import io.realm.kotlin.where
-import kn.muscovado.scholarships.R
-import kn.muscovado.scholarships.content.Item
-import kn.muscovado.scholarships.utils.Constants
+import kn.muscovado.takenote.R
+import kn.muscovado.takenote.content.Item
+import kn.muscovado.takenote.utils.Constants
 import kotlinx.android.synthetic.main.fragment_edit_item.*
 import org.json.JSONObject
 
@@ -79,23 +79,6 @@ class EditItemFragment : Fragment() {
         edit_item_programme.setText(item?.programme)
         edit_item_open_to.setText(item?.open_to)
 
-        // radio buttons
-        when(item?.coverage) {
-            constants.FULL -> full_coverage_rbtn.isChecked = true
-            constants.PARTIAL -> partial_coverage_rbtn.isChecked = true
-            constants.TUITION -> tuition_coverage_rbtn.isChecked = true
-        }
-
-        // check boxes
-        when(item?.level) {
-            constants.LEVEL_FOUR -> four_level_check.isChecked = true
-            constants.LEVEL_THREE -> three_level_check.isChecked = true
-            constants.LEVEL_TWOB,
-            constants.LEVEL_TWO -> two_level_check.isChecked = true
-            constants.LEVEL_ONE -> one_level_check.isChecked = true
-            constants.LEVEL_ZERO -> zero_level_check.isChecked = true
-        }
-
         // switch
         edit_item_status.isChecked = when(item?.status) {
             constants.STATUS_VETTED -> true
@@ -119,19 +102,6 @@ class EditItemFragment : Fragment() {
         item?.location = edit_item_location.text.toString()
         item?.programme = edit_item_programme.text.toString()
         item?.open_to = edit_item_open_to.text.toString()
-
-        // save info from radio button
-        when {
-            full_coverage_rbtn.isChecked -> {
-                item?.coverage = constants.FULL
-            }
-            partial_coverage_rbtn.isChecked -> {
-                item?.coverage = constants.PARTIAL
-            }
-            tuition_coverage_rbtn.isChecked -> {
-                item?.coverage = constants.TUITION
-            }
-        }
 
         // save info from switch
         item?.status = when(edit_item_status.isChecked) {

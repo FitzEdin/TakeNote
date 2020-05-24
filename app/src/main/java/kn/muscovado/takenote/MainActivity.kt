@@ -1,4 +1,4 @@
-package kn.muscovado.scholarships
+package kn.muscovado.takenote
 
 
 import android.content.BroadcastReceiver
@@ -21,8 +21,8 @@ import com.android.volley.toolbox.JsonArrayRequest
 import com.google.android.material.snackbar.Snackbar
 import io.realm.Realm
 import io.realm.kotlin.where
-import kn.muscovado.scholarships.content.Item
-import kn.muscovado.scholarships.utils.Constants
+import kn.muscovado.takenote.content.Item
+import kn.muscovado.takenote.utils.Constants
 import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject

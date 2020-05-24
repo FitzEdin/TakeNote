@@ -1,4 +1,4 @@
-package kn.muscovado.scholarships.items
+package kn.muscovado.takenote.items
 
 
 import android.os.Bundle
@@ -11,9 +11,9 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import io.realm.Realm
 import io.realm.kotlin.where
-import kn.muscovado.scholarships.utils.Constants
-import kn.muscovado.scholarships.R
-import kn.muscovado.scholarships.content.Item
+import kn.muscovado.takenote.utils.Constants
+import kn.muscovado.takenote.R
+import kn.muscovado.takenote.content.Item
 import kotlinx.android.synthetic.main.item_list.view.*
 
 /**
@@ -40,15 +40,14 @@ class ItemRVAdapter
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
         // assign item info to views
-        holder.mTitleView.text = items[position]?.title
-        holder.mCoverageView.text = items[position]?.coverage
-        holder.mLevelView.text = items[position]?.level
+//        holder.mTitleView.text = items[position]?.title
+//        holder.mCoverageView.text = items[position]?.coverage
+//        holder.mLevelView.text = items[position]?.level
 //        holder.mProgrammeView.text = items[position]?.programme
 //        holder.mLocationView.text = items[position]?.location
-        holder.mOpenToView.text = items[position]?.open_to
+//        holder.mOpenToView.text = items[position]?.open_to
         Log.d(constants.LOG_TAG, "Item Number " + items[position]?._id)
         Log.d(constants.LOG_TAG, "Item Number " + items[position]?.status)
-        holder.mInitialView.text = holder.mTitleView.text.first().toString()
 
         // navigate to details fragment
         val mOnClickListener = View.OnClickListener {
@@ -73,7 +72,6 @@ class ItemRVAdapter
 //        val mProgrammeView: TextView = mView.item_programme
 //        val mLocationView: TextView = mView.item_location
         val mOpenToView: TextView = mView.item_open_to
-        val mInitialView: TextView = mView.item_initial
 
         override fun toString(): String {
             return super.toString() + " '" + mTitleView.text + "'"
