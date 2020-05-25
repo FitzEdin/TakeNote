@@ -34,7 +34,7 @@ class SearchItemsFragment : Fragment() {
     private var realm = Realm.getDefaultInstance()
     // items matching search query
     private var items: RealmResults<Item>?
-            = realm.where<Item>().contains("title", "nothin", Case.INSENSITIVE).findAll()
+            = realm.where<Item>().contains(constants.ITEM_DESCRIPTION, "nothin", Case.INSENSITIVE).findAll()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -115,12 +115,10 @@ class SearchItemsFragment : Fragment() {
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-            holder.mTitleView.text = items?.get(position)?.territory
-            holder.mCoverageView.text = items?.get(position)?.department
-            holder.mLevelView.text = items?.get(position)?.date
-//            holder.mProgrammeView.text = items?.get(position)?.programme
-//            holder.mLocationView.text = items?.get(position)?.location
-//            holder.mOpenToView.text = items?.get(position)?.open_to
+            holder.mCoverageView.text = items?.get(position)?.territory
+            holder.mLevelView.text = items?.get(position)?.department
+            holder.mTitleView.text = items?.get(position)?.description
+            holder.mOpenToView.text = items?.get(position)?.date
 
             val mOnClickListener = View.OnClickListener {
                 Log.d(constants.LOG_TAG, constants.LOG_MSG_ITEM_LINK + items?.get(position)?.description)
@@ -141,8 +139,6 @@ class SearchItemsFragment : Fragment() {
             val mTitleView: TextView = mView.item_title
             val mCoverageView: TextView = mView.item_coverage
             val mLevelView: TextView = mView.item_level
-//            val mProgrammeView: TextView = mView.item_programme
-//            val mLocationView: TextView = mView.item_location
             val mOpenToView: TextView = mView.item_open_to
 
             override fun toString(): String {
