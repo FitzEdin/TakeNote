@@ -125,23 +125,23 @@
 
                 <!-- Description -->
                 <TextView
-                        android:id="@+id/edit_item_open_to_label"
+                        android:id="@+id/edit_item_description_label"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
 
                         android:layout_gravity="start|center"
 
-                        android:layout_marginTop="@dimen/activity_vertical_margin"
-                        android:layout_marginBottom="@dimen/activity_vertical_margin"
+                        android:layout_marginTop="@dimen/sm_margin"
+                        android:layout_marginBottom="@dimen/sm_margin"
 
-                        android:text="@string/label_open_to"
+                        android:text="@string/label_description"
                         android:textSize="@dimen/dl_text_size"
                         android:textColor="@color/colorText"
                         android:fontFamily="@font/lato_bold"
                         android:letterSpacing="0.05"/>
 
                 <EditText
-                        android:id="@+id/edit_item_open_to"
+                        android:id="@+id/edit_item_description"
 
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -150,15 +150,15 @@
 
                         android:gravity="start"
 
-                        android:hint="@string/hint_open_to"
+                        android:hint="@string/hint_description"
                         android:textColorHint="@color/colorHint"
                         android:textColor="@color/colorText"
-                        android:textSize="@dimen/dl_text_size"
+                        android:textSize="@dimen/md_text_size"
                         android:fontFamily="@font/lato"
                         android:letterSpacing="0.03"
-                        android:lineSpacingExtra="4dp"
+                        android:lineSpacingExtra="2dp"
 
-                        android:lines="3"
+                        android:lines="2"
                         android:singleLine="false"
 
                         android:padding="@dimen/sm_margin"
@@ -167,34 +167,25 @@
                         android:imeOptions="actionNext"
                         android:hapticFeedbackEnabled="true"/>
 
-                <View
-                        android:layout_width="128dp"
-                        android:layout_height="@dimen/divider_height"
-                        android:background="@color/colorPrimary"
-
-                        android:layout_marginTop="@dimen/activity_vertical_margin"
-                        android:layout_marginBottom="@dimen/activity_vertical_margin"
-
-                        android:layout_gravity="bottom|center"/>
-
                 <!-- Territory Notice applies to -->
                 <TextView
-                        android:id="@+id/edit_item_title_label"
+                        android:id="@+id/edit_item_territory_label"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
 
                         android:layout_gravity="start|center"
 
-                        android:layout_marginBottom="@dimen/activity_vertical_margin"
+                        android:layout_marginTop="@dimen/sm_margin"
+                        android:layout_marginBottom="@dimen/sm_margin"
 
-                        android:text="@string/label_title"
+                        android:text="@string/label_territory"
                         android:textSize="@dimen/dl_text_size"
                         android:textColor="@color/colorText"
                         android:fontFamily="@font/lato_bold"
                         android:letterSpacing="0.05"/>
 
                 <EditText
-                        android:id="@+id/edit_item_title"
+                        android:id="@+id/edit_item_territory"
 
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -203,7 +194,7 @@
 
                         android:gravity="start|center_vertical"
 
-                        android:hint="@string/hint_title"
+                        android:hint="@string/hint_territory"
                         android:textColorHint="@color/colorHint"
                         android:textColor="@color/colorText"
                         android:textSize="@dimen/md_text_size"
@@ -224,24 +215,24 @@
 
                 <!-- Department notice applies to -->
                 <TextView
-                        android:id="@+id/edit_item_link_label"
+                        android:id="@+id/edit_item_department_label"
 
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
 
                         android:layout_gravity="start|center"
 
-                        android:layout_marginTop="@dimen/activity_vertical_margin"
-                        android:layout_marginBottom="@dimen/activity_vertical_margin"
+                        android:layout_marginTop="@dimen/sm_margin"
+                        android:layout_marginBottom="@dimen/sm_margin"
 
-                        android:text="@string/label_link"
+                        android:text="@string/label_department"
                         android:textSize="@dimen/dl_text_size"
                         android:textColor="@color/colorText"
                         android:fontFamily="@font/lato_bold"
                         android:letterSpacing="0.05"/>
 
                 <EditText
-                        android:id="@+id/edit_item_link"
+                        android:id="@+id/edit_item_department"
 
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -250,7 +241,7 @@
 
                         android:gravity="start|center_vertical"
 
-                        android:hint="@string/hint_link"
+                        android:hint="@string/hint_department"
                         android:textColorHint="@color/colorHint"
                         android:textColor="@color/colorText"
                         android:textSize="@dimen/md_text_size"
@@ -268,40 +259,25 @@
                         android:imeOptions="actionNext"
                         android:hapticFeedbackEnabled="true"/>
 
-                <View
-                        android:layout_width="128dp"
-                        android:layout_height="@dimen/divider_height"
-                        android:background="@color/colorPrimary"
-
-                        android:layout_marginTop="@dimen/activity_vertical_margin"
-                        android:layout_marginBottom="@dimen/activity_vertical_margin"
-
-                        android:layout_gravity="bottom|center"/>
-
-
-
-
-                <!-- ABOUT PROGRAMME -->
-
                 <!-- Date Relevant to Notice -->
                 <TextView
-                        android:id="@+id/edit_item_location_label"
+                        android:id="@+id/edit_item_venue_label"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
 
                         android:layout_gravity="start|center"
 
-                        android:layout_marginTop="@dimen/activity_vertical_margin"
-                        android:layout_marginBottom="@dimen/activity_vertical_margin"
+                        android:layout_marginTop="@dimen/sm_margin"
+                        android:layout_marginBottom="@dimen/sm_margin"
 
-                        android:text="@string/label_location"
+                        android:text="@string/label_venue"
                         android:textSize="@dimen/dl_text_size"
                         android:textColor="@color/colorText"
                         android:fontFamily="@font/lato_bold"
                         android:letterSpacing="0.05"/>
 
                 <EditText
-                        android:id="@+id/edit_item_location"
+                        android:id="@+id/edit_item_venue"
 
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -310,7 +286,7 @@
 
                         android:gravity="start|center_vertical"
 
-                        android:hint="@string/hint_location"
+                        android:hint="@string/hint_venue"
                         android:textColorHint="@color/colorHint"
                         android:textColor="@color/colorText"
                         android:textSize="@dimen/md_text_size"
@@ -331,24 +307,24 @@
 
                 <!-- Location of Event -->
                 <TextView
-                        android:id="@+id/edit_item_programme_label"
+                        android:id="@+id/edit_item_date_label"
 
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
 
                         android:layout_gravity="start|center"
 
-                        android:layout_marginTop="@dimen/activity_vertical_margin"
-                        android:layout_marginBottom="@dimen/activity_vertical_margin"
+                        android:layout_marginTop="@dimen/sm_margin"
+                        android:layout_marginBottom="@dimen/sm_margin"
 
-                        android:text="@string/label_programme"
+                        android:text="@string/label_date"
                         android:textSize="@dimen/dl_text_size"
                         android:textColor="@color/colorText"
                         android:fontFamily="@font/lato_bold"
                         android:letterSpacing="0.05"/>
 
                 <EditText
-                        android:id="@+id/edit_item_programme"
+                        android:id="@+id/edit_item_date"
 
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -357,7 +333,7 @@
 
                         android:gravity="start|center_vertical"
 
-                        android:hint="@string/hint_programme"
+                        android:hint="@string/hint_date"
                         android:textColorHint="@color/colorHint"
                         android:textColor="@color/colorText"
                         android:textSize="@dimen/md_text_size"
@@ -380,18 +356,10 @@
                         android:layout_height="@dimen/divider_height"
                         android:background="@color/colorPrimary"
 
-                        android:layout_marginTop="@dimen/activity_vertical_margin"
-                        android:layout_marginBottom="@dimen/activity_vertical_margin"
+                        android:layout_marginTop="@dimen/sm_margin"
+                        android:layout_marginBottom="@dimen/sm_margin"
 
                         android:layout_gravity="bottom|center"/>
-
-
-
-
-                <!-- STUDENT ELIGIBILITY -->
-
-
-
 
                 <!-- VETTING STATUS -->
 
@@ -403,8 +371,8 @@
 
                         android:layout_gravity="start|center"
 
-                        android:layout_marginTop="@dimen/activity_vertical_margin"
-                        android:layout_marginBottom="@dimen/activity_vertical_margin"
+                        android:layout_marginTop="@dimen/sm_margin"
+                        android:layout_marginBottom="@dimen/sm_margin"
 
                         android:text="@string/label_vetted"
                         android:textSize="@dimen/dl_text_size"
@@ -451,8 +419,8 @@
                         android:layout_height="@dimen/divider_height"
                         android:background="@color/colorPrimary"
 
-                        android:layout_marginTop="@dimen/activity_vertical_margin"
-                        android:layout_marginBottom="@dimen/activity_vertical_margin"
+                        android:layout_marginTop="@dimen/sm_margin"
+                        android:layout_marginBottom="@dimen/sm_margin"
 
                         android:layout_gravity="bottom|center"/>
 

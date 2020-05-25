@@ -99,7 +99,7 @@
                 android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:layout_marginBottom="@dimen/activity_vertical_margin"
 
-                android:text="@string/label_link"
+                android:text="@string/label_department"
                 android:textSize="@dimen/dl_text_size"
                 android:textColor="@color/colorText"
                 android:fontFamily="@font/lato_bold"

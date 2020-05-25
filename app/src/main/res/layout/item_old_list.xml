@@ -20,7 +20,7 @@
 
             android:layout_marginBottom="8dp"
 
-            android:text="@string/label_title"
+            android:text="@string/label_territory"
             android:textSize="@dimen/dl_text_size"
             android:textColor="@color/colorText"
             android:fontFamily="@font/lato_bold"
@@ -40,7 +40,7 @@
 
             android:layout_marginBottom="8dp"
 
-            android:text="@string/label_open_to"
+            android:text="@string/label_description"
             android:textSize="@dimen/md_text_size"
             android:textColor="@color/colorIcon"
             android:fontFamily="@font/lato"
@@ -85,7 +85,7 @@
                 android:layout_weight="2"
                 android:gravity="right"
 
-                android:text="@string/label_location"
+                android:text="@string/label_venue"
                 android:textSize="@dimen/sm_text_size"
                 android:textColor="@color/colorText"
                 android:fontFamily="@font/lato"
@@ -128,7 +128,7 @@
                 android:layout_weight="2"
                 android:gravity="right"
 
-                android:text="@string/label_programme"
+                android:text="@string/label_date"
                 android:textSize="@dimen/sm_text_size"
                 android:textColor="@color/colorText"
                 android:fontFamily="@font/lato"

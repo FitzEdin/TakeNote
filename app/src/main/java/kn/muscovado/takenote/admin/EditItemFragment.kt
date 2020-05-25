@@ -73,9 +73,11 @@ class EditItemFragment : Fragment() {
 
     // populate the form UI with info from the Item
     private fun populateForm() {
-        edit_item_title.setText(item?.territory)
-        edit_item_location.setText(item?.description)
-        edit_item_programme.setText(item?.venue)
+        edit_item_description.setText(item?.description)
+        edit_item_department.setText(item?.department)
+        edit_item_territory.setText(item?.territory)
+        edit_item_venue.setText(item?.venue)
+        edit_item_date.setText(item?.date)
 
         // switch
         edit_item_status.isChecked = when(item?.status) {
@@ -95,9 +97,11 @@ class EditItemFragment : Fragment() {
         realm.beginTransaction()
 
         // save info from textfields
-        item?.territory = edit_item_title.text.toString()
-        item?.description = edit_item_location.text.toString()
-        item?.venue = edit_item_programme.text.toString()
+        item?.description = edit_item_description.text.toString()
+        item?.department = edit_item_department.text.toString()
+        item?.territory = edit_item_territory.text.toString()
+        item?.venue = edit_item_venue.text.toString()
+        item?.date = edit_item_date.text.toString()
 
         // save info from switch
         item?.status = when(edit_item_status.isChecked) {
@@ -126,18 +130,18 @@ class EditItemFragment : Fragment() {
 
         // create JSONObject for uploading
         val jsonObject = JSONObject()
-            .put(constants.ITEM_TERRITORY, item?.territory)
-            .put(constants.ITEM_DEPARTMENT, item?.department)
-            .put(constants.ITEM_DATE, item?.date)
-            .put(constants.ITEM_VENUE, item?.venue)
             .put(constants.ITEM_DESCRIPTION, item?.description)
+            .put(constants.ITEM_DEPARTMENT, item?.department)
+            .put(constants.ITEM_TERRITORY, item?.territory)
+            .put(constants.ITEM_VENUE, item?.venue)
+            .put(constants.ITEM_DATE, item?.date)
             .put(constants.ITEM_STATUS, item?.status)
         Log.d(constants.LOG_TAG, jsonObject.toString())
 
         // create relevant PUT request to update item
         val request = JsonObjectRequest(
             Request.Method.PUT, url + "/" + item?._id, jsonObject,
-            Response.Listener<JSONObject> { response ->
+            Response.Listener { response ->
                 Log.d(constants.LOG_TAG, response.toString())
                 //TODO: parse the response here (or in the API) for DB errors
                 t.show()
