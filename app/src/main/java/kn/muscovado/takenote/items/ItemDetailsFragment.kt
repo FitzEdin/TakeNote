@@ -46,12 +46,12 @@ class ItemDetailsFragment : Fragment() {
         val shareItem = Intent()
             .setAction(Intent.ACTION_SEND)
             .putExtra(Intent.EXTRA_TEXT, constants.SHARE_EXTRA_START +
-                    "${item?.title} for ${item?.open_to}" + constants.SHARE_EXTRA_END)
+                    "${item?.territory} for ${item?.description}" + constants.SHARE_EXTRA_END)
             .setType(constants.TEXT_PLAIN)
 
         // open URL on click
         val mOnClickListener = View.OnClickListener {
-            openURL.data = Uri.parse(item?.link)
+//            openURL.data = Uri.parse(item?.link)
             startActivity(openURL)
         }
         // share item
@@ -60,13 +60,11 @@ class ItemDetailsFragment : Fragment() {
         }
 
         // populate view
-        item_details_link.setOnClickListener(mOnClickListener)
-        item_details_title.text = item?.title
-        item_details_open_to.text = item?.open_to
-        item_details_coverage.text = item?.coverage
-        item_details_level.text = item?.level
-        item_details_location.text = item?.location
-        item_details_programme.text = item?.programme
+        item_details_title.text = item?.territory
+        item_details_coverage.text = item?.department
+        item_details_level.text = item?.date
+        item_details_location.text = item?.description
+        item_details_programme.text = item?.venue
 
         back_item_details.setOnClickListener(
             Navigation.createNavigateOnClickListener(R.id.action_itemDetailsFrag_pop)

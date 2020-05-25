@@ -66,15 +66,14 @@ class OldListFragment : Fragment() {
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-            holder.mTitleView.text = items[position]?.title
-            holder.mCoverageView.text = items[position]?.coverage
-            holder.mProgrammeView.text = items[position]?.programme
-            holder.mLocationView.text = items[position]?.location
-            holder.mLevelView.text = items[position]?.level
-            holder.mOpenToView.text = items[position]?.open_to
+            holder.mTitleView.text = items[position]?.territory
+            holder.mCoverageView.text = items[position]?.department
+            holder.mProgrammeView.text = items[position]?.venue
+            holder.mLocationView.text = items[position]?.description
+            holder.mLevelView.text = items[position]?.date
 
             val mOnClickListener = View.OnClickListener {
-                Log.d(constants.LOG_TAG, constants.LOG_MSG_ITEM_LINK + items?.get(position)?.link)
+                Log.d(constants.LOG_TAG, constants.LOG_MSG_ITEM_LINK + items?.get(position)?.description)
 
                 bundle.putString(constants.TAG_ITEM, items?.get(position)?._id)
                 Navigation.findNavController(holder.mView).navigate(R.id.action_to_editItemFrag, bundle)

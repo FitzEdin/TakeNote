@@ -30,7 +30,7 @@ import org.json.JSONObject
  */
 class AddItemFragment : Fragment() {
     private val constants = Constants()
-    private val url = constants.BASE_URL + constants.PORT + constants.LINKS
+    private val url = constants.BASE_URL + constants.PORT + constants.NOTICES
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -70,14 +70,14 @@ class AddItemFragment : Fragment() {
     }
 
     // upload item information or ask for a link
-    private fun addItem(link: String) {
+    private fun addItem(description: String) {
 
         // set up utilities
         val cache = DiskBasedCache(activity?.cacheDir, 1024 * 1024)
         val network = BasicNetwork(HurlStack(null, null))
         val requestQueue = RequestQueue(cache, network).apply { start() }
 
-        if (link.isNotEmpty()) {
+        if (description.isNotEmpty()) {
             // create snackbar for good/bad response
             val s = Snackbar.make(
                 activity?.findViewById(R.id.frag_add_item)!!,
@@ -92,7 +92,7 @@ class AddItemFragment : Fragment() {
             )
 
             // create JSONObject for uploading
-            val jsonObject = JSONObject().put(constants.ITEM_LINK, link)
+            val jsonObject = JSONObject().put(constants.ITEM_DESCRIPTION, description)
             Log.d(constants.LOG_TAG, jsonObject.toString())
 
             // create relevant POST request

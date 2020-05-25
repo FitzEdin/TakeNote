@@ -68,11 +68,11 @@ class NewListFragment : Fragment() {
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-            holder.mTitleView.text = items[position]?.title
-            holder.mLinkView.text = items[position]?.link
+            holder.mTitleView.text = items[position]?.territory
+            holder.mLinkView.text = items[position]?.description
 
             val mOnClickListener = View.OnClickListener {
-                Log.d(constants.LOG_TAG, constants.LOG_MSG_ITEM_LINK + items[position]?.link)
+                Log.d(constants.LOG_TAG, constants.LOG_MSG_ITEM_LINK + items[position]?.description)
 
                 bundle.putString(constants.TAG_ITEM, items[position]?._id)
                 Navigation.findNavController(holder.mView).navigate(R.id.action_to_editItemFrag, bundle)

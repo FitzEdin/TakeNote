@@ -32,7 +32,7 @@ import org.json.JSONObject
 class EditItemFragment : Fragment() {
     private val constants = Constants()
     private var realm = Realm.getDefaultInstance()
-    private val url = constants.BASE_URL + constants.PORT + constants.SCHOLARSHIPS
+    private val url = constants.BASE_URL + constants.PORT + constants.NOTICES
     private var item:Item? = Item()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -73,11 +73,9 @@ class EditItemFragment : Fragment() {
 
     // populate the form UI with info from the Item
     private fun populateForm() {
-        edit_item_title.setText(item?.title)
-        edit_item_link.setText(item?.link)
-        edit_item_location.setText(item?.location)
-        edit_item_programme.setText(item?.programme)
-        edit_item_open_to.setText(item?.open_to)
+        edit_item_title.setText(item?.territory)
+        edit_item_location.setText(item?.description)
+        edit_item_programme.setText(item?.venue)
 
         // switch
         edit_item_status.isChecked = when(item?.status) {
@@ -97,11 +95,9 @@ class EditItemFragment : Fragment() {
         realm.beginTransaction()
 
         // save info from textfields
-        item?.title = edit_item_title.text.toString()
-        item?.link = edit_item_link.text.toString()
-        item?.location = edit_item_location.text.toString()
-        item?.programme = edit_item_programme.text.toString()
-        item?.open_to = edit_item_open_to.text.toString()
+        item?.territory = edit_item_title.text.toString()
+        item?.description = edit_item_location.text.toString()
+        item?.venue = edit_item_programme.text.toString()
 
         // save info from switch
         item?.status = when(edit_item_status.isChecked) {
@@ -130,13 +126,11 @@ class EditItemFragment : Fragment() {
 
         // create JSONObject for uploading
         val jsonObject = JSONObject()
-            .put(constants.ITEM_TITLE, item?.title)
-            .put(constants.ITEM_COVERAGE, item?.coverage)
-            .put(constants.ITEM_LEVEL, item?.level)
-            .put(constants.ITEM_PROGRAMME, item?.programme)
-            .put(constants.ITEM_LOCATION, item?.location)
-            .put(constants.ITEM_OPEN_TO, item?.open_to)
-            .put(constants.ITEM_LINK, item?.link)
+            .put(constants.ITEM_TERRITORY, item?.territory)
+            .put(constants.ITEM_DEPARTMENT, item?.department)
+            .put(constants.ITEM_DATE, item?.date)
+            .put(constants.ITEM_VENUE, item?.venue)
+            .put(constants.ITEM_DESCRIPTION, item?.description)
             .put(constants.ITEM_STATUS, item?.status)
         Log.d(constants.LOG_TAG, jsonObject.toString())
 

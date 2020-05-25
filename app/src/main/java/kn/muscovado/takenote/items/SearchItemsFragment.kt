@@ -83,17 +83,16 @@ class SearchItemsFragment : Fragment() {
      */
     fun searchFor(key: String) {
         items = realm.where<Item>()
-            .contains(constants.ITEM_TITLE, key, Case.INSENSITIVE)
+            .contains(constants.ITEM_TERRITORY, key, Case.INSENSITIVE)
             .or()
-            .contains(constants.ITEM_COVERAGE, key, Case.INSENSITIVE)
+            .contains(constants.ITEM_DEPARTMENT, key, Case.INSENSITIVE)
             .or()
-            .contains(constants.ITEM_LEVEL, key, Case.INSENSITIVE)
+            .contains(constants.ITEM_DATE, key, Case.INSENSITIVE)
             .or()
-            .contains(constants.ITEM_PROGRAMME, key, Case.INSENSITIVE)
+            .contains(constants.ITEM_VENUE, key, Case.INSENSITIVE)
             .or()
-            .contains(constants.ITEM_LOCATION, key, Case.INSENSITIVE)
+            .contains(constants.ITEM_DESCRIPTION, key, Case.INSENSITIVE)
             .or()
-            .contains(constants.ITEM_OPEN_TO, key, Case.INSENSITIVE)
             .distinct(constants.ITEM_ID)?.findAll()
         // update count
         val count = items?.size
@@ -116,15 +115,15 @@ class SearchItemsFragment : Fragment() {
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-            holder.mTitleView.text = items?.get(position)?.title
-            holder.mCoverageView.text = items?.get(position)?.coverage
-            holder.mLevelView.text = items?.get(position)?.level
+            holder.mTitleView.text = items?.get(position)?.territory
+            holder.mCoverageView.text = items?.get(position)?.department
+            holder.mLevelView.text = items?.get(position)?.date
 //            holder.mProgrammeView.text = items?.get(position)?.programme
 //            holder.mLocationView.text = items?.get(position)?.location
-            holder.mOpenToView.text = items?.get(position)?.open_to
+//            holder.mOpenToView.text = items?.get(position)?.open_to
 
             val mOnClickListener = View.OnClickListener {
-                Log.d(constants.LOG_TAG, constants.LOG_MSG_ITEM_LINK + items?.get(position)?.link)
+                Log.d(constants.LOG_TAG, constants.LOG_MSG_ITEM_LINK + items?.get(position)?.description)
 
                 bundle.putString(constants.TAG_ITEM, items?.get(position)?._id)
                 Navigation.findNavController(holder.mView).navigate(R.id.action_to_itemDetailsFrag, bundle)

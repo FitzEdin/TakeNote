@@ -88,7 +88,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun getItems() {
-        val url = constants.BASE_URL + constants.PORT + constants.SCHOLARSHIPS
+        val url = constants.BASE_URL + constants.PORT + constants.NOTICES
         val cache = DiskBasedCache(cacheDir, 1024 * 1024)
         val network = BasicNetwork(HurlStack(null, null))
         val requestQueue = RequestQueue(cache, network).apply { start() }
@@ -132,17 +132,15 @@ class MainActivity : AppCompatActivity() {
     @Throws(JSONException::class)
     private fun getItem(bob: JSONObject): Item {
         if (bob.getString(constants.ITEM_STATUS) == constants.STATUS_VETTED) {
-            Log.d(constants.LOG_TAG, bob.getString(constants.ITEM_TITLE))
+            Log.d(constants.LOG_TAG, bob.getString(constants.ITEM_TERRITORY))
 
             return Item(
                 bob.getString(constants.ITEM_ID),
-                bob.getString(constants.ITEM_TITLE),
-                bob.getString(constants.ITEM_COVERAGE),
-                bob.getString(constants.ITEM_LEVEL),
-                bob.getString(constants.ITEM_PROGRAMME),
-                bob.getString(constants.ITEM_LOCATION),
-                bob.getString(constants.ITEM_OPEN_TO),
-                bob.getString(constants.ITEM_LINK),
+                bob.getString(constants.ITEM_TERRITORY),
+                bob.getString(constants.ITEM_DEPARTMENT),
+                bob.getString(constants.ITEM_DATE),
+                bob.getString(constants.ITEM_VENUE),
+                bob.getString(constants.ITEM_DESCRIPTION),
                 bob.getString(constants.ITEM_STATUS)
             )
         }else {
@@ -155,8 +153,6 @@ class MainActivity : AppCompatActivity() {
                 constants.UNVETTED_ITEM,
                 constants.UNVETTED_ITEM,
                 constants.UNVETTED_ITEM,
-                constants.UNVETTED_ITEM,
-                bob.getString(constants.ITEM_LINK),
                 bob.getString(constants.ITEM_STATUS)
             )
         }

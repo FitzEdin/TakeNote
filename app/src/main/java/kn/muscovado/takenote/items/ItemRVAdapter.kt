@@ -40,12 +40,10 @@ class ItemRVAdapter
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
         // assign item info to views
-//        holder.mTitleView.text = items[position]?.title
-//        holder.mCoverageView.text = items[position]?.coverage
-//        holder.mLevelView.text = items[position]?.level
-//        holder.mProgrammeView.text = items[position]?.programme
-//        holder.mLocationView.text = items[position]?.location
-//        holder.mOpenToView.text = items[position]?.open_to
+        holder.mCoverageView.text = items[position]?.territory
+        holder.mLevelView.text = items[position]?.department
+        holder.mTitleView.text = items[position]?.description
+        holder.mOpenToView.text = items[position]?.date
         Log.d(constants.LOG_TAG, "Item Number " + items[position]?._id)
         Log.d(constants.LOG_TAG, "Item Number " + items[position]?.status)
 
@@ -66,9 +64,9 @@ class ItemRVAdapter
 
     inner class ViewHolder(val mView: View) : RecyclerView.ViewHolder(mView) {
         // get handle on views
-        val mTitleView: TextView = mView.item_title
         val mCoverageView: TextView = mView.item_coverage
         val mLevelView: TextView = mView.item_level
+        val mTitleView: TextView = mView.item_title
 //        val mProgrammeView: TextView = mView.item_programme
 //        val mLocationView: TextView = mView.item_location
         val mOpenToView: TextView = mView.item_open_to
