@@ -118,9 +118,9 @@ class EditItemFragment : Fragment() {
         Toast.makeText(this.requireContext(), "Uploading Item", Toast.LENGTH_LONG).show()
 
         // create toasts for good/bad response
-        val t = Toast.makeText(this.requireContext(), constants.SUCCESS_SCHOL_UPLOAD, Toast.LENGTH_LONG)
+        val t = Toast.makeText(this.requireContext(), constants.SUCCESS_ITEM_UPLOAD, Toast.LENGTH_LONG)
         t.setGravity(Gravity.CENTER, 0,0)
-        val tError = Toast.makeText(this.requireContext(), constants.ERROR_SCHOL_UPLOAD, Toast.LENGTH_LONG)
+        val tError = Toast.makeText(this.requireContext(), constants.ERROR_ITEM_UPLOAD, Toast.LENGTH_LONG)
         tError.setGravity(Gravity.CENTER, 0,0)
 
         // set up network utilities
@@ -162,9 +162,9 @@ class EditItemFragment : Fragment() {
         Toast.makeText(this.requireContext(), "Deleting Item", Toast.LENGTH_LONG).show()
 
         // create toasts for good/bad response
-        val t = Toast.makeText(this.requireContext(), constants.SUCCESS_SCHOL_DELETE, Toast.LENGTH_LONG)
+        val t = Toast.makeText(this.requireContext(), constants.SUCCESS_ITEM_DELETE, Toast.LENGTH_LONG)
         t.setGravity(Gravity.CENTER, 0,0)
-        val tError = Toast.makeText(this.requireContext(), constants.ERROR_SCHOL_DELETE, Toast.LENGTH_LONG)
+        val tError = Toast.makeText(this.requireContext(), constants.ERROR_ITEM_DELETE, Toast.LENGTH_LONG)
         tError.setGravity(Gravity.CENTER, 0,0)
 
         // set up network utilities

@@ -46,7 +46,8 @@ class ItemDetailsFragment : Fragment() {
         val shareItem = Intent()
             .setAction(Intent.ACTION_SEND)
             .putExtra(Intent.EXTRA_TEXT, constants.SHARE_EXTRA_START +
-                    "${item?.territory} for ${item?.description}" + constants.SHARE_EXTRA_END)
+                    "${item?.territory} for ${item?.description}" +
+                    constants.SHARE_EXTRA_END + constants.SHARE_EXTRA_LINK)
             .setType(constants.TEXT_PLAIN)
 
         // open URL on click

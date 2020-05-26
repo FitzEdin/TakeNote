@@ -17,13 +17,4 @@
         <item name="android:fontFamily">@font/lato</item>
     </style>
 
-    <style name="BottomNavTextActive">
-        <item name="android:fontFamily">@font/lato</item>
-        <item name="android:textSize">@dimen/sm_text_size</item>
-    </style>
-    <style name="BottomNavTextInactive">
-        <item name="android:fontFamily">@font/lato</item>
-        <item name="android:textSize">@dimen/xs_text_size</item>
-    </style>
-
 </resources>

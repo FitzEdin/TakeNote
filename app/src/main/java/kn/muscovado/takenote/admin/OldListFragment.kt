@@ -17,7 +17,7 @@ import kn.muscovado.takenote.utils.Constants
 import kn.muscovado.takenote.R
 import kn.muscovado.takenote.content.Item
 import kotlinx.android.synthetic.main.fragment_old_list.*
-import kotlinx.android.synthetic.main.item_old_list.view.*
+import kotlinx.android.synthetic.main.item_list.view.*
 
 /**
  * A simple [Fragment] subclass.
@@ -60,17 +60,16 @@ class OldListFragment : Fragment() {
         : RecyclerView.Adapter<OldListRVAdapter.ViewHolder>() {
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-            val view = LayoutInflater.from(parent.context).inflate(R.layout.item_old_list, parent, false)
+            val view = LayoutInflater.from(parent.context).inflate(R.layout.item_list, parent, false)
             return ViewHolder(view)
         }
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-            holder.mTitleView.text = items[position]?.territory
-            holder.mCoverageView.text = items[position]?.department
-            holder.mProgrammeView.text = items[position]?.venue
-            holder.mLocationView.text = items[position]?.description
-            holder.mLevelView.text = items[position]?.date
+            holder.mDescriptionView.text = items[position]?.description
+            holder.mTerritoryView.text = items[position]?.territory
+            holder.mDepartmentView.text = items[position]?.department
+            holder.mDateView.text = items[position]?.date
 
             val mOnClickListener = View.OnClickListener {
                 Log.d(constants.LOG_TAG, constants.LOG_MSG_ITEM_LINK + items?.get(position)?.description)
@@ -88,15 +87,13 @@ class OldListFragment : Fragment() {
         override fun getItemCount(): Int = items?.size!!
 
         inner class ViewHolder(val mView: View) : RecyclerView.ViewHolder(mView) {
-            val mTitleView: TextView = mView.item_title
-            val mCoverageView: TextView = mView.item_coverage
-            val mLevelView: TextView = mView.item_level
-            val mProgrammeView: TextView = mView.item_programme
-            val mLocationView: TextView = mView.item_location
-            val mOpenToView: TextView = mView.item_open_to
+            val mDescriptionView: TextView = mView.item_description
+            val mTerritoryView: TextView = mView.item_territory
+            val mDepartmentView: TextView = mView.item_department
+            val mDateView: TextView = mView.item_date
 
             override fun toString(): String {
-                return super.toString() + " '" + mTitleView.text + "'"
+                return super.toString() + " '" + mDescriptionView.text + "'"
             }
         }
     }

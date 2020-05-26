@@ -87,7 +87,7 @@ class NewListFragment : Fragment() {
         override fun getItemCount(): Int = items?.size!!
 
         inner class ViewHolder(val mView: View) : RecyclerView.ViewHolder(mView) {
-            val mTitleView: TextView = mView.item_title
+            val mTitleView: TextView = mView.item_description
             val mLinkView: TextView = mView.item_link
 
             override fun toString(): String {

@@ -115,10 +115,10 @@ class SearchItemsFragment : Fragment() {
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-            holder.mCoverageView.text = items?.get(position)?.territory
-            holder.mLevelView.text = items?.get(position)?.department
-            holder.mTitleView.text = items?.get(position)?.description
-            holder.mOpenToView.text = items?.get(position)?.date
+            holder.mDescriptionView.text = items?.get(position)?.description
+            holder.mTerritoryView.text = items?.get(position)?.territory
+            holder.mDepartmentView.text = items?.get(position)?.department
+            holder.mDateView.text = items?.get(position)?.date
 
             val mOnClickListener = View.OnClickListener {
                 Log.d(constants.LOG_TAG, constants.LOG_MSG_ITEM_LINK + items?.get(position)?.description)
@@ -136,13 +136,13 @@ class SearchItemsFragment : Fragment() {
         override fun getItemCount(): Int = items?.size!!
 
         inner class ViewHolder(val mView: View) : RecyclerView.ViewHolder(mView) {
-            val mTitleView: TextView = mView.item_title
-            val mCoverageView: TextView = mView.item_coverage
-            val mLevelView: TextView = mView.item_level
-            val mOpenToView: TextView = mView.item_open_to
+            val mDescriptionView: TextView = mView.item_description
+            val mTerritoryView: TextView = mView.item_territory
+            val mDepartmentView: TextView = mView.item_department
+            val mDateView: TextView = mView.item_date
 
             override fun toString(): String {
-                return super.toString() + " '" + mTitleView.text + "'"
+                return super.toString() + " '" + mDescriptionView.text + "'"
             }
         }
     }

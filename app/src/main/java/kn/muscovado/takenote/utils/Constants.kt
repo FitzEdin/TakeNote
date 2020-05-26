@@ -27,17 +27,18 @@ class Constants{
     val TEXT_PLAIN = "text/plain"
     val SHARE_TITLE = "Share this notice on..."
     val SHARE_EXTRA_START = "You should check out "
-    val SHARE_EXTRA_END = " on TakeNote.kn!\n\nDownload the app from Google Play http://goo.gl/6WSXON"
+    val SHARE_EXTRA_END = " on TakeNote.kn!\n\nDownload the app from Google Play "
+    val SHARE_EXTRA_LINK = "http://goo.gl/6WSXON"
 
     // strings for uploading links
     val DROP_ANOTHER_LINK = "Drop another link"
     val QUESTION_LINK_DROP = "Did you drop a link?"
     val SUCCESS_LINK_UPLOAD = "Thanks for the link!"
     val ERROR_LINK_UPLOAD = "Check your internet connection!"
-    val SUCCESS_SCHOL_UPLOAD = "Scholarship info updated"
-    val ERROR_SCHOL_UPLOAD = "Check your internet connection!"
-    val SUCCESS_SCHOL_DELETE = "Scholarship deleted"
-    val ERROR_SCHOL_DELETE = "Check your internet connection!"
+    val SUCCESS_ITEM_UPLOAD = "Notice info updated"
+    val ERROR_ITEM_UPLOAD = "Check your internet connection!"
+    val SUCCESS_ITEM_DELETE = "Notice deleted"
+    val ERROR_ITEM_DELETE = "Check your internet connection!"
 
     val STATUS_NEW = "new"
     val STATUS_OLD = "old"
