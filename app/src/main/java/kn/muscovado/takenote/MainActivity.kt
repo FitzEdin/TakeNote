@@ -131,30 +131,15 @@ class MainActivity : AppCompatActivity() {
     @NonNull
     @Throws(JSONException::class)
     private fun getItem(bob: JSONObject): Item {
-        if (bob.getString(constants.ITEM_STATUS) == constants.STATUS_VETTED) {
-            Log.d(constants.LOG_TAG, bob.getString(constants.ITEM_TERRITORY))
 
-            return Item(
-                bob.getString(constants.ITEM_ID),
-                bob.getString(constants.ITEM_TERRITORY),
-                bob.getString(constants.ITEM_DEPARTMENT),
-                bob.getString(constants.ITEM_DATE),
-                bob.getString(constants.ITEM_VENUE),
-                bob.getString(constants.ITEM_DESCRIPTION),
-                bob.getString(constants.ITEM_STATUS)
-            )
-        }else {
-            Log.d(constants.LOG_TAG, bob.getString(constants.ITEM_ID))
-
-            return Item(
-                bob.getString(constants.ITEM_ID),
-                constants.UNVETTED_ITEM,
-                constants.UNVETTED_ITEM,
-                constants.UNVETTED_ITEM,
-                constants.UNVETTED_ITEM,
-                constants.UNVETTED_ITEM,
-                bob.getString(constants.ITEM_STATUS)
-            )
-        }
+        return Item(
+            bob.getString(constants.ITEM_ID),
+            bob.getString(constants.ITEM_TERRITORY),
+            bob.getString(constants.ITEM_DEPARTMENT),
+            bob.getString(constants.ITEM_DATE),
+            bob.getString(constants.ITEM_VENUE),
+            bob.getString(constants.ITEM_DESCRIPTION),
+            bob.getString(constants.ITEM_STATUS)
+        )
     }
 }
