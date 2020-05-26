@@ -61,8 +61,8 @@ class EditListFragment : Fragment() {
 
         override fun getPageTitle(position: Int): CharSequence {
             return when(position){
-                0 -> constants.STATUS_NEW
-                else -> constants.STATUS_OLD
+                0 -> constants.TITLE_NEW
+                else -> constants.TITLE_OLD
             }
         }
     }

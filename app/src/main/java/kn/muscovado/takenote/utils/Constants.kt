@@ -40,8 +40,10 @@ class Constants{
     val SUCCESS_ITEM_DELETE = "Notice deleted"
     val ERROR_ITEM_DELETE = "Check your internet connection!"
 
-    val STATUS_NEW = "new"
-    val STATUS_OLD = "old"
+    val TITLE_OLD = "old"
+    val TITLE_NEW = "new"
+
+    val STATUS_UNVETTED = "new"
     val STATUS_VETTED = "vetted"
     val UNVETTED_ITEM = ""
 }

@@ -28,7 +28,9 @@ class OldListFragment : Fragment() {
     private var bundle = Bundle()
     private val constants = Constants()
     private var items
-            = realm.where<Item>().equalTo(constants.ITEM_STATUS, constants.STATUS_VETTED).findAll()
+            = realm.where<Item>()
+        .equalTo(constants.ITEM_STATUS, constants.STATUS_VETTED)
+        .findAll()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {

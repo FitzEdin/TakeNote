@@ -106,7 +106,7 @@ class EditItemFragment : Fragment() {
         // save info from switch
         item?.status = when(edit_item_status.isChecked) {
             true -> constants.STATUS_VETTED
-            false -> constants.STATUS_NEW
+            false -> constants.STATUS_UNVETTED
         }
 
         realm.commitTransaction()
