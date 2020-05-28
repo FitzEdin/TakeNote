@@ -46,14 +46,14 @@ class AddItemFragment : Fragment() {
         )
 
         // set up button to remove text
-        clear_item_btn.setOnClickListener { add_item_text.text.clear() }
+        clear_item_btn.setOnClickListener{ clearAll() }
         clear_item_btn.visibility = View.INVISIBLE
 
         // add object that listens for changes to text
-        add_item_text.addTextChangedListener(addItemTextWatcher)
+//        add_item_description.addTextChangedListener(addItemTextWatcher)
 
         // add action when addButton is tapped
-        add_item_btn.setOnClickListener { addItem(add_item_text.text.toString()) }
+        add_item_btn.setOnClickListener { addItem() }
     }
 
     // listens for changes to textView
@@ -62,62 +62,81 @@ class AddItemFragment : Fragment() {
 
         override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
             // show/hide button to remove text when there is text/no text
-            if (!add_item_text.text.isEmpty()) clear_item_btn.visibility = View.VISIBLE
+            if (!add_item_description.text.isEmpty()) clear_item_btn.visibility = View.VISIBLE
             else clear_item_btn.visibility = View.INVISIBLE
         }
 
         override fun afterTextChanged(s: Editable) {}
     }
 
+    private fun clearAll() {
+        add_item_description.text.clear()
+        add_item_department.text.clear()
+        add_item_territory.text.clear()
+        add_item_venue.text.clear()
+        add_item_date.text.clear()
+    }
+
     // upload item information or ask for a link
-    private fun addItem(description: String) {
+    private fun addItem() {
+
+        // get info from textfields
+        val description = add_item_description.text.toString()
+        val department = add_item_department.text.toString()
+        val territory = add_item_territory.text.toString()
+        val venue = add_item_venue.text.toString()
+        val date = add_item_date.text.toString()
 
         // set up utilities
         val cache = DiskBasedCache(activity?.cacheDir, 1024 * 1024)
         val network = BasicNetwork(HurlStack(null, null))
         val requestQueue = RequestQueue(cache, network).apply { start() }
 
-        if (description.isNotEmpty()) {
-            // create snackbar for good/bad response
-            val s = Snackbar.make(
-                activity?.findViewById(R.id.frag_add_item)!!,
-                constants.SUCCESS_LINK_UPLOAD,
-                Snackbar.LENGTH_LONG
-            )
+        // create snackbar for good/bad response
+        val s = Snackbar.make(
+            activity?.findViewById(R.id.frag_add_item)!!,
+            constants.SUCCESS_LINK_UPLOAD,
+            Snackbar.LENGTH_LONG
+        )
+        val sError = Snackbar.make(
+            activity?.findViewById(R.id.frag_add_item)!!,
+            constants.ERROR_LINK_UPLOAD,
+            Snackbar.LENGTH_LONG
+        )
 
-            val sError = Snackbar.make(
-                activity?.findViewById(R.id.frag_add_item)!!,
-                constants.ERROR_LINK_UPLOAD,
-                Snackbar.LENGTH_LONG
-            )
+        // create JSONObject for uploading
+        val jsonObject = JSONObject()
+            .put(constants.ITEM_DESCRIPTION, description)
+            .put(constants.ITEM_DEPARTMENT, department)
+            .put(constants.ITEM_TERRITORY, territory)
+            .put(constants.ITEM_VENUE, venue)
+            .put(constants.ITEM_DATE, date)
+        Log.d(constants.LOG_TAG, jsonObject.toString())
 
-            // create JSONObject for uploading
-            val jsonObject = JSONObject().put(constants.ITEM_DESCRIPTION, description)
-            Log.d(constants.LOG_TAG, jsonObject.toString())
+        // create relevant POST request
+        val request = JsonObjectRequest(
+            Request.Method.POST, url, jsonObject,
+            Response.Listener { response ->
+                Log.d(constants.LOG_TAG, response.toString())
+                //TODO: parse the response here (or in the API) for DB errors
+                s.show()
+                clear_item_btn.performClick()
+            },
+            Response.ErrorListener { err ->
+                Log.d("Add Response", err.toString())
+                sError.show()
+            }
+        )
 
-            // create relevant POST request
-            val request = JsonObjectRequest(
-                Request.Method.POST, url, jsonObject,
-                Response.Listener<JSONObject> { response ->
-                    Log.d(constants.LOG_TAG, response.toString())
-                    //TODO: parse the response here (or in the API) for DB errors
-                    s.show()
-                    add_item_text.hint = constants.DROP_ANOTHER_LINK
-                    clear_item_btn.performClick()
-                },
-                Response.ErrorListener { err ->
-                    Log.d(constants.LOG_TAG, err.toString())
-                    sError.show()
-                }
-            )
+        // send request
+        requestQueue.add(request)
 
-            // send request
-            requestQueue.add(request)
+        /**if (description.isNotEmpty()) {
         }else{
             // ask person for a link
             val tEmpty = Toast.makeText(this.requireContext(), constants.QUESTION_LINK_DROP, Toast.LENGTH_LONG)
             tEmpty.setGravity(Gravity.CENTER, 0,0)
             tEmpty.show()
-        }
+        } **/
     }
 }

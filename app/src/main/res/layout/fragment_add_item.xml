@@ -40,8 +40,8 @@
 
                     android:layout_gravity="center"
 
-                    android:src="@drawable/ic_arrow_back_black_24dp"
-                    android:tint="@color/colorIcon"/>
+                    android:src="@drawable/ic_close_black_24dp"
+                    android:tint="@color/colorError"/>
 
             <TextView
                     android:id="@+id/top_bar_title"
@@ -62,18 +62,37 @@
                     android:lines="1" />
 
             <TextView
-                    android:id="@+id/clear_item_btn"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/add_item_btn"
+                    android:layout_width="48dp"
                     android:layout_height="match_parent"
 
                     android:gravity="center"
                     android:layout_gravity="end"
 
-                    android:text="@string/clear_item"
+                    android:text="@string/add_item"
                     android:textSize="@dimen/sm_text_size"
-                    android:textColor="@color/colorError"
+                    android:textColor="@color/colorIcon"
                     android:fontFamily="@font/lato_bold"
-                    android:letterSpacing="0.03" />
+                    android:textAllCaps="true"
+                    android:letterSpacing="0.1" />
+
+            <ImageView
+                    android:id="@+id/clear_item_btn"
+                    android:layout_width="@dimen/touch_item_size"
+                    android:layout_height="@dimen/touch_item_size"
+
+                    android:paddingLeft="0dp"
+                    android:paddingRight="0dp"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="12dp"
+
+                    android:layout_marginStart="24dp"
+                    android:layout_marginEnd="-16dp"
+
+                    android:layout_gravity="end"
+
+                    android:src="@drawable/ic_refresh_black_24dp"
+                    android:tint="@color/colorError"/>
 
         </LinearLayout>
 
@@ -86,75 +105,271 @@
 
                 android:layout_gravity="top"/>
 
-        <!-- Name of Award/edit_item_title_label -->
-        <TextView
-                android:id="@+id/add_item_label"
+        <!-- Form Items -->
+        <ScrollView
+                android:id="@+id/add_form"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-
-                android:layout_gravity="start|center"
+                android:layout_height="match_parent"
 
                 app:layout_constraintTop_toBottomOf="@id/top_bar"
+                android:layout_marginTop="@dimen/top_bar_height"
 
-                android:layout_marginTop="@dimen/activity_vertical_margin"
-                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:scrollbars="none">
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
 
-                android:text="@string/label_department"
-                android:textSize="@dimen/dl_text_size"
-                android:textColor="@color/colorText"
-                android:fontFamily="@font/lato_bold"
-                android:letterSpacing="0.05"/>
+                    android:paddingTop="@dimen/activity_horizontal_margin"
+                    android:paddingBottom="@dimen/activity_horizontal_margin"
 
-        <EditText
-                android:id="@+id/add_item_text"
+                    android:orientation="vertical">
 
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                <!-- Description -->
+                <TextView
+                        android:id="@+id/add_item_description_label"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
 
-                android:background="@drawable/outline"
+                        android:layout_gravity="start|center"
 
-                app:layout_constraintTop_toBottomOf="@id/add_item_label"
+                        android:layout_marginTop="@dimen/sm_margin"
+                        android:layout_marginBottom="@dimen/sm_margin"
 
-                android:gravity="center|top"
+                        android:text="@string/label_description"
+                        android:textSize="@dimen/dl_text_size"
+                        android:textColor="@color/colorText"
+                        android:fontFamily="@font/lato_bold"
+                        android:letterSpacing="0.05"/>
 
-                android:hint="@string/hint_add_item"
-                android:textColorHint="@color/colorHint"
-                android:textColor="@color/colorText"
-                android:textSize="@dimen/md_text_size"
-                android:fontFamily="@font/lato"
-                android:letterSpacing="0.06"
-                android:lineSpacingExtra="8dp"
+                <EditText
+                        android:id="@+id/add_item_description"
 
-                android:lines="3"
-                android:singleLine="false"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
 
-                android:padding="@dimen/activity_horizontal_margin"
+                        android:background="@drawable/outline"
 
-                android:layout_marginTop="@dimen/activity_horizontal_margin"
-                android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                        android:gravity="start"
 
-                android:imeOptions="actionSearch|flagNoExtractUi"
-                android:hapticFeedbackEnabled="true"/>
+                        android:hint="@string/hint_description"
+                        android:textColorHint="@color/colorHint"
+                        android:textColor="@color/colorText"
+                        android:textSize="@dimen/md_text_size"
+                        android:fontFamily="@font/lato"
+                        android:letterSpacing="0.03"
+                        android:lineSpacingExtra="2dp"
 
-        <TextView
-                android:id="@+id/add_item_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                        android:lines="2"
+                        android:maxLines="5"
+                        android:singleLine="false"
 
-                android:layout_marginTop="32dp"
+                        android:paddingTop="@dimen/sm_margin"
+                        android:paddingBottom="@dimen/sm_margin"
+                        android:layout_marginBottom="@dimen/activity_vertical_margin"
 
-                app:layout_constraintTop_toBottomOf="@id/add_item_text"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                        android:imeOptions="actionNext"
+                        android:hapticFeedbackEnabled="true"/>
 
-                android:gravity="center"
-                android:layout_gravity="center_horizontal"
+                <!-- Territory Notice applies to -->
+                <TextView
+                        android:id="@+id/add_item_territory_label"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
 
-                android:text="@string/add_item"
-                android:textSize="@dimen/lg_text_size"
-                android:textColor="@color/colorIcon"
-                android:fontFamily="@font/lato_bold"
-                android:letterSpacing="0.1"/>
+                        android:layout_gravity="start|center"
+
+                        android:layout_marginTop="@dimen/sm_margin"
+                        android:layout_marginBottom="@dimen/sm_margin"
+
+                        android:text="@string/label_territory"
+                        android:textSize="@dimen/dl_text_size"
+                        android:textColor="@color/colorText"
+                        android:fontFamily="@font/lato_bold"
+                        android:letterSpacing="0.05"/>
+
+                <EditText
+                        android:id="@+id/add_item_territory"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:background="@drawable/outline"
+
+                        android:gravity="start|center_vertical"
+
+                        android:hint="@string/hint_territory"
+                        android:textColorHint="@color/colorHint"
+                        android:textColor="@color/colorText"
+                        android:textSize="@dimen/md_text_size"
+                        android:fontFamily="@font/lato"
+                        android:letterSpacing="0.03"
+                        android:lineSpacingExtra="4dp"
+
+                        android:lines="1"
+                        android:singleLine="true"
+                        android:inputType="text"
+
+                        android:paddingTop="@dimen/sm_margin"
+                        android:paddingBottom="@dimen/sm_margin"
+                        android:layout_marginBottom="@dimen/activity_vertical_margin"
+
+                        android:imeOptions="actionNext"
+                        android:hapticFeedbackEnabled="true"/>
+
+
+                <!-- Department notice applies to -->
+                <TextView
+                        android:id="@+id/add_item_department_label"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_gravity="start|center"
+
+                        android:layout_marginTop="@dimen/sm_margin"
+                        android:layout_marginBottom="@dimen/sm_margin"
+
+                        android:text="@string/label_department"
+                        android:textSize="@dimen/dl_text_size"
+                        android:textColor="@color/colorText"
+                        android:fontFamily="@font/lato_bold"
+                        android:letterSpacing="0.05"/>
+
+                <EditText
+                        android:id="@+id/add_item_department"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:background="@drawable/outline"
+
+                        android:gravity="start|center_vertical"
+
+                        android:hint="@string/hint_department"
+                        android:textColorHint="@color/colorHint"
+                        android:textColor="@color/colorText"
+                        android:textSize="@dimen/md_text_size"
+                        android:fontFamily="@font/lato"
+                        android:letterSpacing="0.03"
+                        android:lineSpacingExtra="4dp"
+
+                        android:lines="1"
+                        android:singleLine="true"
+                        android:inputType="text"
+
+                        android:paddingTop="@dimen/sm_margin"
+                        android:paddingBottom="@dimen/sm_margin"
+                        android:layout_marginBottom="@dimen/activity_vertical_margin"
+
+                        android:imeOptions="actionNext"
+                        android:hapticFeedbackEnabled="true"/>
+
+                <!-- Date Relevant to Notice -->
+                <TextView
+                        android:id="@+id/add_item_venue_label"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_gravity="start|center"
+
+                        android:layout_marginTop="@dimen/sm_margin"
+                        android:layout_marginBottom="@dimen/sm_margin"
+
+                        android:text="@string/label_venue"
+                        android:textSize="@dimen/dl_text_size"
+                        android:textColor="@color/colorText"
+                        android:fontFamily="@font/lato_bold"
+                        android:letterSpacing="0.05"/>
+
+                <EditText
+                        android:id="@+id/add_item_venue"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:background="@drawable/outline"
+
+                        android:gravity="start|center_vertical"
+
+                        android:hint="@string/hint_venue"
+                        android:textColorHint="@color/colorHint"
+                        android:textColor="@color/colorText"
+                        android:textSize="@dimen/md_text_size"
+                        android:fontFamily="@font/lato"
+                        android:letterSpacing="0.03"
+                        android:lineSpacingExtra="4dp"
+
+                        android:lines="1"
+                        android:singleLine="true"
+                        android:inputType="text"
+
+                        android:paddingTop="@dimen/sm_margin"
+                        android:paddingBottom="@dimen/sm_margin"
+                        android:layout_marginBottom="@dimen/activity_vertical_margin"
+
+                        android:imeOptions="actionNext"
+                        android:hapticFeedbackEnabled="true"/>
+
+
+                <!-- Location of Event -->
+                <TextView
+                        android:id="@+id/add_item_date_label"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_gravity="start|center"
+
+                        android:layout_marginTop="@dimen/sm_margin"
+                        android:layout_marginBottom="@dimen/sm_margin"
+
+                        android:text="@string/label_date"
+                        android:textSize="@dimen/dl_text_size"
+                        android:textColor="@color/colorText"
+                        android:fontFamily="@font/lato_bold"
+                        android:letterSpacing="0.05"/>
+
+                <EditText
+                        android:id="@+id/add_item_date"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:background="@drawable/outline"
+
+                        android:gravity="start|center_vertical"
+
+                        android:hint="@string/hint_date"
+                        android:textColorHint="@color/colorHint"
+                        android:textColor="@color/colorText"
+                        android:textSize="@dimen/md_text_size"
+                        android:fontFamily="@font/lato"
+                        android:letterSpacing="0.03"
+                        android:lineSpacingExtra="4dp"
+
+                        android:lines="1"
+                        android:singleLine="true"
+                        android:inputType="datetime"
+
+                        android:paddingTop="@dimen/sm_margin"
+                        android:paddingBottom="@dimen/sm_margin"
+                        android:layout_marginBottom="@dimen/activity_vertical_margin"
+
+                        android:imeOptions="actionNext"
+                        android:hapticFeedbackEnabled="true"/>
+
+                <View
+                        android:layout_width="128dp"
+                        android:layout_height="@dimen/divider_height"
+                        android:background="@color/colorPrimary"
+
+                        android:layout_marginTop="@dimen/sm_margin"
+                        android:layout_marginBottom="@dimen/sm_margin"
+
+                        android:layout_gravity="bottom|center"/>
+
+            </LinearLayout>
+        </ScrollView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

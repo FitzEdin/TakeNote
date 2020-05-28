@@ -73,7 +73,7 @@ class EditItemFragment : Fragment() {
 
     // populate the form UI with info from the Item
     private fun populateForm() {
-        edit_item_description.setText(item?.description)
+        add_item_description.setText(item?.description)
         edit_item_department.setText(item?.department)
         edit_item_territory.setText(item?.territory)
         edit_item_venue.setText(item?.venue)
@@ -97,7 +97,7 @@ class EditItemFragment : Fragment() {
         realm.beginTransaction()
 
         // save info from textfields
-        item?.description = edit_item_description.text.toString()
+        item?.description = add_item_description.text.toString()
         item?.department = edit_item_department.text.toString()
         item?.territory = edit_item_territory.text.toString()
         item?.venue = edit_item_venue.text.toString()

@@ -3,7 +3,7 @@
 
     <!-- Items -->
     <string name="title_item_details">Notice</string>
-    <string name="title_add_item">New notice</string>
+    <string name="title_add_item">New Notice</string>
     <string name="hint_search_items">Search for notices</string>
     <string name="hint_getting_items">Getting notices</string>
 
@@ -16,6 +16,7 @@
     <string name="hint_add_item">Drop a link to a notice</string>
     <string name="add_item">Add</string>
     <string name="clear_item">Clear</string>
+    <string name="clear_all_item">Refresh</string>
 
     <!-- Dummy Strings -->
     <string name="dummy_title">Nevis</string>
