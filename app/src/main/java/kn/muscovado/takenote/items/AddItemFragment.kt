@@ -5,17 +5,18 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
-import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.Response
-import com.android.volley.toolbox.*
+import com.android.volley.toolbox.BasicNetwork
+import com.android.volley.toolbox.DiskBasedCache
+import com.android.volley.toolbox.HurlStack
+import com.android.volley.toolbox.JsonObjectRequest
 import com.google.android.material.snackbar.Snackbar
 import kn.muscovado.takenote.R
 import kn.muscovado.takenote.utils.Constants
@@ -31,6 +32,7 @@ import org.json.JSONObject
 class AddItemFragment : Fragment() {
     private val constants = Constants()
     private val url = constants.BASE_URL + constants.PORT + constants.NOTICES
+    private var num = 0
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -45,15 +47,21 @@ class AddItemFragment : Fragment() {
             Navigation.createNavigateOnClickListener(R.id.action_addItemFrag_pop)
         )
 
-        // set up button to remove text
-        clear_item_btn.setOnClickListener{ clearAll() }
-        clear_item_btn.visibility = View.INVISIBLE
-
         // add object that listens for changes to text
 //        add_item_description.addTextChangedListener(addItemTextWatcher)
+//        add_item_department.addTextChangedListener(addItemTextWatcher)
+//        add_item_territory.addTextChangedListener(addItemTextWatcher)
+//        add_item_venue.addTextChangedListener(addItemTextWatcher)
+//        add_item_date.addTextChangedListener(addItemTextWatcher)
+
+
+        // set up button to remove text
+        clear_item_btn.setOnClickListener{ clearAll() }
+//        clear_item_btn.visibility = View.INVISIBLE
 
         // add action when addButton is tapped
         add_item_btn.setOnClickListener { addItem() }
+//        add_item_btn.visibility = View.INVISIBLE
     }
 
     // listens for changes to textView
@@ -66,65 +74,41 @@ class AddItemFragment : Fragment() {
             else clear_item_btn.visibility = View.INVISIBLE
         }
 
-        override fun afterTextChanged(s: Editable) {}
-    }
+        override fun afterTextChanged(s: Editable) {
+            when (s.isEmpty()) {
+                true -> num--
+                false -> num++
+            }
+            if (num < 0) num = 0
+            if (num > 5) num = 5
 
-    private fun clearAll() {
-        add_item_description.text.clear()
-        add_item_department.text.clear()
-        add_item_territory.text.clear()
-        add_item_venue.text.clear()
-        add_item_date.text.clear()
+            if (num == 5) add_item_btn.visibility = View.VISIBLE
+            else add_item_btn.visibility = View.INVISIBLE
+
+            if (num > 0) clear_item_btn.visibility = View.VISIBLE
+            else clear_item_btn.visibility = View.INVISIBLE
+        }
     }
 
     // upload item information or ask for a link
     private fun addItem() {
-
-        // get info from textfields
-        val description = add_item_description.text.toString()
-        val department = add_item_department.text.toString()
-        val territory = add_item_territory.text.toString()
-        val venue = add_item_venue.text.toString()
-        val date = add_item_date.text.toString()
-
         // set up utilities
         val cache = DiskBasedCache(activity?.cacheDir, 1024 * 1024)
         val network = BasicNetwork(HurlStack(null, null))
         val requestQueue = RequestQueue(cache, network).apply { start() }
 
-        // create snackbar for good/bad response
-        val s = Snackbar.make(
-            activity?.findViewById(R.id.frag_add_item)!!,
-            constants.SUCCESS_LINK_UPLOAD,
-            Snackbar.LENGTH_LONG
-        )
-        val sError = Snackbar.make(
-            activity?.findViewById(R.id.frag_add_item)!!,
-            constants.ERROR_LINK_UPLOAD,
-            Snackbar.LENGTH_LONG
-        )
-
-        // create JSONObject for uploading
-        val jsonObject = JSONObject()
-            .put(constants.ITEM_DESCRIPTION, description)
-            .put(constants.ITEM_DEPARTMENT, department)
-            .put(constants.ITEM_TERRITORY, territory)
-            .put(constants.ITEM_VENUE, venue)
-            .put(constants.ITEM_DATE, date)
-        Log.d(constants.LOG_TAG, jsonObject.toString())
-
         // create relevant POST request
         val request = JsonObjectRequest(
-            Request.Method.POST, url, jsonObject,
+            Request.Method.POST, url, buildJSONObject(),
             Response.Listener { response ->
                 Log.d(constants.LOG_TAG, response.toString())
                 //TODO: parse the response here (or in the API) for DB errors
-                s.show()
+                buildSnackBar(true).show()
                 clear_item_btn.performClick()
             },
             Response.ErrorListener { err ->
                 Log.d("Add Response", err.toString())
-                sError.show()
+                buildSnackBar(false).show()
             }
         )
 
@@ -138,5 +122,35 @@ class AddItemFragment : Fragment() {
             tEmpty.setGravity(Gravity.CENTER, 0,0)
             tEmpty.show()
         } **/
+    }
+
+    private fun clearAll() {
+        add_item_description.text.clear()
+        add_item_department.text.clear()
+        add_item_territory.text.clear()
+        add_item_venue.text.clear()
+        add_item_date.text.clear()
+    }
+
+    private fun buildJSONObject(): JSONObject {
+        return JSONObject()
+            .put(constants.ITEM_DESCRIPTION, add_item_description.toString())
+            .put(constants.ITEM_DEPARTMENT, add_item_department.toString())
+            .put(constants.ITEM_TERRITORY, add_item_territory.toString())
+            .put(constants.ITEM_VENUE, add_item_venue.toString())
+            .put(constants.ITEM_DATE, add_item_date.toString())
+    }
+
+    private fun buildSnackBar(success: Boolean): Snackbar {
+        val msg = when (success) {
+            true -> constants.SUCCESS_LINK_UPLOAD
+            false -> constants.ERROR_LINK_UPLOAD
+        }
+
+        return Snackbar.make(
+            activity?.findViewById(R.id.frag_add_item)!!,
+            msg,
+            Snackbar.LENGTH_LONG
+        )
     }
 }
