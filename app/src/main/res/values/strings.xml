@@ -22,12 +22,13 @@
     <string name="dummy_title">Nevis</string>
     <string name="dummy_item">Nevis</string>
     <string name="dummy_territory">Nevis</string>
+    <string name="dummy_venue">Cayon Community Centre</string>
     <string name="dummy_id">3456789ugf5678</string>
     <string name="dummy_department">Youth Ministry</string>
     <string name="dummy_date">14th December, 2020</string>
     <string name="dummy_description">
         There are many variations of passages of Lorem Ipsum available, but the
-        majority have suffered alteration in some form, by injected humour>
+        majority have suffered alteration in some form, by injected humour
     </string>
 
     <!-- TODO: Remove or change this placeholder text -->

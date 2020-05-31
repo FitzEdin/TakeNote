@@ -2,7 +2,6 @@ package kn.muscovado.takenote.items
 
 
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -61,11 +60,11 @@ class ItemDetailsFragment : Fragment() {
         }
 
         // populate view
-        item_details_title.text = item?.territory
-        item_details_coverage.text = item?.department
-        item_details_level.text = item?.date
-        item_details_location.text = item?.description
-        item_details_programme.text = item?.venue
+        item_details_territory.text = item?.territory
+        item_details_department.text = item?.department
+        item_details_date.text = item?.date
+        item_details_description.text = item?.description
+        item_details_venue.text = item?.venue
 
         back_item_details.setOnClickListener(
             Navigation.createNavigateOnClickListener(R.id.action_itemDetailsFrag_pop)

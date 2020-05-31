@@ -27,8 +27,8 @@
 
             <ImageView
                     android:id="@+id/back_item_details"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
+                    android:layout_width="@dimen/touch_item_size"
+                    android:layout_height="@dimen/touch_item_size"
 
                     android:paddingLeft="0dp"
                     android:paddingRight="0dp"
@@ -62,8 +62,8 @@
 
             <ImageView
                     android:id="@+id/share_item_details"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
+                    android:layout_width="@dimen/touch_item_size"
+                    android:layout_height="@dimen/touch_item_size"
 
                     android:paddingLeft="0dp"
                     android:paddingRight="0dp"
@@ -90,10 +90,12 @@
 
         <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/top_bar_height"
                 android:scrollbars="none"
 
-                app:layout_constraintTop_toBottomOf="@id/top_bar" >
+                app:layout_constraintTop_toBottomOf="@id/top_bar"
+                app:layout_constraintBottom_toBottomOf="parent">
 
             <LinearLayout
                     android:layout_width="match_parent"
@@ -101,36 +103,39 @@
 
                     android:orientation="vertical"
 
+                    android:layout_marginBottom="64dp"
+
                     android:paddingTop="@dimen/activity_vertical_margin">
 
                 <TextView
-                        android:id="@+id/item_details_title"
+                        android:id="@+id/item_details_territory"
 
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
 
                         android:layout_marginBottom="@dimen/line_vertical_margin"
 
-                        android:text="@string/dummy_title"
+                        android:text="@string/dummy_territory"
                         android:textSize="@dimen/lg_text_size"
                         android:textColor="@color/colorText"
                         android:fontFamily="@font/lato_bold"
                         android:textStyle="bold"
+                        android:textAllCaps="true"
                         android:letterSpacing="0.05"
                         android:lineSpacingExtra="2dp"
 
                         android:gravity="center" />
 
                 <TextView
-                        android:id="@+id/item_details_open_to"
+                        android:id="@+id/item_details_department"
 
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
 
                         android:layout_marginBottom="@dimen/line_vertical_margin"
 
-                        android:text="@string/dummy_title"
-                        android:textSize="@dimen/md_text_size"
+                        android:text="@string/dummy_department"
+                        android:textSize="@dimen/lg_text_size"
                         android:textColor="@color/colorIcon"
                         android:fontFamily="@font/lato"
                         android:letterSpacing="0.05"
@@ -142,112 +147,101 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
 
+                        android:layout_gravity="center"
+
                         android:orientation="horizontal">
 
+                    <ImageView
+                            android:layout_width="@dimen/touch_item_size"
+                            android:layout_height="@dimen/touch_item_size"
+
+                            android:paddingLeft="0dp"
+                            android:paddingRight="0dp"
+                            android:paddingTop="12dp"
+                            android:paddingBottom="12dp"
+
+                            android:layout_marginStart="-16dp"
+
+                            android:layout_gravity="center"
+
+                            android:src="@drawable/ic_location_black_24dp"
+                            android:tint="@color/colorIcon"/>
+
                     <TextView
-                            android:id="@+id/item_details_level"
+                            android:id="@+id/item_details_venue"
 
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
 
                             android:layout_weight="1"
 
-                            android:text="@string/dummy_title"
-                            android:textSize="@dimen/md_text_size"
+                            android:text="@string/dummy_venue"
+                            android:textSize="@dimen/dl_text_size"
                             android:textColor="@color/colorText"
                             android:fontFamily="@font/lato_bold"
                             android:lineSpacingExtra="4dp"
 
-                            android:gravity="center" />
+                            android:gravity="left|center" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_gravity="center"
+
+                        android:orientation="horizontal">
+
+                    <ImageView
+                            android:layout_width="@dimen/touch_item_size"
+                            android:layout_height="@dimen/touch_item_size"
+
+                            android:paddingLeft="0dp"
+                            android:paddingRight="0dp"
+                            android:paddingTop="12dp"
+                            android:paddingBottom="12dp"
+
+                            android:layout_marginStart="-16dp"
+
+                            android:layout_gravity="center"
+
+                            android:src="@drawable/ic_date_black_24dp"
+                            android:tint="@color/colorIcon"/>
 
                     <TextView
-                            android:id="@+id/item_details_coverage"
+                            android:id="@+id/item_details_date"
 
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
 
                             android:layout_weight="1"
 
-                            android:text="@string/dummy_title"
-                            android:textSize="@dimen/md_text_size"
+                            android:text="@string/dummy_date"
+                            android:textSize="@dimen/dl_text_size"
                             android:textColor="@color/colorText"
                             android:fontFamily="@font/lato_bold"
                             android:lineSpacingExtra="4dp"
 
-                            android:gravity="center" />
+                            android:gravity="start|center" />
 
                 </LinearLayout>
 
                 <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-
-                        android:layout_marginTop="@dimen/line_vertical_margin"
-                        android:layout_marginBottom="8dp"
-
-                        android:text="Location"
-                        android:textSize="@dimen/md_text_size"
-                        android:textColor="@color/colorText"
-                        android:fontFamily="@font/lato_bold"
-                        android:lineSpacingExtra="8dp" />
-
-                <TextView
-                        android:id="@+id/item_details_location"
+                        android:id="@+id/item_details_description"
 
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
 
-                        android:layout_marginBottom="@dimen/line_vertical_margin"
+                        android:layout_marginTop="@dimen/sm_margin"
+                        android:layout_marginBottom="@dimen/sm_margin"
 
-                        android:text="@string/dummy_item"
-                        android:textSize="@dimen/md_text_size"
-                        android:textColor="@color/colorText"
-                        android:fontFamily="@font/lato"
-                        android:lineSpacingExtra="4dp" />
-
-                <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-
-                        android:layout_marginBottom="8dp"
-
-                        android:text="Eligible Study Areas"
-                        android:textSize="@dimen/md_text_size"
-                        android:textColor="@color/colorText"
-                        android:fontFamily="@font/lato_bold"
-                        android:lineSpacingExtra="8dp" />
-
-                <TextView
-                        android:id="@+id/item_details_programme"
-
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-
-                        android:layout_marginBottom="8dp"
-
-                        android:text="@string/dummy_item"
-                        android:textSize="@dimen/md_text_size"
-                        android:textColor="@color/colorText"
-                        android:fontFamily="@font/lato"
-                        android:lineSpacingExtra="4dp" />
-
-                <TextView
-                        android:id="@+id/item_details_link"
-
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-
-                        android:padding="@dimen/line_vertical_margin"
-                        android:layout_marginTop="8dp"
-
-                        android:text="@string/view_website"
+                        android:text="@string/dummy_description"
                         android:textSize="@dimen/lg_text_size"
-                        android:textColor="@color/colorIcon"
-                        android:fontFamily="@font/lato_bold"
-                        android:letterSpacing="0.03"
+                        android:textColor="@color/colorText"
+                        android:fontFamily="@font/lato_regular"
                         android:lineSpacingExtra="4dp"
-
-                        android:layout_gravity="center" />
+                        android:letterSpacing="0.05" />
             </LinearLayout>
 
         </ScrollView>
