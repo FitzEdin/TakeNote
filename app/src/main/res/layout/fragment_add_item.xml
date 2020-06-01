@@ -9,12 +9,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/frag_add_item"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-
-            android:paddingLeft="@dimen/activity_horizontal_margin"
-            android:paddingRight="@dimen/activity_horizontal_margin"
-
-            android:background="@color/colorBackground">
+            android:layout_height="match_parent">
 
         <!-- Large Text w/Icons on Right -->
         <LinearLayout
@@ -23,6 +18,11 @@
                 android:layout_height="@dimen/top_bar_height"
 
                 app:layout_constraintTop_toTopOf="parent"
+
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+
+                android:background="@color/colorTopBarBackground"
 
                 android:orientation="horizontal">
 
@@ -36,12 +36,12 @@
                     android:paddingTop="12dp"
                     android:paddingBottom="12dp"
 
-                    android:layout_marginLeft="-16dp"
+                    android:layout_marginStart="-16dp"
 
                     android:layout_gravity="center"
 
-                    android:src="@drawable/ic_close_black_24dp"
-                    android:tint="@color/colorError"/>
+                    android:src="@drawable/ic_arrow_back_black_24dp"
+                    android:tint="@color/colorIcon"/>
 
             <TextView
                     android:id="@+id/top_bar_title"
@@ -71,7 +71,7 @@
 
                     android:text="@string/add_item"
                     android:textSize="@dimen/sm_text_size"
-                    android:textColor="@color/colorIcon"
+                    android:textColor="@color/colorTextHighlight"
                     android:fontFamily="@font/lato_bold"
                     android:textAllCaps="true"
                     android:letterSpacing="0.1" />
@@ -92,24 +92,20 @@
                     android:layout_gravity="end"
 
                     android:src="@drawable/ic_refresh_black_24dp"
-                    android:tint="@color/colorError"/>
+                    android:tint="@color/colorIconDanger"/>
 
         </LinearLayout>
-
-        <View
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/divider_height"
-                android:background="@color/colorOutline"
-
-                app:layout_constraintTop_toBottomOf="@id/top_bar"
-
-                android:layout_gravity="top"/>
 
         <!-- Form Items -->
         <ScrollView
                 android:id="@+id/add_form"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+
+                android:background="@color/colorBackground"
 
                 app:layout_constraintTop_toBottomOf="@id/top_bar"
                 android:layout_marginTop="@dimen/top_bar_height"
@@ -152,7 +148,7 @@
                         android:gravity="start"
 
                         android:hint="@string/hint_description"
-                        android:textColorHint="@color/colorHint"
+                        android:textColorHint="@color/colorTextHint"
                         android:textColor="@color/colorText"
                         android:textSize="@dimen/md_text_size"
                         android:fontFamily="@font/lato"
@@ -198,7 +194,7 @@
                         android:gravity="start|center_vertical"
 
                         android:hint="@string/hint_territory"
-                        android:textColorHint="@color/colorHint"
+                        android:textColorHint="@color/colorTextHint"
                         android:textColor="@color/colorText"
                         android:textSize="@dimen/md_text_size"
                         android:fontFamily="@font/lato"
@@ -246,7 +242,7 @@
                         android:gravity="start|center_vertical"
 
                         android:hint="@string/hint_department"
-                        android:textColorHint="@color/colorHint"
+                        android:textColorHint="@color/colorTextHint"
                         android:textColor="@color/colorText"
                         android:textSize="@dimen/md_text_size"
                         android:fontFamily="@font/lato"
@@ -292,7 +288,7 @@
                         android:gravity="start|center_vertical"
 
                         android:hint="@string/hint_venue"
-                        android:textColorHint="@color/colorHint"
+                        android:textColorHint="@color/colorTextHint"
                         android:textColor="@color/colorText"
                         android:textSize="@dimen/md_text_size"
                         android:fontFamily="@font/lato"
@@ -340,7 +336,7 @@
                         android:gravity="start|center_vertical"
 
                         android:hint="@string/hint_date"
-                        android:textColorHint="@color/colorHint"
+                        android:textColorHint="@color/colorTextHint"
                         android:textColor="@color/colorText"
                         android:textSize="@dimen/md_text_size"
                         android:fontFamily="@font/lato"
@@ -349,7 +345,7 @@
 
                         android:lines="1"
                         android:singleLine="true"
-                        android:inputType="datetime"
+                        android:inputType="text"
 
                         android:paddingTop="@dimen/sm_margin"
                         android:paddingBottom="@dimen/sm_margin"

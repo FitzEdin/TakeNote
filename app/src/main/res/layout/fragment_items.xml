@@ -8,18 +8,18 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-
-            android:paddingLeft="@dimen/activity_horizontal_margin"
-            android:paddingRight="@dimen/activity_horizontal_margin"
-
-            android:background="@color/colorBackground">
+            android:layout_height="match_parent">
 
         <!-- Large Text w/Icons on Right -->
         <LinearLayout
                 android:id="@+id/top_bar"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/top_bar_height"
+
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+
+                android:background="@color/colorTopBarBackground"
 
                 app:layout_constraintTop_toTopOf="parent"
 
@@ -38,7 +38,7 @@
                     android:layout_gravity="center"
 
                     android:src="@drawable/ic_add_black_24dp"
-                    android:tint="@color/colorIcon" />
+                    android:tint="@color/colorIconHighlight" />
 
             <TextView
                     android:id="@+id/top_bar_title"
@@ -93,17 +93,6 @@
 
         </LinearLayout>
 
-        <View
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/divider_height"
-                android:background="@color/colorOutline"
-
-                app:layout_constraintTop_toBottomOf="@id/top_bar"
-
-                android:layout_gravity="top"
-                android:id="@+id/view"
-                tools:layout_editor_absoluteX="16dp"/>
-
         <!-- Empty Item Lists -->
         <LinearLayout
                 android:id="@+id/empty_items_list"
@@ -113,6 +102,11 @@
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+
+                android:background="@color/colorBackground"
 
                 app:layout_constraintTop_toBottomOf="@id/top_bar"
                 app:layout_constraintBottom_toBottomOf="parent" >
@@ -125,7 +119,7 @@
                     android:layout_gravity="center|center"
 
                     android:src="@drawable/ic_file_download_black_24dp"
-                    android:tint="@color/colorHint"/>
+                    android:tint="@color/colorIconHighlight"/>
 
             <!-- item title -->
             <TextView
@@ -138,7 +132,7 @@
                     android:layout_marginTop="8dp"
 
                     android:text="@string/hint_getting_items"
-                    android:textColor="@color/colorHint"
+                    android:textColor="@color/colorTextHighlight"
                     android:textSize="@dimen/md_text_size"
                     android:fontFamily="@font/lato"
                     android:letterSpacing="0.03"
@@ -153,6 +147,11 @@
                 android:id="@+id/listView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+
+                android:background="@color/colorBackground"
 
                 app:layout_constraintTop_toBottomOf="@id/top_bar"
                 android:layout_marginTop="@dimen/top_bar_height"

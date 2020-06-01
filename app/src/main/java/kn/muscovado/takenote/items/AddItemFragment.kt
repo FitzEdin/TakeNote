@@ -33,6 +33,7 @@ class AddItemFragment : Fragment() {
     private val constants = Constants()
     private val url = constants.BASE_URL + constants.PORT + constants.NOTICES
     private var num = 0
+    private var snackColor = 0
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -143,14 +144,23 @@ class AddItemFragment : Fragment() {
 
     private fun buildSnackBar(success: Boolean): Snackbar {
         val msg = when (success) {
-            true -> constants.SUCCESS_LINK_UPLOAD
-            false -> constants.ERROR_LINK_UPLOAD
+            true -> {
+                snackColor = resources.getColor(R.color.colorPrimary)
+                constants.SUCCESS_LINK_UPLOAD
+            }
+            false -> {
+                snackColor = resources.getColor(R.color.colorIconDanger)
+                constants.ERROR_LINK_UPLOAD
+            }
         }
 
-        return Snackbar.make(
+        val s = Snackbar.make(
             activity?.findViewById(R.id.frag_add_item)!!,
             msg,
             Snackbar.LENGTH_LONG
         )
+        s.view.setBackgroundColor(snackColor)
+
+        return s
     }
 }

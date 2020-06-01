@@ -55,7 +55,7 @@
                 android:lines="1"
                 android:text="@string/dummy_department"
 
-                android:textColor="@color/colorTextGrey"
+                android:textColor="@color/colorTextHint"
                 android:textSize="@dimen/md_text_size" />
 
     </LinearLayout>
@@ -98,6 +98,6 @@
 
             android:text="@string/dummy_date"
 
-            android:textColor="@color/colorIcon"
+            android:textColor="@color/colorTextHighlight"
             android:textSize="@dimen/sm_text_size" />
 </LinearLayout>

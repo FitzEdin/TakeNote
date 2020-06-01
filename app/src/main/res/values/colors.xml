@@ -1,38 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#0EB1FC</color>
-    <color name="colorPrimaryDark">#08618A</color>
-<!--    <color name="colorPrimaryDark">#0A87C2</color>-->
-<!--    <color name="colorPrimaryDark">#11212A</color>-->
+    <color name="colorPrimary">#0fb8a6</color>
+    <color name="colorPrimaryDark">#0b141d</color>
 
-    <color name="colorAccent">#FC670E</color>
-    <color name="colorEror">#ED6461</color>
+    <color name="colorAccent">@color/colorPrimary</color>
 
-    <color name="colorIcon">#EEC940</color>
-<!--    <color name="colorIcon">#0EB1FC</color>-->
+    <color name="colorBackground">#131c25</color>
+    <color name="colorTopBarBackground">@color/colorPrimaryDark</color>
 
-<!--    a beautiful dark blue colour -->
-<!--    <color name="colorIcon">#0A87C2</color>-->
-<!--    a beautiful yellow-brown colour -->
-<!--    <color name="colorIcon">#F0B859</color>-->
+    <color name="colorIcon">#f1f1f1</color>
+    <color name="colorIconDanger">#ed4641</color>
+    <color name="colorIconHighlight">@color/colorPrimary</color>
 
-    <color name="colorBackground">#0B151F</color>
-<!--    <color name="colorBackground">#102030</color>-->
-<!--    <color name="colorBackground">#FBFDFE</color>-->
-    <color name="colorBackgroundTransparent">#20FBFDFE</color>
-
-    <color name="colorText">#F2F2FE</color>
-<!--    <color name="colorText">#39394F</color>-->
-    <color name="colorTextGrey">#A1A1B6</color>
-<!--    <color name="colorTextGrey">#606070</color>-->
-    <color name="colorOutline">#ACACB6</color>
-
-    <color name="colorInactive">#606070</color>
-    <color name="colorHint">#A1A1B6</color>
-<!--    <color name="colorHint">#606070</color>-->
-
-    <color name="colorError">#ED6461</color>
-<!--    <color name="colorError">#FC220E</color>-->
-    <!--<color name="colorError">#ED6461</color>-->
-    <color name="colorErrorBackground">#FFFAFA</color>
+    <color name="colorText">#f1f1f1</color>
+    <color name="colorTextHighlight">@color/colorPrimary</color>
+    <color name="colorTextHint">#a1a1b6</color>
 </resources>

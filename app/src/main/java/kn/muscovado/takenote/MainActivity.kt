@@ -77,11 +77,11 @@ class MainActivity : AppCompatActivity() {
     private fun getMsg() : String {
         return when (isConnected()) {
             true -> {
-                snackColor = resources.getColor(R.color.colorPrimaryDark)
+                snackColor = resources.getColor(R.color.colorPrimary)
                 "Online"
             }
             else -> {
-                snackColor = resources.getColor(R.color.colorError)
+                snackColor = resources.getColor(R.color.colorIconDanger)
                 "No network"
             }
         }

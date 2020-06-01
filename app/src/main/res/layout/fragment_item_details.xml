@@ -8,18 +8,18 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-
-            android:paddingLeft="@dimen/activity_horizontal_margin"
-            android:paddingRight="@dimen/activity_horizontal_margin"
-
-            android:background="@color/colorBackground">
+            android:layout_height="match_parent">
 
         <!-- Large Text w/Icons on Right -->
         <LinearLayout
                 android:id="@+id/top_bar"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/top_bar_height"
+
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+
+                android:background="@color/colorTopBarBackground"
 
                 app:layout_constraintTop_toTopOf="parent"
 
@@ -75,24 +75,20 @@
                     android:layout_gravity="center"
 
                     android:src="@drawable/ic_share_black_24dp"
-                    android:tint="@color/colorIcon"/>
+                    android:tint="@color/colorIconHighlight"/>
 
         </LinearLayout>
-
-        <View
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/divider_height"
-                android:background="@color/colorOutline"
-
-                app:layout_constraintTop_toBottomOf="@id/top_bar"
-
-                android:layout_gravity="top"/>
 
         <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="@dimen/top_bar_height"
                 android:scrollbars="none"
+
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+
+                android:background="@color/colorBackground"
 
                 app:layout_constraintTop_toBottomOf="@id/top_bar"
                 app:layout_constraintBottom_toBottomOf="parent">
@@ -136,7 +132,7 @@
 
                         android:text="@string/dummy_department"
                         android:textSize="@dimen/lg_text_size"
-                        android:textColor="@color/colorIcon"
+                        android:textColor="@color/colorTextHint"
                         android:fontFamily="@font/lato"
                         android:letterSpacing="0.05"
                         android:lineSpacingExtra="4dp"
@@ -165,7 +161,7 @@
                             android:layout_gravity="center"
 
                             android:src="@drawable/ic_location_black_24dp"
-                            android:tint="@color/colorIcon"/>
+                            android:tint="@color/colorIconHighlight"/>
 
                     <TextView
                             android:id="@+id/item_details_venue"
@@ -177,7 +173,7 @@
 
                             android:text="@string/dummy_venue"
                             android:textSize="@dimen/dl_text_size"
-                            android:textColor="@color/colorText"
+                            android:textColor="@color/colorTextHighlight"
                             android:fontFamily="@font/lato_bold"
                             android:lineSpacingExtra="4dp"
 
@@ -207,7 +203,7 @@
                             android:layout_gravity="center"
 
                             android:src="@drawable/ic_date_black_24dp"
-                            android:tint="@color/colorIcon"/>
+                            android:tint="@color/colorIconHighlight"/>
 
                     <TextView
                             android:id="@+id/item_details_date"
@@ -219,7 +215,7 @@
 
                             android:text="@string/dummy_date"
                             android:textSize="@dimen/dl_text_size"
-                            android:textColor="@color/colorText"
+                            android:textColor="@color/colorTextHighlight"
                             android:fontFamily="@font/lato_bold"
                             android:lineSpacingExtra="4dp"
 
@@ -237,10 +233,10 @@
                         android:layout_marginBottom="@dimen/sm_margin"
 
                         android:text="@string/dummy_description"
-                        android:textSize="@dimen/lg_text_size"
+                        android:textSize="@dimen/dl_text_size"
                         android:textColor="@color/colorText"
                         android:fontFamily="@font/lato_regular"
-                        android:lineSpacingExtra="4dp"
+                        android:lineSpacingExtra="@dimen/sm_margin"
                         android:letterSpacing="0.05" />
             </LinearLayout>
 
