@@ -83,6 +83,7 @@ class SearchItemsFragment : Fragment() {
      */
     fun searchFor(key: String) {
         items = realm.where<Item>()
+            .contains(constants.ITEM_STATUS, constants.STATUS_VETTED, Case.INSENSITIVE)
             .contains(constants.ITEM_TERRITORY, key, Case.INSENSITIVE)
             .or()
             .contains(constants.ITEM_DEPARTMENT, key, Case.INSENSITIVE)

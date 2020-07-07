@@ -135,11 +135,11 @@ class AddItemFragment : Fragment() {
 
     private fun buildJSONObject(): JSONObject {
         return JSONObject()
-            .put(constants.ITEM_DESCRIPTION, add_item_description.toString())
-            .put(constants.ITEM_DEPARTMENT, add_item_department.toString())
-            .put(constants.ITEM_TERRITORY, add_item_territory.toString())
-            .put(constants.ITEM_VENUE, add_item_venue.toString())
-            .put(constants.ITEM_DATE, add_item_date.toString())
+            .put(constants.ITEM_DESCRIPTION, add_item_description.text.toString())
+            .put(constants.ITEM_DEPARTMENT, add_item_department.text.toString())
+            .put(constants.ITEM_TERRITORY, add_item_territory.text.toString())
+            .put(constants.ITEM_VENUE, add_item_venue.text.toString())
+            .put(constants.ITEM_DATE, add_item_date.text.toString())
     }
 
     private fun buildSnackBar(success: Boolean): Snackbar {
