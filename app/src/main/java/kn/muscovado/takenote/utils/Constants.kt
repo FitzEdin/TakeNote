@@ -35,10 +35,11 @@ class Constants{
     val QUESTION_LINK_DROP = "Did you drop a link?"
     val SUCCESS_LINK_UPLOAD = "Thanks for the link!"
     val ERROR_LINK_UPLOAD = "Check your internet connection!"
-    val SUCCESS_ITEM_UPLOAD = "Notice info updated"
+    val SUCCESS_ITEM_UPLOAD = "Notice updated"
     val ERROR_ITEM_UPLOAD = "Check your internet connection!"
     val SUCCESS_ITEM_DELETE = "Notice deleted"
     val ERROR_ITEM_DELETE = "Check your internet connection!"
+    val SAVING_ITEM = "Saving notice"
 
     val TITLE_OLD = "old"
     val TITLE_NEW = "new"

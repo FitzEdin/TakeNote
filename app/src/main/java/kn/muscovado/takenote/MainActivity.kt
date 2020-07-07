@@ -77,7 +77,7 @@ class MainActivity : AppCompatActivity() {
     private fun getMsg() : String {
         return when (isConnected()) {
             true -> {
-                snackColor = resources.getColor(R.color.colorPrimary)
+                snackColor = resources.getColor(R.color.colorPrimaryDarker)
                 "Online"
             }
             else -> {

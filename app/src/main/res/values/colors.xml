@@ -7,6 +7,7 @@
 
     <color name="colorBackground">#131c25</color>
     <color name="colorTopBarBackground">@color/colorPrimaryDark</color>
+    <color name="colorPrimaryDarker">#0b8478</color>
 
     <color name="colorIcon">#f1f1f1</color>
     <color name="colorIconDanger">#ed4641</color>

@@ -35,8 +35,16 @@ class EditItemFragment : Fragment() {
     private val url = constants.BASE_URL + constants.PORT + constants.NOTICES
     private var item:Item? = Item()
 
+    private var colorPrimary = 0
+    private var colorDanger = 0
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
+
+        // set toast colours
+        colorPrimary = resources.getColor(R.color.colorPrimaryDarker)
+        colorDanger = resources.getColor(R.color.colorIconDanger)
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_edit_item, container, false)
     }
@@ -88,11 +96,7 @@ class EditItemFragment : Fragment() {
 
     // save changes to item when button clicked
     private fun saveItem(){
-        Snackbar.make(
-            activity?.findViewById(R.id.fragment)!!,
-            "Saving Item",
-            Snackbar.LENGTH_LONG
-        ).show()
+        getSnackbar(constants.SAVING_ITEM, colorPrimary).show()
 
         realm.beginTransaction()
 
@@ -115,14 +119,6 @@ class EditItemFragment : Fragment() {
 
     // upload the info from Item to database
     private fun uploadItem(){
-        Toast.makeText(this.requireContext(), "Uploading Item", Toast.LENGTH_LONG).show()
-
-        // create toasts for good/bad response
-        val t = Toast.makeText(this.requireContext(), constants.SUCCESS_ITEM_UPLOAD, Toast.LENGTH_LONG)
-        t.setGravity(Gravity.CENTER, 0,0)
-        val tError = Toast.makeText(this.requireContext(), constants.ERROR_ITEM_UPLOAD, Toast.LENGTH_LONG)
-        tError.setGravity(Gravity.CENTER, 0,0)
-
         // set up network utilities
         val cache = DiskBasedCache(activity?.cacheDir, 1024 * 1024)
         val network = BasicNetwork(HurlStack(null, null))
@@ -144,11 +140,14 @@ class EditItemFragment : Fragment() {
             Response.Listener { response ->
                 Log.d(constants.LOG_TAG, response.toString())
                 //TODO: parse the response here (or in the API) for DB errors
-                t.show()
+                getSnackbar(constants.SUCCESS_ITEM_UPLOAD, colorPrimary).show()
+
+                // exit the fragment after saving item
+                exitFragment()
             },
             Response.ErrorListener { err ->
                 Log.d(constants.LOG_TAG, err.toString())
-                tError.show()
+                getSnackbar(constants.ERROR_ITEM_UPLOAD, colorDanger).show()
             }
         )
 
@@ -157,16 +156,6 @@ class EditItemFragment : Fragment() {
     }
 
     private fun deleteItem() {
-        //confirm delete first
-        //delete if confirmed
-        Toast.makeText(this.requireContext(), "Deleting Item", Toast.LENGTH_LONG).show()
-
-        // create toasts for good/bad response
-        val t = Toast.makeText(this.requireContext(), constants.SUCCESS_ITEM_DELETE, Toast.LENGTH_LONG)
-        t.setGravity(Gravity.CENTER, 0,0)
-        val tError = Toast.makeText(this.requireContext(), constants.ERROR_ITEM_DELETE, Toast.LENGTH_LONG)
-        tError.setGravity(Gravity.CENTER, 0,0)
-
         // set up network utilities
         val cache = DiskBasedCache(activity?.cacheDir, 1024 * 1024)
         val network = BasicNetwork(HurlStack(null, null))
@@ -178,20 +167,42 @@ class EditItemFragment : Fragment() {
             Response.Listener<JSONObject> { response ->
                 Log.d(constants.LOG_TAG, response.toString())
                 //TODO: parse the response here (or in the API) for DB errors
-                t.show()
 
                 //delete from Realm
                 realm.beginTransaction()
                 item?.deleteFromRealm()
                 realm.commitTransaction()
+
+                getSnackbar(constants.SUCCESS_ITEM_DELETE, colorDanger).show()
+
+                // exit fragment
+                exitFragment()
             },
             Response.ErrorListener { err ->
                 Log.d(constants.LOG_TAG, err.toString())
-                tError.show()
+
+                getSnackbar(constants.ERROR_ITEM_DELETE, colorDanger).show()
             }
         )
 
         // send request
         requestQueue.add(request)
+    }
+
+    /**
+     * Exit the fragment after deleting or saving an item
+     * **/
+    private fun exitFragment() {
+        close_item_edit.performClick()
+    }
+
+    private fun getSnackbar(msg: String, snackColor: Int) : Snackbar {
+        val sBar = Snackbar.make(
+            activity?.findViewById(R.id.fragment)!!,
+            msg,
+            Snackbar.LENGTH_LONG
+        )
+        sBar.view.setBackgroundColor(snackColor)
+        return sBar
     }
 }
