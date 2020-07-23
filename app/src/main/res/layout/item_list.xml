@@ -29,11 +29,12 @@
 
                 android:ellipsize="end"
 
-                android:fontFamily="@font/lato_bold"
+                android:fontFamily="@font/avert"
                 android:gravity="start"
                 android:letterSpacing="0.05"
                 android:lines="1"
                 android:text="@string/dummy_territory"
+                android:textStyle="bold"
                 android:textAllCaps="true"
 
                 android:textColor="@color/colorText"
@@ -49,7 +50,7 @@
 
                 android:ellipsize="end"
 
-                android:fontFamily="@font/lato_regular"
+                android:fontFamily="@font/avert_light"
                 android:gravity="end"
                 android:letterSpacing="0.05"
                 android:lines="1"
@@ -69,7 +70,7 @@
             android:layout_gravity="center"
 
             android:ellipsize="end"
-            android:fontFamily="@font/lato_regular"
+            android:fontFamily="@font/avert"
             android:gravity="start"
             android:lineSpacingExtra="4dp"
             android:letterSpacing="0.05"
@@ -89,7 +90,7 @@
 
             android:ellipsize="end"
 
-            android:fontFamily="@font/lato_regular"
+            android:fontFamily="@font/avert"
             android:gravity="end"
             android:lineSpacingExtra="4dp"
             android:letterSpacing="0.05"

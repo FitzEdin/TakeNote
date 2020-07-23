@@ -54,7 +54,7 @@
                     android:textColor="@color/colorText"
                     android:textSize="@dimen/lg_text_size"
                     android:textStyle="bold"
-                    android:fontFamily="@font/lato"
+                    android:fontFamily="@font/avert"
                     android:letterSpacing="0.03"
 
                     android:gravity="start|center"
@@ -72,7 +72,8 @@
                     android:text="@string/add_item"
                     android:textSize="@dimen/sm_text_size"
                     android:textColor="@color/colorTextHighlight"
-                    android:fontFamily="@font/lato_bold"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/avert"
                     android:textAllCaps="true"
                     android:letterSpacing="0.1" />
 
@@ -134,7 +135,8 @@
                         android:text="@string/label_description"
                         android:textSize="@dimen/dl_text_size"
                         android:textColor="@color/colorText"
-                        android:fontFamily="@font/lato_bold"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/avert"
                         android:letterSpacing="0.05"/>
 
                 <EditText
@@ -151,7 +153,7 @@
                         android:textColorHint="@color/colorTextHint"
                         android:textColor="@color/colorText"
                         android:textSize="@dimen/md_text_size"
-                        android:fontFamily="@font/lato"
+                        android:fontFamily="@font/avert"
                         android:letterSpacing="0.03"
                         android:lineSpacingExtra="2dp"
 
@@ -180,7 +182,8 @@
                         android:text="@string/label_territory"
                         android:textSize="@dimen/dl_text_size"
                         android:textColor="@color/colorText"
-                        android:fontFamily="@font/lato_bold"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/avert"
                         android:letterSpacing="0.05"/>
 
                 <EditText
@@ -197,7 +200,7 @@
                         android:textColorHint="@color/colorTextHint"
                         android:textColor="@color/colorText"
                         android:textSize="@dimen/md_text_size"
-                        android:fontFamily="@font/lato"
+                        android:fontFamily="@font/avert"
                         android:letterSpacing="0.03"
                         android:lineSpacingExtra="4dp"
 
@@ -228,7 +231,8 @@
                         android:text="@string/label_department"
                         android:textSize="@dimen/dl_text_size"
                         android:textColor="@color/colorText"
-                        android:fontFamily="@font/lato_bold"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/avert"
                         android:letterSpacing="0.05"/>
 
                 <EditText
@@ -245,7 +249,7 @@
                         android:textColorHint="@color/colorTextHint"
                         android:textColor="@color/colorText"
                         android:textSize="@dimen/md_text_size"
-                        android:fontFamily="@font/lato"
+                        android:fontFamily="@font/avert"
                         android:letterSpacing="0.03"
                         android:lineSpacingExtra="4dp"
 
@@ -274,7 +278,8 @@
                         android:text="@string/label_venue"
                         android:textSize="@dimen/dl_text_size"
                         android:textColor="@color/colorText"
-                        android:fontFamily="@font/lato_bold"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/avert"
                         android:letterSpacing="0.05"/>
 
                 <EditText
@@ -291,7 +296,7 @@
                         android:textColorHint="@color/colorTextHint"
                         android:textColor="@color/colorText"
                         android:textSize="@dimen/md_text_size"
-                        android:fontFamily="@font/lato"
+                        android:fontFamily="@font/avert"
                         android:letterSpacing="0.03"
                         android:lineSpacingExtra="4dp"
 
@@ -322,7 +327,8 @@
                         android:text="@string/label_date"
                         android:textSize="@dimen/dl_text_size"
                         android:textColor="@color/colorText"
-                        android:fontFamily="@font/lato_bold"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/avert"
                         android:letterSpacing="0.05"/>
 
                 <EditText
@@ -339,7 +345,7 @@
                         android:textColorHint="@color/colorTextHint"
                         android:textColor="@color/colorText"
                         android:textSize="@dimen/md_text_size"
-                        android:fontFamily="@font/lato"
+                        android:fontFamily="@font/avert"
                         android:letterSpacing="0.03"
                         android:lineSpacingExtra="4dp"
 

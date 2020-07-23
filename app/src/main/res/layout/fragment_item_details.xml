@@ -53,7 +53,7 @@
                     android:textColor="@color/colorText"
                     android:textSize="@dimen/lg_text_size"
                     android:textStyle="bold"
-                    android:fontFamily="@font/lato"
+                    android:fontFamily="@font/avert"
                     android:letterSpacing="0.03"
 
                     android:gravity="start|center"
@@ -114,7 +114,7 @@
                         android:text="@string/dummy_territory"
                         android:textSize="@dimen/lg_text_size"
                         android:textColor="@color/colorText"
-                        android:fontFamily="@font/lato_bold"
+                        android:fontFamily="@font/avert"
                         android:textStyle="bold"
                         android:textAllCaps="true"
                         android:letterSpacing="0.05"
@@ -133,7 +133,7 @@
                         android:text="@string/dummy_department"
                         android:textSize="@dimen/lg_text_size"
                         android:textColor="@color/colorTextHint"
-                        android:fontFamily="@font/lato"
+                        android:fontFamily="@font/avert"
                         android:letterSpacing="0.05"
                         android:lineSpacingExtra="4dp"
 
@@ -174,7 +174,8 @@
                             android:text="@string/dummy_venue"
                             android:textSize="@dimen/dl_text_size"
                             android:textColor="@color/colorTextHighlight"
-                            android:fontFamily="@font/lato_bold"
+                            android:textStyle="bold"
+                            android:fontFamily="@font/avert"
                             android:lineSpacingExtra="4dp"
 
                             android:gravity="left|center" />
@@ -216,7 +217,8 @@
                             android:text="@string/dummy_date"
                             android:textSize="@dimen/dl_text_size"
                             android:textColor="@color/colorTextHighlight"
-                            android:fontFamily="@font/lato_bold"
+                            android:textStyle="bold"
+                            android:fontFamily="@font/avert"
                             android:lineSpacingExtra="4dp"
 
                             android:gravity="start|center" />
@@ -235,7 +237,7 @@
                         android:text="@string/dummy_description"
                         android:textSize="@dimen/dl_text_size"
                         android:textColor="@color/colorText"
-                        android:fontFamily="@font/lato_regular"
+                        android:fontFamily="@font/avert"
                         android:lineSpacingExtra="@dimen/sm_margin"
                         android:letterSpacing="0.05" />
             </LinearLayout>

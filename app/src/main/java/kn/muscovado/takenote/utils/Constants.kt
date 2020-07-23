@@ -33,7 +33,7 @@ class Constants{
     // strings for uploading links
     val DROP_ANOTHER_LINK = "Drop another link"
     val QUESTION_LINK_DROP = "Did you drop a link?"
-    val SUCCESS_LINK_UPLOAD = "Thanks for the link!"
+    val SUCCESS_LINK_UPLOAD = "Thanks for the notice!"
     val ERROR_LINK_UPLOAD = "Check your internet connection!"
     val SUCCESS_ITEM_UPLOAD = "Notice updated"
     val ERROR_ITEM_UPLOAD = "Check your internet connection!"

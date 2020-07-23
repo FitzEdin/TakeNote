@@ -51,7 +51,7 @@
                     android:layout_weight="1"
                     android:background="@color/colorTopBarBackground"
 
-                    android:fontFamily="@font/lato_regular"
+                    android:fontFamily="@font/avert"
                     android:gravity="left|center_vertical"
                     android:hapticFeedbackEnabled="true"
                     android:hint="@string/hint_search_items"
@@ -79,7 +79,8 @@
                     android:text=""
                     android:textSize="@dimen/sm_text_size"
                     android:textColor="@color/colorTextHighlight"
-                    android:fontFamily="@font/lato_bold"/>
+                    android:textStyle="bold"
+                    android:fontFamily="@font/avert"/>
 
             <ImageView
                     android:id="@+id/clear_search_items"
