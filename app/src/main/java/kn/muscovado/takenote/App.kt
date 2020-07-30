@@ -3,6 +3,8 @@ package kn.muscovado.takenote
 
 import android.app.Application
 import io.realm.Realm
+import io.realm.RealmConfiguration
+import kn.muscovado.takenote.content.MyGration
 
 class App: Application() {
     /**
@@ -13,5 +15,13 @@ class App: Application() {
         super.onCreate()
 
         Realm.init(this)
+
+        // set default configuration
+        val realmConfig = RealmConfiguration.Builder()
+            .name("notices.realm")
+            .schemaVersion(1)
+            .migration(MyGration())
+            .build()
+        Realm.setDefaultConfiguration(realmConfig)
     }
 }
