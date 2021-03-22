@@ -31,8 +31,8 @@ class Constants{
     val SHARE_EXTRA_LINK = "http://goo.gl/6WSXON"
 
     // strings for uploading links
-    val DROP_ANOTHER_LINK = "Drop another link"
-    val QUESTION_LINK_DROP = "Did you drop a link?"
+    val BANNER_ONLINE = "Online"
+    val BANNER_OFFLINE = "No network"
     val SUCCESS_LINK_UPLOAD = "Thanks for the notice!"
     val ERROR_LINK_UPLOAD = "Check your internet connection!"
     val SUCCESS_ITEM_UPLOAD = "Notice updated"
@@ -47,4 +47,6 @@ class Constants{
     val STATUS_UNVETTED = "new"
     val STATUS_VETTED = "vetted"
     val UNVETTED_ITEM = ""
+
+    val NOTICES_COLLECTION = "notices"
 }

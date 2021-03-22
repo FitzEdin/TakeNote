@@ -3,16 +3,13 @@ package kn.muscovado.takenote.admin
 
 import android.os.Bundle
 import android.util.Log
-import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.android.volley.Request
 import com.android.volley.RequestQueue
-import com.android.volley.Response
 import com.android.volley.toolbox.BasicNetwork
 import com.android.volley.toolbox.DiskBasedCache
 import com.android.volley.toolbox.HurlStack
@@ -137,7 +134,7 @@ class EditItemFragment : Fragment() {
         // create relevant PUT request to update item
         val request = JsonObjectRequest(
             Request.Method.PUT, url + "/" + item?._id, jsonObject,
-            Response.Listener { response ->
+            { response ->
                 Log.d(constants.LOG_TAG, response.toString())
                 //TODO: parse the response here (or in the API) for DB errors
                 getSnackbar(constants.SUCCESS_ITEM_UPLOAD, colorPrimary).show()
@@ -145,7 +142,7 @@ class EditItemFragment : Fragment() {
                 // exit the fragment after saving item
                 exitFragment()
             },
-            Response.ErrorListener { err ->
+            { err ->
                 Log.d(constants.LOG_TAG, err.toString())
                 getSnackbar(constants.ERROR_ITEM_UPLOAD, colorDanger).show()
             }
@@ -164,7 +161,7 @@ class EditItemFragment : Fragment() {
         // create relevant PUT request to update item
         val request = JsonObjectRequest(
             Request.Method.DELETE, url + "/" + item?._id, null,
-            Response.Listener<JSONObject> { response ->
+            { response ->
                 Log.d(constants.LOG_TAG, response.toString())
                 //TODO: parse the response here (or in the API) for DB errors
 
@@ -178,7 +175,7 @@ class EditItemFragment : Fragment() {
                 // exit fragment
                 exitFragment()
             },
-            Response.ErrorListener { err ->
+            { err ->
                 Log.d(constants.LOG_TAG, err.toString())
 
                 getSnackbar(constants.ERROR_ITEM_DELETE, colorDanger).show()

@@ -13,7 +13,6 @@ import androidx.annotation.NonNull
 import androidx.appcompat.app.AppCompatActivity
 import com.android.volley.Request
 import com.android.volley.RequestQueue
-import com.android.volley.Response
 import com.android.volley.toolbox.BasicNetwork
 import com.android.volley.toolbox.DiskBasedCache
 import com.android.volley.toolbox.HurlStack
@@ -30,9 +29,10 @@ import org.json.JSONObject
 class MainActivity : AppCompatActivity() {
 
     private var rcvr : BroadcastReceiver = makeBroadcastReceiver()
-    private var realm = Realm.getDefaultInstance()
     private val constants = Constants()
     private var snackColor = 0
+
+    private var realm = Realm.getDefaultInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -78,11 +78,11 @@ class MainActivity : AppCompatActivity() {
         return when (isConnected()) {
             true -> {
                 snackColor = resources.getColor(R.color.colorPrimaryDarker)
-                "Online"
+                constants.BANNER_ONLINE
             }
             else -> {
                 snackColor = resources.getColor(R.color.colorIconDanger)
-                "No network"
+                constants.BANNER_OFFLINE
             }
         }
     }
@@ -97,7 +97,7 @@ class MainActivity : AppCompatActivity() {
             Request.Method.GET, url, null,
 
             // handle positive response
-            Response.Listener<JSONArray> { response: JSONArray ->
+            { response: JSONArray ->
                 Log.d(constants.LOG_TAG, response.toString())
 
                 /** TODO: remove items one by one */
@@ -119,7 +119,7 @@ class MainActivity : AppCompatActivity() {
             },
 
             // Log an error response
-            Response.ErrorListener { err ->
+            { err ->
                 Log.e(constants.LOG_TAG, err.toString())
             }
         )

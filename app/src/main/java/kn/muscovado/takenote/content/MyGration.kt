@@ -15,15 +15,15 @@ class MyGration : RealmMigration {
      * @param newVersion the schema version of the Realm after executing the migration.
      */
     override fun migrate(realm: DynamicRealm, oldVersion: Long, newVersion: Long) {
-        var version: Long = oldVersion
-        val schema = realm.schema
+//        var version: Long = oldVersion
+//        val schema = realm.schema
 
         // upgrade from version 0 of database
-        if(version == 0L){
-            schema.get("Notice")!!
-                .addField("version", Int::class.java)
-
-            version++
-        }
+//        if(version == 0L){
+//            schema.get("Notice")!!
+//                .addField("version", Int::class.java)
+//
+//            version++
+//        }
     }
 }

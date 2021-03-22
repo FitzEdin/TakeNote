@@ -40,7 +40,7 @@
                     android:layout_gravity="center"
 
                     android:src="@drawable/ic_add_black_24dp"
-                    android:tint="@color/colorIconHighlight" />
+                    app:tint="@color/colorIconHighlight" />
 
             <TextView
                     android:id="@+id/top_bar_title"
@@ -74,7 +74,7 @@
                     android:layout_gravity="center"
 
                     android:src="@drawable/ic_search_black_24dp"
-                    android:tint="@color/colorIcon" />
+                    app:tint="@color/colorIcon" />
 
             <ImageView
                     android:id="@+id/unlock"
@@ -91,7 +91,7 @@
                     android:layout_gravity="center"
 
                     android:src="@drawable/ic_settings_black_24dp"
-                    android:tint="@color/colorIcon" />
+                    app:tint="@color/colorIcon" />
 
         </LinearLayout>
 
@@ -120,8 +120,8 @@
 
                     android:layout_gravity="center|center"
 
-                    android:src="@drawable/ic_file_download_black_24dp"
-                    android:tint="@color/colorIconHighlight"/>
+                    android:src="@drawable/ic_no_notice_24dp"
+                    app:tint="@color/colorIconHighlight" />
 
             <!-- item title -->
             <TextView

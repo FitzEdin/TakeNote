@@ -20,7 +20,7 @@ import kotlinx.android.synthetic.main.fragment_item_details.*
  */
 class ItemDetailsFragment : Fragment() {
     private var constants = Constants()
-    private val openURL = Intent(Intent.ACTION_VIEW)
+//    private val openURL = Intent(Intent.ACTION_VIEW)
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -50,10 +50,10 @@ class ItemDetailsFragment : Fragment() {
             .setType(constants.TEXT_PLAIN)
 
         // open URL on click
-        val mOnClickListener = View.OnClickListener {
-//            openURL.data = Uri.parse(item?.link)
-            startActivity(openURL)
-        }
+//        val mOnClickListener = View.OnClickListener {
+////            openURL.data = Uri.parse(item?.link)
+//            startActivity(openURL)
+//        }
         // share item
         val mOnShareClickListener = View.OnClickListener {
             startActivity(Intent.createChooser(shareItem, constants.SHARE_TITLE))

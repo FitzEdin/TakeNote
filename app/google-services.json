@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "32779653439",
+    "firebase_url": "https://takenote-mvdo.firebaseio.com",
+    "project_id": "takenote-mvdo",
+    "storage_bucket": "takenote-mvdo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:32779653439:android:86fb58be9e83730668838a",
+        "android_client_info": {
+          "package_name": "kn.muscovado.takenote"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "32779653439-gcv51kcjfdopqbc9t2857pqap004tl2p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCKDkXl8Eo7ZYy3yBJzT58-gNg44yZFf7k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "32779653439-gcv51kcjfdopqbc9t2857pqap004tl2p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -12,8 +12,7 @@ open class Item(
     var date: String = "",       // possible date of event
     var venue: String = "",      // possible location of event
     var description: String = "",// text of the actual notice
-    var status: String = "",     // whether the notice was verified
-    var version: Int = 0         // version of DB when item last changed
+    var status: String = ""     // whether the notice was verified
     ) : RealmObject() {
 
     override fun toString(): String =
@@ -22,6 +21,6 @@ open class Item(
     constructor() : this(
         "", "", "",
         "", "", "",
-        "", 0
+        ""
     )
 }

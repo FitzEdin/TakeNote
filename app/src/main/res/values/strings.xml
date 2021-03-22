@@ -5,7 +5,7 @@
     <string name="title_item_details">Notice</string>
     <string name="title_add_item">New Notice</string>
     <string name="hint_search_items">Search for notices</string>
-    <string name="hint_getting_items">Getting notices</string>
+    <string name="hint_getting_items">No notices available</string>
 
     <!-- Notices -->
     <string name="title_edit_item">Edit Notice</string>
