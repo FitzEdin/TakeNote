@@ -40,7 +40,7 @@ class SearchItemsFragment : Fragment() {
     private val binding get() = _binding!!
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+                              savedInstanceState: Bundle?): View {
         // Inflate the layout for this fragment
         _binding = FragmentSearchItemsBinding.inflate(inflater, container, false)
         val view = binding.root

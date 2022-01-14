@@ -20,7 +20,6 @@ import io.realm.kotlin.where
 import kn.muscovado.takenote.R
 import kn.muscovado.takenote.content.Item
 import kn.muscovado.takenote.databinding.FragmentEditItemBinding
-import kn.muscovado.takenote.databinding.FragmentItemsBinding
 import kn.muscovado.takenote.utils.Constants
 import org.json.JSONObject
 
@@ -40,7 +39,7 @@ class EditItemFragment : Fragment() {
     private val binding get() = _binding!!
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+                              savedInstanceState: Bundle?): View {
 
         // set toast colours
         colorPrimary = resources.getColor(R.color.colorPrimaryDarker)
@@ -48,8 +47,7 @@ class EditItemFragment : Fragment() {
 
         // Inflate layout for this fragment
         _binding = FragmentEditItemBinding.inflate(inflater, container, false)
-        val view = binding.root
-        return view
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

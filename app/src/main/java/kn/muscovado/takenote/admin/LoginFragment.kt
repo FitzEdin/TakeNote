@@ -3,16 +3,15 @@ package kn.muscovado.takenote.admin
 
 import android.os.Bundle
 import android.view.Gravity
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import kn.muscovado.takenote.R
 import kn.muscovado.takenote.databinding.FragmentLoginBinding
-import kn.muscovado.takenote.databinding.FragmentSearchItemsBinding
 
 /**
  * A simple [Fragment] subclass.
@@ -23,7 +22,7 @@ class LoginFragment : Fragment() {
     private val binding get() = _binding!!
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+                              savedInstanceState: Bundle?): View {
         // Inflate the layout for this fragment
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
         return binding.root
@@ -60,6 +59,5 @@ class LoginFragment : Fragment() {
             tEmpty.show()
         }
     }
-
 
 }

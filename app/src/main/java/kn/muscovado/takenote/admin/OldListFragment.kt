@@ -36,7 +36,7 @@ class OldListFragment : Fragment() {
     private val binding get() = _binding!!
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+                              savedInstanceState: Bundle?): View {
         // Inflate the layout for this fragment
         _binding = FragmentOldListBinding.inflate(inflater, container, false)
         return binding.root

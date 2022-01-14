@@ -3,18 +3,17 @@ package kn.muscovado.takenote.items
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import io.realm.Realm
 import io.realm.kotlin.where
-import kn.muscovado.takenote.utils.Constants
 import kn.muscovado.takenote.R
 import kn.muscovado.takenote.content.Item
-import kn.muscovado.takenote.databinding.FragmentAddItemBinding
 import kn.muscovado.takenote.databinding.FragmentItemDetailsBinding
+import kn.muscovado.takenote.utils.Constants
 
 /**
  * Displays the details for the listed items
@@ -27,7 +26,7 @@ class ItemDetailsFragment : Fragment() {
     private val binding get() = _binding!!
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+                              savedInstanceState: Bundle?): View {
         // Inflate the layout for this fragment
         _binding = FragmentItemDetailsBinding.inflate(inflater, container, false)
         val view = binding.root

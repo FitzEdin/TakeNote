@@ -3,22 +3,21 @@ package kn.muscovado.takenote.admin
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import io.realm.Realm
 import io.realm.kotlin.where
-import kn.muscovado.takenote.utils.Constants
 import kn.muscovado.takenote.R
 import kn.muscovado.takenote.content.Item
 import kn.muscovado.takenote.databinding.FragmentNewListBinding
-import kn.muscovado.takenote.databinding.FragmentSearchItemsBinding
 import kn.muscovado.takenote.databinding.ItemListBinding
+import kn.muscovado.takenote.utils.Constants
 
 /**
  * A simple [Fragment] subclass.
@@ -37,7 +36,7 @@ class NewListFragment : Fragment() {
     private val binding get() = _binding!!
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+                              savedInstanceState: Bundle?): View {
         // Inflate the layout for this fragment
         _binding = FragmentNewListBinding.inflate(inflater, container, false)
         return binding.root
