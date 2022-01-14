@@ -11,7 +11,7 @@ import androidx.fragment.app.FragmentPagerAdapter
 import androidx.navigation.Navigation
 import kn.muscovado.takenote.utils.Constants
 import kn.muscovado.takenote.R
-import kotlinx.android.synthetic.main.fragment_edit_list.*
+import kn.muscovado.takenote.databinding.FragmentEditListBinding
 
 /**
  * Shows the two lists of scholarships, those vetted and those needing to be edited
@@ -20,21 +20,26 @@ class EditListFragment : Fragment() {
 
     private lateinit var sectionsPagerAdapter: SectionsPagerAdapter
 
+    private var _binding: FragmentEditListBinding? = null
+    private val binding get() = _binding!!
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_edit_list, container, false)
+        _binding = FragmentEditListBinding.inflate(inflater, container, false)
+        val view = binding.root
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         // back button
-        back_edit_list.setOnClickListener(
+        binding.backEditList.setOnClickListener(
             Navigation.createNavigateOnClickListener(R.id.action_editListFrag_pop)
         )
         // to edit item
-        search_edit_list.setOnClickListener{}
+        binding.searchEditList.setOnClickListener{}
 
 
 
@@ -42,9 +47,14 @@ class EditListFragment : Fragment() {
             SectionsPagerAdapter(
                 childFragmentManager
             )
-        pager.adapter = sectionsPagerAdapter
+        binding.pager.adapter = sectionsPagerAdapter
 
-        tab_layout.setupWithViewPager(pager)
+        binding.tabLayout.setupWithViewPager(binding.pager)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     class SectionsPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {

@@ -14,7 +14,7 @@ import io.realm.kotlin.where
 import kn.muscovado.takenote.utils.Constants
 import kn.muscovado.takenote.R
 import kn.muscovado.takenote.content.Item
-import kotlinx.android.synthetic.main.item_list.view.*
+import kn.muscovado.takenote.databinding.ItemListBinding
 
 /**
  * Adapter for RecyclerView w/list of items
@@ -32,9 +32,12 @@ class ItemRVAdapter
         .equalTo(constants.ITEM_STATUS, constants.STATUS_VETTED)
         .findAll()
 
+    private var _binding: ItemListBinding? = null
+    private val binding get() = _binding!!
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_list, parent, false)
-        return ViewHolder(view)
+        _binding = ItemListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return ViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -51,10 +54,10 @@ class ItemRVAdapter
         val mOnClickListener = View.OnClickListener {
             Log.d(constants.LOG_TAG, "Item Number " + items[position]?._id)
             bundle.putString(constants.TAG_ITEM, items[position]?._id!!)
-            Navigation.findNavController(holder.mView).navigate(R.id.action_to_itemDetailsFrag, bundle)
+            Navigation.findNavController(binding.root).navigate(R.id.action_to_itemDetailsFrag, bundle)
         }
 
-        with(holder.mView) {
+        with(binding.root) {
             tag = items[position]
             setOnClickListener(mOnClickListener)
         }
@@ -62,12 +65,12 @@ class ItemRVAdapter
 
     override fun getItemCount(): Int = items.size
 
-    inner class ViewHolder(val mView: View) : RecyclerView.ViewHolder(mView) {
+    inner class ViewHolder(val binding: ItemListBinding) : RecyclerView.ViewHolder(binding.root) {
         // get handle on views
-        val mCoverageView: TextView = mView.item_territory
-        val mLevelView: TextView = mView.item_department
-        val mTitleView: TextView = mView.item_description
-        val mOpenToView: TextView = mView.item_date
+        val mCoverageView: TextView = binding.itemTerritory
+        val mLevelView: TextView = binding.itemDepartment
+        val mTitleView: TextView = binding.itemDescription
+        val mOpenToView: TextView = binding.itemDate
 
         override fun toString(): String {
             return super.toString() + " '" + mTitleView.text + "'"

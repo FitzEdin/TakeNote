@@ -18,8 +18,8 @@ import com.android.volley.toolbox.HurlStack
 import com.android.volley.toolbox.JsonObjectRequest
 import com.google.android.material.snackbar.Snackbar
 import kn.muscovado.takenote.R
+import kn.muscovado.takenote.databinding.FragmentAddItemBinding
 import kn.muscovado.takenote.utils.Constants
-import kotlinx.android.synthetic.main.fragment_add_item.*
 import org.json.JSONObject
 
 /**
@@ -34,16 +34,21 @@ class AddItemFragment : Fragment() {
 //    private var num = 0
     private var snackColor = 0
 
+    private var _binding: FragmentAddItemBinding? = null
+    private val binding get() = _binding!!
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_add_item, container, false)
+        _binding = FragmentAddItemBinding.inflate(inflater, container, false)
+        val view = binding.root
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         // set up back button
-        back_item_add.setOnClickListener(
+        binding.backItemAdd.setOnClickListener(
             Navigation.createNavigateOnClickListener(R.id.action_addItemFrag_pop)
         )
 
@@ -56,22 +61,27 @@ class AddItemFragment : Fragment() {
 
 
         // set up button to remove text
-        clear_item_btn.setOnClickListener{ clearAll() }
+        binding.clearItemBtn.setOnClickListener{ clearAll() }
 //        clear_item_btn.visibility = View.INVISIBLE
 
         // add action when addButton is tapped
-        add_item_btn.setOnClickListener {
+        binding.addItemBtn.setOnClickListener {
             // hide keyboard
             val imm = context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             imm.hideSoftInputFromWindow(it?.windowToken, 0)
 
             // upload item
-            when (add_item_description.text.isNotEmpty()) {
+            when (binding.addItemDescription.text.isNotEmpty()) {
                 true -> addItem()
                 false -> getDescription()
             }
         }
 //        add_item_btn.visibility = View.INVISIBLE
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     // listens for changes to textView
@@ -149,20 +159,20 @@ class AddItemFragment : Fragment() {
     }
 
     private fun clearAll() {
-        add_item_description.text.clear()
-        add_item_department.text.clear()
-        add_item_territory.text.clear()
-        add_item_venue.text.clear()
-        add_item_date.text.clear()
+        binding.addItemDescription.text.clear()
+        binding.addItemDepartment.text.clear()
+        binding.addItemTerritory.text.clear()
+        binding.addItemVenue.text.clear()
+        binding.addItemDate.text.clear()
     }
 
     private fun buildJSONObject(): JSONObject {
         return JSONObject()
-            .put(constants.ITEM_DESCRIPTION, add_item_description.text.toString())
-            .put(constants.ITEM_DEPARTMENT, add_item_department.text.toString())
-            .put(constants.ITEM_TERRITORY, add_item_territory.text.toString())
-            .put(constants.ITEM_VENUE, add_item_venue.text.toString())
-            .put(constants.ITEM_DATE, add_item_date.text.toString())
+            .put(constants.ITEM_DESCRIPTION, binding.addItemDescription.text.toString())
+            .put(constants.ITEM_DEPARTMENT, binding.addItemDepartment.text.toString())
+            .put(constants.ITEM_TERRITORY, binding.addItemTerritory.text.toString())
+            .put(constants.ITEM_VENUE, binding.addItemVenue.text.toString())
+            .put(constants.ITEM_DATE, binding.addItemDate.text.toString())
     }
 
     private fun buildSnackBar(success: Boolean): Snackbar {

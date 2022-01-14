@@ -13,7 +13,8 @@ import io.realm.kotlin.where
 import kn.muscovado.takenote.utils.Constants
 import kn.muscovado.takenote.R
 import kn.muscovado.takenote.content.Item
-import kotlinx.android.synthetic.main.fragment_item_details.*
+import kn.muscovado.takenote.databinding.FragmentAddItemBinding
+import kn.muscovado.takenote.databinding.FragmentItemDetailsBinding
 
 /**
  * Displays the details for the listed items
@@ -22,10 +23,15 @@ class ItemDetailsFragment : Fragment() {
     private var constants = Constants()
 //    private val openURL = Intent(Intent.ACTION_VIEW)
 
+    private var _binding: FragmentItemDetailsBinding? = null
+    private val binding get() = _binding!!
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_item_details, container, false)
+        _binding = FragmentItemDetailsBinding.inflate(inflater, container, false)
+        val view = binding.root
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -60,15 +66,20 @@ class ItemDetailsFragment : Fragment() {
         }
 
         // populate view
-        item_details_territory.text = item?.territory
-        item_details_department.text = item?.department
-        item_details_date.text = item?.date
-        item_details_description.text = item?.description
-        item_details_venue.text = item?.venue
+        binding.itemDetailsTerritory.text = item?.territory
+        binding.itemDetailsDepartment.text = item?.department
+        binding.itemDetailsDate.text = item?.date
+        binding.itemDetailsDescription.text = item?.description
+        binding.itemDetailsVenue.text = item?.venue
 
-        back_item_details.setOnClickListener(
+        binding.backItemDetails.setOnClickListener(
             Navigation.createNavigateOnClickListener(R.id.action_itemDetailsFrag_pop)
         )
-        share_item_details.setOnClickListener(mOnShareClickListener)
+        binding.shareItemDetails.setOnClickListener(mOnShareClickListener)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

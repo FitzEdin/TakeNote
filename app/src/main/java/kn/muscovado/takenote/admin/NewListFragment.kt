@@ -16,8 +16,9 @@ import io.realm.kotlin.where
 import kn.muscovado.takenote.utils.Constants
 import kn.muscovado.takenote.R
 import kn.muscovado.takenote.content.Item
-import kotlinx.android.synthetic.main.fragment_new_list.*
-import kotlinx.android.synthetic.main.item_list.view.*
+import kn.muscovado.takenote.databinding.FragmentNewListBinding
+import kn.muscovado.takenote.databinding.FragmentSearchItemsBinding
+import kn.muscovado.takenote.databinding.ItemListBinding
 
 /**
  * A simple [Fragment] subclass.
@@ -32,38 +33,50 @@ class NewListFragment : Fragment() {
         .equalTo(constants.ITEM_STATUS, constants.STATUS_UNVETTED)
         .findAll()
 
+    private var _binding: FragmentNewListBinding? = null
+    private val binding get() = _binding!!
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_new_list, container, false)
+        _binding = FragmentNewListBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        if (listView is RecyclerView) {
-            with(listView) {
+        if (binding.listView is RecyclerView) {
+            with(binding.listView) {
                 layoutManager = LinearLayoutManager(context)
                 adapter = NewListRVAdapter()
             }
         }
 
         if (items?.size!! > 0) {
-            listView.visibility = View.VISIBLE
-            empty_items_list.visibility = View.GONE
+            binding.listView.visibility = View.VISIBLE
+            binding.emptyItemsList.visibility = View.GONE
         }
         else {
-            listView.visibility = View.GONE
-            empty_items_list.visibility = View.VISIBLE
+            binding.listView.visibility = View.GONE
+            binding.emptyItemsList.visibility = View.VISIBLE
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     inner class NewListRVAdapter
         : RecyclerView.Adapter<NewListRVAdapter.ViewHolder>() {
 
+        private var _binding: ItemListBinding? = null
+        private val binding get() = _binding!!
+
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-            val view = LayoutInflater.from(parent.context).inflate(R.layout.item_list, parent, false)
-            return ViewHolder(view)
+            _binding = ItemListBinding.inflate(layoutInflater, parent, false)
+            return ViewHolder(binding)
         }
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -77,10 +90,10 @@ class NewListFragment : Fragment() {
                 Log.d(constants.LOG_TAG, constants.LOG_MSG_ITEM_LINK + items[position]?.description)
 
                 bundle.putString(constants.TAG_ITEM, items[position]?._id)
-                Navigation.findNavController(holder.mView).navigate(R.id.action_to_editItemFrag, bundle)
+                Navigation.findNavController(binding.root).navigate(R.id.action_to_editItemFrag, bundle)
             }
 
-            with(holder.mView) {
+            with(binding.root) {
                 tag = items[position]
                 setOnClickListener(mOnClickListener)
             }
@@ -88,11 +101,11 @@ class NewListFragment : Fragment() {
 
         override fun getItemCount(): Int = items?.size!!
 
-        inner class ViewHolder(val mView: View) : RecyclerView.ViewHolder(mView) {
-            val mDescriptionView: TextView = mView.item_description
-            val mTerritoryView: TextView = mView.item_territory
-            val mDepartmentView: TextView = mView.item_department
-            val mDateView: TextView = mView.item_date
+        inner class ViewHolder(val binding: ItemListBinding) : RecyclerView.ViewHolder(binding.root) {
+            val mDescriptionView: TextView = binding.itemDescription
+            val mTerritoryView: TextView = binding.itemTerritory
+            val mDepartmentView: TextView = binding.itemDepartment
+            val mDateView: TextView = binding.itemDate
 
             override fun toString(): String {
                 return super.toString() + " '" + mDescriptionView.text + "'"

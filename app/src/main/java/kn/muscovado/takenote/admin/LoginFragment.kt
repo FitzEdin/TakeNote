@@ -11,34 +11,44 @@ import android.widget.Toast
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import kn.muscovado.takenote.R
-import kotlinx.android.synthetic.main.fragment_login.*
+import kn.muscovado.takenote.databinding.FragmentLoginBinding
+import kn.muscovado.takenote.databinding.FragmentSearchItemsBinding
 
 /**
  * A simple [Fragment] subclass.
  */
 class LoginFragment : Fragment() {
 
+    private var _binding: FragmentLoginBinding? = null
+    private val binding get() = _binding!!
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_login, container, false)
+        _binding = FragmentLoginBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         // set up close button
-        back_item_login.setOnClickListener(
+        binding.backItemLogin.setOnClickListener(
             Navigation.createNavigateOnClickListener(R.id.action_loginFrag_pop)
         )
 
         // to edit item
-        login_btn.setOnClickListener{login()}
+        binding.loginBtn.setOnClickListener{login()}
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     private fun login(){
         // get PIN entered
-        val pin = login_text.text.toString()
+        val pin = binding.loginText.text.toString()
         // check validity
         if (pin == "1869") {
             //      go to editListFrag

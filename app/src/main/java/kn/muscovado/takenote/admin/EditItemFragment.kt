@@ -19,8 +19,9 @@ import io.realm.Realm
 import io.realm.kotlin.where
 import kn.muscovado.takenote.R
 import kn.muscovado.takenote.content.Item
+import kn.muscovado.takenote.databinding.FragmentEditItemBinding
+import kn.muscovado.takenote.databinding.FragmentItemsBinding
 import kn.muscovado.takenote.utils.Constants
-import kotlinx.android.synthetic.main.fragment_edit_item.*
 import org.json.JSONObject
 
 /**
@@ -35,6 +36,9 @@ class EditItemFragment : Fragment() {
     private var colorPrimary = 0
     private var colorDanger = 0
 
+    private var _binding: FragmentEditItemBinding? = null
+    private val binding get() = _binding!!
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
 
@@ -42,8 +46,10 @@ class EditItemFragment : Fragment() {
         colorPrimary = resources.getColor(R.color.colorPrimaryDarker)
         colorDanger = resources.getColor(R.color.colorIconDanger)
 
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_edit_item, container, false)
+        // Inflate layout for this fragment
+        _binding = FragmentEditItemBinding.inflate(inflater, container, false)
+        val view = binding.root
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -61,31 +67,36 @@ class EditItemFragment : Fragment() {
 
         populateForm()
 
-        save_item_btn.setOnClickListener{
+        binding.saveItemBtn.setOnClickListener{
             saveItem()
             uploadItem()
         }
 
-        delete_item_btn.setOnClickListener{
+        binding.deleteItemBtn.setOnClickListener{
             deleteItem()
         }
 
         // set up close button
-        close_item_edit.setOnClickListener(
+        binding.closeItemEdit.setOnClickListener(
             Navigation.createNavigateOnClickListener(R.id.action_editItemFrag_pop)
         )
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
     // populate the form UI with info from the Item
     private fun populateForm() {
-        add_item_description.setText(item?.description)
-        edit_item_department.setText(item?.department)
-        edit_item_territory.setText(item?.territory)
-        edit_item_venue.setText(item?.venue)
-        edit_item_date.setText(item?.date)
+        binding.addItemDescription.setText(item?.description)
+        binding.editItemDepartment.setText(item?.department)
+        binding.editItemTerritory.setText(item?.territory)
+        binding.editItemVenue.setText(item?.venue)
+        binding.editItemDate.setText(item?.date)
 
         // switch
-        edit_item_status.isChecked = when(item?.status) {
+        binding.editItemStatus.isChecked = when(item?.status) {
             constants.STATUS_VETTED -> true
             else -> false
         }
@@ -98,14 +109,14 @@ class EditItemFragment : Fragment() {
         realm.beginTransaction()
 
         // save info from textfields
-        item?.description = add_item_description.text.toString()
-        item?.department = edit_item_department.text.toString()
-        item?.territory = edit_item_territory.text.toString()
-        item?.venue = edit_item_venue.text.toString()
-        item?.date = edit_item_date.text.toString()
+        item?.description = binding.addItemDescription.text.toString()
+        item?.department = binding.editItemDepartment.text.toString()
+        item?.territory = binding.editItemTerritory.text.toString()
+        item?.venue = binding.editItemVenue.text.toString()
+        item?.date = binding.editItemDate.text.toString()
 
         // save info from switch
-        item?.status = when(edit_item_status.isChecked) {
+        item?.status = when(binding.editItemStatus.isChecked) {
             true -> constants.STATUS_VETTED
             false -> constants.STATUS_UNVETTED
         }
@@ -190,7 +201,7 @@ class EditItemFragment : Fragment() {
      * Exit the fragment after deleting or saving an item
      * **/
     private fun exitFragment() {
-        close_item_edit.performClick()
+        binding.closeItemEdit.performClick()
     }
 
     private fun getSnackbar(msg: String, snackColor: Int) : Snackbar {

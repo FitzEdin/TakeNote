@@ -14,34 +14,39 @@ import io.realm.kotlin.where
 import kn.muscovado.takenote.utils.Constants
 import kn.muscovado.takenote.R
 import kn.muscovado.takenote.content.Item
-import kotlinx.android.synthetic.main.fragment_items.*
+import kn.muscovado.takenote.databinding.FragmentItemsBinding
 
 class ItemsFragment : Fragment() {
 
     private var realm = Realm.getDefaultInstance()
     private val constants = Constants()
 
+    private var _binding: FragmentItemsBinding? = null
+    private val binding get() = _binding!!
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_items, container, false)
+        _binding = FragmentItemsBinding.inflate(inflater, container, false)
+        val view = binding.root
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        search_items.setOnClickListener(
+        binding.searchItems.setOnClickListener(
             Navigation.createNavigateOnClickListener(R.id.action_to_searchItemsFrag)
         )
-        new_item.setOnClickListener(
+        binding.newItem.setOnClickListener(
             Navigation.createNavigateOnClickListener(R.id.action_to_addItemFrag)
         )
-        unlock.setOnClickListener(
+        binding.unlock.setOnClickListener(
             Navigation.createNavigateOnClickListener(R.id.action_to_loginFrag)
         )
 
-        if (listView is RecyclerView) {
-            with(listView) {
+        if (binding.listView is RecyclerView) {
+            with(binding.listView) {
                 layoutManager = LinearLayoutManager(context)
                 adapter = ItemRVAdapter()
             }
@@ -50,12 +55,17 @@ class ItemsFragment : Fragment() {
         if (realm.where<Item>()
                 .equalTo(constants.ITEM_STATUS, constants.STATUS_VETTED)
                 .findAll().size > 0) {
-            listView.visibility = View.VISIBLE
-            empty_items_list.visibility = View.GONE
+            binding.listView.visibility = View.VISIBLE
+            binding.emptyItemsList.visibility = View.GONE
         }
         else {
-            listView.visibility = View.GONE
-            empty_items_list.visibility = View.VISIBLE
+            binding.listView.visibility = View.GONE
+            binding.emptyItemsList.visibility = View.VISIBLE
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
