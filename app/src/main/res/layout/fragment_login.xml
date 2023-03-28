@@ -42,7 +42,7 @@
                     android:layout_gravity="center"
 
                     android:src="@drawable/ic_arrow_back_black_24dp"
-                    android:tint="@color/colorIcon"/>
+                    app:tint="@color/colorIcon"/>
 
             <TextView
                     android:id="@+id/top_bar_title"
@@ -55,7 +55,7 @@
                     android:textColor="@color/colorText"
                     android:textSize="@dimen/lg_text_size"
                     android:textStyle="bold"
-                    android:fontFamily="@font/avert"
+                    android:fontFamily="@font/lato"
                     android:letterSpacing="0.03"
 
                     android:gravity="start|center"
@@ -94,7 +94,7 @@
                     android:textSize="@dimen/lg_text_size"
                     android:textColor="@color/colorText"
                     android:textStyle="bold"
-                    android:fontFamily="@font/avert"
+                    android:fontFamily="@font/lato"
                     android:letterSpacing="0.05"/>
 
             <EditText
@@ -114,7 +114,7 @@
                     android:textColor="@color/colorText"
                     android:textSize="@dimen/dl_text_size"
                     android:inputType="numberPassword"
-                    android:fontFamily="@font/avert"
+                    android:fontFamily="@font/lato"
                     android:letterSpacing="0.06"
                     android:lineSpacingExtra="8dp"
 
@@ -148,7 +148,7 @@
                     android:textColor="@color/colorTextHighlight"
                     android:textStyle="bold"
                     android:textAllCaps="true"
-                    android:fontFamily="@font/avert"
+                    android:fontFamily="@font/lato"
                     android:letterSpacing="0.1"/>
         </LinearLayout>
 

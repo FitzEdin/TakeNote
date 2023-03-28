@@ -40,7 +40,7 @@
                     android:layout_gravity="center"
 
                     android:src="@drawable/ic_arrow_back_black_24dp"
-                    android:tint="@color/colorIcon"/>
+                    app:tint="@color/colorIcon"/>
 
             <TextView
                     android:id="@+id/top_bar_title"
@@ -53,7 +53,7 @@
                     android:textColor="@color/colorText"
                     android:textSize="@dimen/lg_text_size"
                     android:textStyle="bold"
-                    android:fontFamily="@font/avert"
+                    android:fontFamily="@font/lato"
                     android:letterSpacing="0.03"
 
                     android:gravity="start|center"
@@ -75,7 +75,7 @@
                     android:layout_gravity="center"
 
                     android:src="@drawable/ic_share_black_24dp"
-                    android:tint="@color/colorIconHighlight"/>
+                    app:tint="@color/colorIconHighlight"/>
 
         </LinearLayout>
 
@@ -114,7 +114,7 @@
                         android:text="@string/dummy_territory"
                         android:textSize="@dimen/lg_text_size"
                         android:textColor="@color/colorText"
-                        android:fontFamily="@font/avert"
+                        android:fontFamily="@font/lato"
                         android:textStyle="bold"
                         android:textAllCaps="true"
                         android:letterSpacing="0.05"
@@ -133,7 +133,7 @@
                         android:text="@string/dummy_department"
                         android:textSize="@dimen/lg_text_size"
                         android:textColor="@color/colorTextHint"
-                        android:fontFamily="@font/avert"
+                        android:fontFamily="@font/lato"
                         android:letterSpacing="0.05"
                         android:lineSpacingExtra="4dp"
 
@@ -161,7 +161,7 @@
                             android:layout_gravity="center"
 
                             android:src="@drawable/ic_location_black_24dp"
-                            android:tint="@color/colorIconHighlight"/>
+                            app:tint="@color/colorIconHighlight"/>
 
                     <TextView
                             android:id="@+id/item_details_venue"
@@ -175,10 +175,10 @@
                             android:textSize="@dimen/dl_text_size"
                             android:textColor="@color/colorTextHighlight"
                             android:textStyle="bold"
-                            android:fontFamily="@font/avert"
+                            android:fontFamily="@font/lato"
                             android:lineSpacingExtra="4dp"
 
-                            android:gravity="left|center" />
+                            android:gravity="start|center" />
 
                 </LinearLayout>
 
@@ -204,7 +204,7 @@
                             android:layout_gravity="center"
 
                             android:src="@drawable/ic_date_black_24dp"
-                            android:tint="@color/colorIconHighlight"/>
+                            app:tint="@color/colorIconHighlight"/>
 
                     <TextView
                             android:id="@+id/item_details_date"
@@ -218,7 +218,7 @@
                             android:textSize="@dimen/dl_text_size"
                             android:textColor="@color/colorTextHighlight"
                             android:textStyle="bold"
-                            android:fontFamily="@font/avert"
+                            android:fontFamily="@font/lato"
                             android:lineSpacingExtra="4dp"
 
                             android:gravity="start|center" />
@@ -237,7 +237,7 @@
                         android:text="@string/dummy_description"
                         android:textSize="@dimen/dl_text_size"
                         android:textColor="@color/colorText"
-                        android:fontFamily="@font/avert"
+                        android:fontFamily="@font/lato"
                         android:lineSpacingExtra="@dimen/sm_margin"
                         android:letterSpacing="0.05" />
             </LinearLayout>

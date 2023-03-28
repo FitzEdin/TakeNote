@@ -4,31 +4,31 @@
 
     <!-- regular -->
     <font
-            android:font="@font/avert_regular"
+            android:font="@font/lato_regular"
             android:fontStyle="normal"
             android:fontWeight="400"
 
-            app:font="@font/avert_regular"
+            app:font="@font/lato_regular"
             app:fontStyle="normal"
             app:fontWeight="400" />
 
     <!-- bold -->
     <font
-            android:font="@font/avert_bold"
+            android:font="@font/lato_bold"
             android:fontStyle="normal"
             android:fontWeight="700"
 
-            app:font="@font/avert_bold"
+            app:font="@font/lato_bold"
             app:fontStyle="normal"
             app:fontWeight="700" />
 
     <!-- light -->
     <font
-            android:font="@font/avert_light"
+            android:font="@font/lato_light"
             android:fontStyle="normal"
             android:fontWeight="100"
 
-            app:font="@font/avert_light"
+            app:font="@font/lato_light"
             app:fontStyle="normal"
             app:fontWeight="100" />
 

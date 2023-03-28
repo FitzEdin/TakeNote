@@ -54,6 +54,7 @@ class ItemRVAdapter
         val mOnClickListener = View.OnClickListener {
             Log.d(constants.LOG_TAG, "Item Number " + items[position]?._id)
             bundle.putString(constants.TAG_ITEM, items[position]?._id!!)
+            // had a bug here; scrolling list then clicking item led to crash
             Navigation.findNavController(binding.root).navigate(R.id.action_to_itemDetailsFrag, bundle)
         }
 

@@ -14,7 +14,7 @@
         <item name="android:textColor">@color/colorText</item>
         <item name="android:textStyle">bold</item>
         <item name="android:background">@color/colorBackground</item>
-        <item name="android:fontFamily">@font/avert</item>
+        <item name="android:fontFamily">@font/lato</item>
     </style>
 
 </resources>
